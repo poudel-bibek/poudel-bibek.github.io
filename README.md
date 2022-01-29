@@ -18,7 +18,7 @@ Third year PhD student at the University of Memphis.
 <ol>
   <li>“Black-box Adversarial Attacks on Network-wide Multi-step Traffic State Prediction Models”, <i>IEEE ITSC 2021</i></li> <a href="https://arxiv.org/abs/2110.08712" title="">Paper</a>, <a href="https://stars-cs.github.io/black_box_traffic/" title="">Website</a>
 
-  <li>“Learning to Control Direct Current Motor for Steering in Real Time via Reinforcement Learning” <i>(In review)</i></li> <a href="https://arxiv.org/abs/2108.00138" title="">Paper</a></li>
+  <li>“Learning to Control Direct Current Motor for Steering in Real Time via Reinforcement Learning”, <i>(In review)</i></li> <a href="https://arxiv.org/abs/2108.00138" title="">Paper</a></li>
   
 </ol>
 
@@ -26,8 +26,10 @@ Third year PhD student at the University of Memphis.
 ## Projects
 
 <ol>
-  <li>“Robustness to Input Corruptions and Adversarial Examples in Steering Angle Prediction via Self-Supervision”: </li> 
+  <li>“Robustness to Input Corruptions and Adversarial Examples in Steering Angle Prediction via Self-Supervision”</li> 
   <a href="" title="">Report</a></li>
+  <li>BarterBaron</li> 
+  <a href="" title="">Demo</a></li>
 </ol>
 
 
