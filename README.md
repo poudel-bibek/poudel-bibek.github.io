@@ -37,6 +37,12 @@ Third year PhD student at the University of Memphis. I work at the intersection 
 </ol>
 
 ---
+## Lectures
+
+  - Optimization and Stochastic Gradient Descent [](2022 Slides), [](2021 Slides)
+  - Introduction to Adversarial Machine Learning [](2021 Slides)
+
+---
 ## Social
 
   - [Twitter](https://twitter.com/matrix_multiply)
