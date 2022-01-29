@@ -29,3 +29,17 @@
     height: 2px;
     background-color: #eaecef;
 }
+
+.markdown-body {
+  font-family: "Open Sans", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #b3b3b3;
+  background: #fff;
+}
+
+.markdown-body h1, h2, h3, h4, h5 {
+  color: #000;
+  font-family: "Playfair Display", times, serif;
+}
