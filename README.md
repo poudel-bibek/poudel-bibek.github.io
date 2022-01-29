@@ -1,6 +1,6 @@
 <br>
 
-<h1 align="right">Hi, I am Bibek Poudel<img src="https://user-images.githubusercontent.com/96804013/151664550-603bd3c3-c002-466f-842f-c9c54c639bd6.png" width="200" height="200"/></h1>
+<h1 align="left"><img src="https://user-images.githubusercontent.com/96804013/151664550-603bd3c3-c002-466f-842f-c9c54c639bd6.png" width="200" height="200"/>Hi, I am Bibek Poudel</h1>
 
 <!-- <p align="left">
   <img src="https://user-images.githubusercontent.com/96804013/151664550-603bd3c3-c002-466f-842f-c9c54c639bd6.png" width="200" height="200"/>
