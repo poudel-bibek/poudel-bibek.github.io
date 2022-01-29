@@ -46,3 +46,5 @@ Third year PhD student at the University of Memphis. I work at the intersection 
 
   - [Twitter](https://twitter.com/matrix_multiply)
   - [Medium](https://medium.com/@iambibek)
+
+  
