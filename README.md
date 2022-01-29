@@ -1,6 +1,7 @@
 
+
 <p align="left">
-  <img src="https://github.com/poudel-bibek/poudel-bibek.github.io/blob/main/assets/css/hero.png" width="200" height="200"/>
+  <img src="https://user-images.githubusercontent.com/96804013/151664550-603bd3c3-c002-466f-842f-c9c54c639bd6.png" width="200" height="200"/>
 
 </p>
 
