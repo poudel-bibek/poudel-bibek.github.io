@@ -27,7 +27,6 @@ Hi, I am Bibek Poudel
   <li>Robustness to Input Corruptions and AdversarialExamples in Steering Angle Prediction via Self-Supervision</li>
 </ol>
 
-## [Resume]()
 
 ## Social
 [Twitter](https://twitter.com/matrix_multiply), [Medium](https://medium.com/@iambibek)
