@@ -34,6 +34,7 @@ A third year PhD student at the University of Memphis. I work at the intersectio
   
   <li>BarterBaron: A commerce app based on barter system trade</li> 
   <a href="https://youtu.be/ME8syiaELWw" title="">Demo video</a>
+</ol>
 
 ---
 ## Lectures
