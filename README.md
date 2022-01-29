@@ -1,10 +1,10 @@
 
-Hello!
-
 <p align="left">
   <img src="https://github.com/poudel-bibek/poudel-bibek.github.io/blob/main/assets/css/hero.png" width="200" height="200"/>
 
 </p>
+
+Hi, I am Bibek Poudel
 
 <!-- <p align="center">
   <em>Figure 1: Visual inspection of the dataset</em>
