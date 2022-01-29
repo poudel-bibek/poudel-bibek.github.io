@@ -5,10 +5,11 @@
   <img src="https://user-images.githubusercontent.com/96804013/151664550-603bd3c3-c002-466f-842f-c9c54c639bd6.png" width="200" height="200"/>
 </p>
 
-Hi, I am Bibek Poudel
-<br>
-Third year PhD student at the University of Memphis. 
-
+<p align ="right">
+  Hi, I am Bibek Poudel
+  <br>
+  Third year PhD student at the University of Memphis. 
+</p
 <!-- <p align="center">
   <em>Figure 1: Visual inspection of the dataset</em>
 </p> -->
