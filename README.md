@@ -7,7 +7,7 @@
 
 Hi, I am Bibek Poudel
 <br>
-Third year PhD student at the University of Memphis. 
+Third year PhD student at the University of Memphis. I work on the intersection of Intelligent Transportation Systems and Reinforcement Learning with [Dr. Weizi Li](https://weizi-li.github.io/) at the [STARS LAB <i>coming soon</i>](). It's an exciting time to be working towards full autonomy in transport which is expected to take place near 2050. If you want to take a look at my resume please find it [here <i> coming soon </i>]().
   
 <!-- <p align="center">
   <em>Figure 1: Visual inspection of the dataset</em>
