@@ -14,7 +14,7 @@ Hi, I am Bibek Poudel
 
 ## Publications
 <ol>
-  <li>Black-box Adversarial Attacks on Network-wide Multi-step Traffic State Prediction Models (IEEE International Conference on Intelligent Transportation System 2021) [Paper](https://arxiv.org/abs/2110.08712),  [Website](https://stars-cs.github.io/black_box_traffic/)</li>
+  <li>Black-box Adversarial Attacks on Network-wide Multi-step Traffic State Prediction Models (IEEE International Conference on Intelligent Transportation System 2021) {[Paper](https://arxiv.org/abs/2110.08712)},  {[Website](https://stars-cs.github.io/black_box_traffic/)}</li>
   <li>Second item</li>
   <li>Third item</li>
   <li>Fourth item</li>
