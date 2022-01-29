@@ -23,3 +23,10 @@ Hi, I am Bibek Poudel
 -
 
 ## Projects
+
+
+
+##
+
+[Twitter](https://twitter.com/matrix_multiply)
+[Medium](https://medium.com/@iambibek)
