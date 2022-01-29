@@ -19,8 +19,6 @@
 
 .markdown-body h1, .markdown-body h2 {
     border-bottom: 0 none;
-    height: 2px;
-    font-family: "Playfair Display", serif;
 }
 
 .markdown-body h1 {
@@ -31,10 +29,10 @@
     padding-bottom: 0;
 }
 
-// .markdown-body hr {
-//     height: 2px;
-//     font-family: "Playfair Display", serif;
-// }
+.markdown-body hr {
+    height: 2px;
+    font-family: "Playfair Display", serif;
+}
    
 .markdown-body {
     font-weight: 400;
