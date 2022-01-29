@@ -13,7 +13,7 @@ Third year PhD student at the University of Memphis.
   <em>Figure 1: Visual inspection of the dataset</em>
 </p> -->
 
-
+---
 ## Publications
 <ol>
   <li>“Black-box Adversarial Attacks on Network-wide Multi-step Traffic State Prediction Models”, <i>IEEE ITSC 2021</i></li> 
@@ -24,7 +24,7 @@ Third year PhD student at the University of Memphis.
   
 </ol>
 
-
+---
 ## Projects
 
 <ol>
@@ -34,6 +34,6 @@ Third year PhD student at the University of Memphis.
   <a href="https://youtu.be/ME8syiaELWw" title="">Demo video</a>
 </ol>
 
-
+---
 ## Social
 [Twitter](https://twitter.com/matrix_multiply), [Medium](https://medium.com/@iambibek)
