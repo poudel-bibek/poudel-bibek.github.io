@@ -16,9 +16,11 @@ Third year PhD student at the University of Memphis.
 
 ## Publications
 <ol>
-  <li>“Black-box Adversarial Attacks on Network-wide Multi-step Traffic State Prediction Models”, <i>IEEE ITSC 2021</i></li> <a href="https://arxiv.org/abs/2110.08712" title="">Paper</a>, <a href="https://stars-cs.github.io/black_box_traffic/" title="">Website</a>
+  <li>“Black-box Adversarial Attacks on Network-wide Multi-step Traffic State Prediction Models”, <i>IEEE ITSC 2021</i></li> 
+  <a href="https://arxiv.org/abs/2110.08712" title="">Paper</a>, <a href="https://stars-cs.github.io/black_box_traffic/" title="">Website</a>
 
-  <li>“Learning to Control Direct Current Motor for Steering in Real Time via Reinforcement Learning”, <i>(In review)</i></li> <a href="https://arxiv.org/abs/2108.00138" title="">Paper</a></li>
+  <li>“Learning to Control Direct Current Motor for Steering in Real Time via Reinforcement Learning”, <i>(In review)</i></li> 
+  <a href="https://arxiv.org/abs/2108.00138" title="">Paper</a>
   
 </ol>
 
