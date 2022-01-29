@@ -39,7 +39,7 @@ Third year PhD student at the University of Memphis. I work at the intersection 
 ## Lectures
 
   - Optimization and Stochastic Gradient Descent: [2022 Slides](), [2021 Slides](./hosted_files/slides/Optimization_and_SGD_2021.pdf)
-  - Introduction to Adversarial Machine Learning: [2021 Slides]()
+  - Introduction to Adversarial Machine Learning: [2021 Slides](./hosted_files/slides/Intro_to_AML_2021.pdf)
 
 ---
 ## Social
