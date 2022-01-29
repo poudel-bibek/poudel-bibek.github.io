@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <em style="font-style:normal; font-weight:bold;">Hi, I am Bibek Poudel</em>
+  Hi, I am Bibek Poudel
 </p>
 
 <br>
