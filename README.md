@@ -9,7 +9,8 @@
   Hi, I am Bibek Poudel
   <br>
   Third year PhD student at the University of Memphis. 
-</p
+</p>
+  
 <!-- <p align="center">
   <em>Figure 1: Visual inspection of the dataset</em>
 </p> -->
