@@ -2,7 +2,7 @@
 Hello!
 
 <p align="center">
-  <img src="https://github.com/poudel-bibek/poudel-bibek.github.io/blob/main/assets/css/hero.png"/>
+  <img src="https://github.com/poudel-bibek/poudel-bibek.github.io/blob/main/assets/css/hero.png" width="350" height="350"/>
 
 </p>
 
