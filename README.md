@@ -24,7 +24,7 @@ Hi, I am Bibek Poudel
 ## Projects
 
 <ol>
-  <li>“Robustness to Input Corruptions and Adversarial Examples in Steering Angle Prediction via Self-Supervision”: [Report]()</li>
+  <li>“Robustness to Input Corruptions and Adversarial Examples in Steering Angle Prediction via Self-Supervision”: </li> [Report]()
 </ol>
 
 
