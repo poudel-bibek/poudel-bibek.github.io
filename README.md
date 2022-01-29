@@ -38,11 +38,6 @@ Third year PhD student at the University of Memphis.
 
 ---
 ## Social
-<i class="fab fa-twitter"></i> 
+  - [Twitter](https://twitter.com/matrix_multiply)
 
-&#f099;
-
-
-[Twitter](https://twitter.com/matrix_multiply)
-
-[Medium](https://medium.com/@iambibek)
+  - [Medium](https://medium.com/@iambibek)
