@@ -3,6 +3,10 @@
 
 @import "{{ site.theme }}";
 
+.img {
+  float: left;
+}
+
 .header {
     font-size: 1.25em;
     border-bottom: 2px solid #eaecef;
