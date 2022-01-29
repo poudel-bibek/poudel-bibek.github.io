@@ -40,7 +40,7 @@ Third year PhD student at the University of Memphis.
 ## Social
 <i class="fab fa-twitter"></i> 
 
-&#f099
+&#f099;
 
 [Twitter](https://twitter.com/matrix_multiply)
 
