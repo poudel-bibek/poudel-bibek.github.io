@@ -33,7 +33,7 @@ Third year PhD student at the University of Memphis. I work at the intersection 
   Version 2: <i> Coming soon .. </i>
   
   <li>BarterBaron: A commerce app based on barter system trade</li> 
-  <a href="https://youtu.be/ME8syiaELWw" title="">Demo video</a> <a href="https://github.com/memphis-cs-projects/comp7012-BarterBaron" title="">Code</a>
+  <a href="https://youtu.be/ME8syiaELWw" title="">Demo video</a>, <a href="https://github.com/memphis-cs-projects/comp7012-BarterBaron" title="">Code</a>
 </ol>
 
 ---
