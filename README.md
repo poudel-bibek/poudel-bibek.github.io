@@ -6,9 +6,9 @@ Hello!
 
 </p>
 
-<p align="center">
+<!-- <p align="center">
   <em>Figure 1: Visual inspection of the dataset</em>
-</p>
+</p> -->
 
 
 ## Publications
@@ -21,3 +21,4 @@ Hello!
 - In review [Paper](https://arxiv.org/abs/2108.00138)
 -
 
+## Projects
