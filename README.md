@@ -27,9 +27,9 @@ Third year PhD student at the University of Memphis.
 
 <ol>
   <li>“Robustness to Input Corruptions and Adversarial Examples in Steering Angle Prediction via Self-Supervision”</li> 
-  <a href="" title="">Report</a></li>
+  <a href="" title="">Report</a>
   <li>BarterBaron</li> 
-  <a href="" title="">Demo</a></li>
+  <a href="" title="">Demo</a>
 </ol>
 
 
