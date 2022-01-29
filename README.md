@@ -1,6 +1,15 @@
 
 Hello!
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/96804013/151662229-62615e47-38f6-4024-9396-47e97b11211d.png"/>
+
+</p>
+
+<p align="center">
+  <em>Figure 1: Visual inspection of the dataset</em>
+</p>
+
 
 ## Publications
 
