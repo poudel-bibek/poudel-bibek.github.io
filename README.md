@@ -1,17 +1,18 @@
 
 <br>
 <br>
-<p align="left">
+<p align="center">
   <img src="https://user-images.githubusercontent.com/96804013/151664550-603bd3c3-c002-466f-842f-c9c54c639bd6.png" width="200" height="200"/>
 </p>
 
-Hi, I am Bibek Poudel
+<p align="center">
+  <em>Hi, I am Bibek Poudel</em>
+</p>
+
 <br>
 Third year PhD student at the University of Memphis. I work at the intersection of Intelligent Transportation Systems and Reinforcement Learning with [Dr. Weizi Li](https://weizi-li.github.io/) in STARS Lab. It's an exciting time to be working towards full autonomy in transport which is expected to take place around 2050. If you want to take a look at my resume please find it [here]().
   
-<!-- <p align="center">
-  <em>Figure 1: Visual inspection of the dataset</em>
-</p> -->
+
 
 ---
 ## Publications
@@ -21,7 +22,6 @@ Third year PhD student at the University of Memphis. I work at the intersection 
 
   <li>“Learning to Control Direct Current Motor for Steering in Real Time via Reinforcement Learning”, <i>(In review)</i></li> 
   <a href="https://arxiv.org/abs/2108.00138" title="">Paper</a>
-  
 </ol>
 
 ---
