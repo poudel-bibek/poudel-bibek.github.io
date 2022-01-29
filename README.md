@@ -14,9 +14,9 @@ Hi, I am Bibek Poudel
 
 ## Publications
 <ol>
-  <li>Black-box Adversarial Attacks on Network-wide Multi-step Traffic State Prediction Models (<i>IEEE ITSC 2021</i>) <a href="https://arxiv.org/abs/2110.08712" title="">Paper</a>, <a href="https://stars-cs.github.io/black_box_traffic/" title="">Website</a></li>
+  <li>"Black-box Adversarial Attacks on Network-wide Multi-step Traffic State Prediction Models", <i>IEEE ITSC 2021</i>: <a href="https://arxiv.org/abs/2110.08712" title="">Paper</a>, <a href="https://stars-cs.github.io/black_box_traffic/" title="">Website</a></li>
 
-  <li>Learning to Control Direct Current Motor for Steering in Real Time via Reinforcement Learning (In review) <a href="https://arxiv.org/abs/2108.00138" title="">Paper</a></li>
+  <li>"Learning to Control Direct Current Motor for Steering in Real Time via Reinforcement Learning" (In review): <a href="https://arxiv.org/abs/2108.00138" title="">Paper</a></li>
   
 </ol>
 
