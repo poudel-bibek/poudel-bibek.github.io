@@ -28,7 +28,7 @@ A third year Computer Science PhD student in the University of Memphis. I work a
   <li>BarterBaron: (2021) A commerce app based on barter system trade</li> 
   <a href="https://youtu.be/ME8syiaELWw" title="">Demo video</a>
   
-  <li>“Latent  Representation  of  Inputs:  A  Defense  Against  Adversarial Examples  in  DQN“
+  <li>“Latent  Representation  of  Inputs:  A  Defense  Against  Adversarial Examples  in  DQN“</li>
   Version 1: (2021) <a href="" title="">Report</a>, <a href="" title="">Presentation <i> Coming soon .. </i> </a> <br>
     
 </ol>
