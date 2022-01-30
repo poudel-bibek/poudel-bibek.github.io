@@ -12,7 +12,7 @@ A third year Computer Science PhD student in the University of Memphis. I work a
 <ol>
   <li>“Black-box Adversarial Attacks on Network-wide Multi-step Traffic State Prediction Models”, <i>IEEE ITSC 2021</i></li> 
   <a href="https://arxiv.org/abs/2110.08712" title="">Paper</a>, <a href="https://stars-cs.github.io/black_box_traffic/" title="">Website</a>
-
+  <br>
   <li>“Learning to Control Direct Current Motor for Steering in Real Time via Reinforcement Learning”, <i>(In review)</i></li> 
   <a href="https://arxiv.org/abs/2108.00138" title="">Paper</a>
 </ol>
@@ -24,10 +24,10 @@ A third year Computer Science PhD student in the University of Memphis. I work a
   <li>“Robustness to Input Corruptions and Adversarial Examples in Steering Angle Prediction via Self-Supervision”</li> 
   Version 1: (2021) <a href="" title="">Report</a>, <a href="" title="">Presentation</a> <br>
   Version 2: <i> Coming soon .. </i>
-  
+  <br>
   <li>BarterBaron: (2021) A commerce app based on barter system trade</li> 
   <a href="https://youtu.be/ME8syiaELWw" title="">Demo video</a>
-  
+  <br>
   <li>“Latent  Representation  of  Inputs:  A  Defense  Against  Adversarial Examples  in  DQN“</li>
   Version 1: (2021) <a href="" title="">Report</a>, <a href="" title="">Presentation <i> Coming soon .. </i> </a> <br>
     
