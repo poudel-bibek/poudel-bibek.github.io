@@ -40,5 +40,5 @@ A third year Computer Science PhD student in the University of Memphis. I work a
 
   - [Twitter](https://twitter.com/matrix_multiply)
   - [Medium](https://medium.com/@iambibek)
-
+  - [GitHub](https://github.com/poudel-bibek)
   
