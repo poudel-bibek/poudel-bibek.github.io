@@ -33,7 +33,7 @@ A third year Computer Science PhD student in the University of Memphis. I work a
     
 </ol>
 
-<embed src="https://github.com/poudel-bibek/poudel-bibek.github.io/files/7965711/2021_Defense_Poudel-2.pdf" type="application/pdf" />
+<a href="https://docs.google.com/viewer?url={https://github.com/poudel-bibek/poudel-bibek.github.io/files/7965711/2021_Defense_Poudel-2.pdf}"> Test</a>
   
 ---
 ## Lectures
