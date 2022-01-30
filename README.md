@@ -29,7 +29,7 @@ A third year Computer Science PhD student in the University of Memphis. I work a
   <a href="https://youtu.be/ME8syiaELWw" title="">Demo video</a>
 
   <li>“Latent  Representation  of  Inputs:  A  Defense  Against  Adversarial Examples  in  DQN“, 2021</li>
-  <a href="" title="">Report</a>, <a href="https://github.com/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/DQN_defense/2021_Defense_Poudel.pdf" title="">Code</a><i>(coming soon ..)</i> , <a href="" title="">Presentation</a><i>(coming soon ..)</i> 
+  <a href="https://github.com/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/DQN_defense/2021_Defense_Poudel.pdf" title="">Report</a>, <a href="" title="">Code</a><i>(coming soon ..)</i> , <a href="" title="">Presentation</a><i>(coming soon ..)</i> 
     
 </ol>
 
