@@ -29,7 +29,7 @@ A third year Computer Science PhD student in the University of Memphis. I work a
   <a href="https://youtu.be/ME8syiaELWw" title="">Demo video</a>
 
   <li>“Latent  Representation  of  Inputs:  A  Defense  Against  Adversarial Examples  in  DQN“, 2021</li>
-  Version 1: <a href="" title="">Report</a>, <a href="" title="">Presentation<i> </a> (coming soon ..)</i> 
+  Version 1: <a href="" title="">Report</a>, <a href="" title="">Code</a><i>(coming soon ..)</i> , <a href="" title="">Presentation</a><i>(coming soon ..)</i> 
     
 </ol>
 
