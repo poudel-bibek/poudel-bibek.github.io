@@ -32,6 +32,7 @@ A third year Computer Science PhD student in the University of Memphis. I work a
   <a href="https://github.com/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/DQN_defense/2021_Defense_Poudel.pdf" title="">Report</a>, <a href="" title="">Code</a><i>(coming soon ..)</i> , <a href="" title="">Presentation</a><i>(coming soon ..)</i> 
     
 </ol>
+<a href="https://docs.google.com/viewer?url={https://github.com/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/DQN_defense/2021_Defense_Poudel.pdf}"> Test</a>
 
 <a href="https://docs.google.com/viewer?url={https://github.com/poudel-bibek/poudel-bibek.github.io/files/7965711/2021_Defense_Poudel-2.pdf}"> Test</a>
   
