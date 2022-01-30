@@ -22,13 +22,18 @@ A third year Computer Science PhD student in the University of Memphis. I work a
 
 <ol>
   <li>“Robustness to Input Corruptions and Adversarial Examples in Steering Angle Prediction via Self-Supervision”</li> 
-  Version 1: <a href="" title="">Report</a>, <a href="" title="">Presentation</a> <br>
+  Version 1: (2021) <a href="" title="">Report</a>, <a href="" title="">Presentation</a> <br>
   Version 2: <i> Coming soon .. </i>
   
-  <li>BarterBaron: A commerce app based on barter system trade</li> 
+  <li>BarterBaron: (2021) A commerce app based on barter system trade</li> 
   <a href="https://youtu.be/ME8syiaELWw" title="">Demo video</a>
+  
+  <li>“Latent  Representation  of  Inputs:  A  Defense  Against  Adversarial Examples  in  DQN“
+  Version 1: (2021) <a href="" title="">Report</a>, <a href="" title="">Presentation <i> Coming soon .. </i> </a> <br>
+    
 </ol>
 
+  
 ---
 ## Lectures
 
