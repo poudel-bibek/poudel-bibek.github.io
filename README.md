@@ -22,15 +22,16 @@ A third year Computer Science PhD student in the University of Memphis. I work a
 
 <ol>
   <li>“Robustness to Input Corruptions and Adversarial Examples in Steering Angle Prediction via Self-Supervision”, 2021 - Present</li> 
-  Version 1: <a href="https://nbviewer.org/" title="">Report</a>, <a href="" title="">Presentation</a> <br>
+  Version 1: <a href="https://poudel-bibek.github.io/bots.html" title="">Report</a>, <a href="https://poudel-bibek.github.io/bots.html" title="">Presentation</a> <br>
   Version 2: <i> coming soon .. </i>
 
   <li>BarterBaron: A commerce app based on barter system trade, 2021</li> 
   <a href="https://youtu.be/ME8syiaELWw" title="">Demo video</a>
 
   <li>“Latent  Representation  of  Inputs:  A  Defense  Against  Adversarial Examples  in  DQN“, 2021</li>
-  <a href="https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/DQN_defense/2021_Defense_Poudel.pdf" title="">Report</a>, <a href="bots.md" title="">Code</a><i>(coming soon ..)</i> , <a href="bots.md" title="">Presentation</a><i>(coming soon ..)</i> 
-    
+  <a href="https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/DQN_defense/2021_Defense_Poudel.pdf" title="">Report</a>, <a href="https://poudel-bibek.github.io/bots.html" title="">Code</a><i>(coming soon ..)</i> , <a href="https://poudel-bibek.github.io/bots.html" title="">Presentation</a><i>(coming soon ..)</i> 
+  
+<!--     https://poudel-bibek.github.io/bots.html -->
 </ol>
 
 ---
