@@ -4,7 +4,7 @@
 </p>
 
 ## Hi, I am Bibek Poudel
-A third year Computer Science PhD student in the University of Memphis. I work at the intersection of Intelligent Transportation Systems and Reinforcement Learning with [Dr. Weizi Li](https://weizi-li.github.io/) in the STARS Lab. It's an exciting time to be working towards full autonomy in transport which is expected to take place around 2050. If you want to take a look at my resume, please find it [here]().
+A third year Computer Science PhD student in the University of Memphis. I work at the intersection of Intelligent Transportation Systems and Reinforcement Learning with [Dr. Weizi Li](https://weizi-li.github.io/) in the STARS Lab. It's an exciting time to be working towards full autonomy in transport which is expected to take place around 2050. If you want to take a look at my resume, please find it [here](bots.md).
   
   
 ---
@@ -29,7 +29,7 @@ A third year Computer Science PhD student in the University of Memphis. I work a
   <a href="https://youtu.be/ME8syiaELWw" title="">Demo video</a>
 
   <li>“Latent  Representation  of  Inputs:  A  Defense  Against  Adversarial Examples  in  DQN“, 2021</li>
-  <a href="https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/DQN_defense/2021_Defense_Poudel.pdf" title="">Report</a>, <a href="" title="">Code</a><i>(coming soon ..)</i> , <a href="" title="">Presentation</a><i>(coming soon ..)</i> 
+  <a href="https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/DQN_defense/2021_Defense_Poudel.pdf" title="">Report</a>, <a href="bots.md" title="">Code</a><i>(coming soon ..)</i> , <a href="bots.md" title="">Presentation</a><i>(coming soon ..)</i> 
     
 </ol>
 
