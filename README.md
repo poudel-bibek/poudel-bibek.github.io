@@ -29,15 +29,16 @@ A third year Computer Science PhD student in the University of Memphis. I work a
   <a href="https://youtu.be/ME8syiaELWw" title="">Demo video</a>
 
   <li>“Latent  Representation  of  Inputs:  A  Defense  Against  Adversarial Examples  in  DQN“, 2021</li>
-  <a href="https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/DQN_defense/2021_Defense_Poudel.pdf" title="">Report</a>, <a href="https://poudel-bibek.github.io/bots.html" title="">Code</a><i>(coming soon ..)</i> , <a href="https://poudel-bibek.github.io/bots.html" title="">Presentation</a><i>(coming soon ..)</i> 
-  
+  <a href="https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/DQN_defense/2021_Defense_Poudel.pdf" title="">Report</a>, <a href="https://poudel-bibek.github.io/bots.html" title="">Code</a>, <a href="https://poudel-bibek.github.io/bots.html" title="">Presentation</a>
+ 
+<!-- <i>(coming soon ..)</i>  -->
 <!--     https://poudel-bibek.github.io/bots.html -->
 </ol>
 
 ---
 ## Lectures
 
-  - Optimization and Stochastic Gradient Descent: [2022 Slides](), [2021 Slides](./hosted_files/slides/Optimization_and_SGD_2021.pdf)
+  - Optimization and Stochastic Gradient Descent: [2022 Slides](https://poudel-bibek.github.io/bots.html), [2021 Slides](./hosted_files/slides/Optimization_and_SGD_2021.pdf)
   - Introduction to Adversarial Machine Learning: [2021 Slides](./hosted_files/slides/Intro_to_AML_2021.pdf)
 
 ---
