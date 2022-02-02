@@ -22,7 +22,7 @@ A third year Computer Science PhD student in the University of Memphis. I work a
 
 <ol>
   <li>“Robustness to Input Corruptions and Adversarial Examples in Steering Angle Prediction via Self-Supervision”, 2021 - Present</li> 
-  Version 1: <a href="https://youtu.be/WIzKSNEtSuo" title=""> Presentation</a>,<a href="https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/Contrastive/Poudel2021DataMining.pdf" title="">Report</a>,<a href="https://github.com/poudel-bibek/Contrastive" title=""> Code</a><br>
+  Version 1: <a href="https://youtu.be/WIzKSNEtSuo" title="">Presentation</a>,<a href="https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/Contrastive/Poudel2021DataMining.pdf" title=""> Report</a>,<a href="https://github.com/poudel-bibek/Contrastive" title=""> Code</a><br>
   
   Version 2: <i> coming soon .. </i>
 
