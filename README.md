@@ -30,7 +30,6 @@ A third year Computer Science PhD student in the University of Memphis. I work a
   
   Version 2: <i> coming soon .. </i>
 
-  
   <li>BarterBaron: A commerce app based on barter system trade, 2021</li> 
   <a href="https://youtu.be/ME8syiaELWw" title="">Demo video</a>
 
