@@ -21,6 +21,9 @@ A third year Computer Science PhD student in the University of Memphis. I work a
 ## Projects
 
 <ol>
+  <li> Intro to Artificial Intelligence Assignments</li> 
+  <a href="https://poudel-bibek.github.io/Intro-to-AI-Assignments/" title="">Website</a>
+  
   <li>“Robustness to Input Corruptions and Adversarial Examples in Steering Angle Prediction via Self-Supervision”, 2021 - Present</li> 
   Version 1: <a href="https://youtu.be/WIzKSNEtSuo" title="">Presentation</a>,<a href="https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/Contrastive/Poudel2021DataMining.pdf" title=""> Report</a>,<a href="https://github.com/poudel-bibek/Contrastive" title=""> Code</a><br>
   
@@ -36,8 +39,6 @@ A third year Computer Science PhD student in the University of Memphis. I work a
 <!-- <i>(coming soon ..)</i>  -->
 <!--     https://poudel-bibek.github.io/bots.html -->
   
-  <li> Intro to Artificial Intelligence Assignments</li> 
-  <a href="https://poudel-bibek.github.io/Intro-to-AI-Assignments/" title="">Website</a>
 </ol>
 
 ---
