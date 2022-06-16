@@ -35,6 +35,9 @@ A third year Computer Science PhD student in the University of Memphis. I work a
  
 <!-- <i>(coming soon ..)</i>  -->
 <!--     https://poudel-bibek.github.io/bots.html -->
+  
+  <li> Intro to Artificial Intelligence Assignments</li> 
+  <a href="https://poudel-bibek.github.io/Intro-to-AI-Assignments/" title="">Website</a>
 </ol>
 
 ---
