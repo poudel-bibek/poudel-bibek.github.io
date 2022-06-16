@@ -45,7 +45,7 @@ A third year Computer Science PhD student in the University of Memphis. I work a
 ---
 ## Lectures
 
-  - Optimization and Stochastic Gradient Descent: [2022 Slides](./hosted_files/slides/Optimization_and_SGD_2022.pdf), [2021 Slides](./hosted_files/slides/Optimization_and_SGD_2021.pdf)
+  - Optimization and Stochastic Gradient Descent: [2022 Slides](./hosted_files/slides/Optimization_and _SGD_2022.pdf), [2021 Slides](./hosted_files/slides/Optimization_and_SGD_2021.pdf)
   - Introduction to Adversarial Machine Learning: [2021 Slides](./hosted_files/slides/Intro_to_AML_2021.pdf)
 
 ---
