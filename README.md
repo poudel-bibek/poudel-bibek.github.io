@@ -11,10 +11,10 @@ A third year Computer Science PhD student in the University of Memphis. I work a
 ## Publications
 <ol>
   <li>“Learning to Control DC Motor for Micromobility in Real Time with Reinforcement Learning”, <i>IEEE ITSC 2022</i></li> 
-  <a href="https://arxiv.org/abs/2108.00138" title="">Paper</a>, <a href="https://poudel-bibek.github.io/bots.html" title="">Website</a>
+  <a href="https://arxiv.org/abs/2108.00138" title="">Paper</a>, <a href="https://stars-cs.github.io/projects/2022-06-poudel2022nfq" title="">Website</a>
   
   <li>“Black-box Adversarial Attacks on Network-wide Multi-step Traffic State Prediction Models”, <i>IEEE ITSC 2021</i></li> 
-  <a href="https://arxiv.org/abs/2110.08712" title="">Paper</a>, <a href="https://stars-cs.github.io/black_box_traffic/" title="">Website</a>
+  <a href="https://arxiv.org/abs/2110.08712" title="">Paper</a>, <a href="https://stars-cs.github.io/projects/2021-03-poudel2021attack" title="">Website</a>
 </ol>
 
 ---
