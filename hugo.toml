@@ -1,0 +1,72 @@
+baseURL = 'https://poudel-bibek.github.io'
+languageCode = 'en-us'
+title = ''
+theme = 'PaperMod'
+
+[params.homeInfoParams]
+Title = "Hi! I am Bibek Poudel"
+Content = """
+A Computer Science Ph.D. student at the [University of Tennessee in Knoxville](https://www.utk.edu/). 
+My research is at the intersection of Intelligent Transportation Systems and Reinforcement Learning in the [Fluidic City lab](/handler) with [Dr. Weizi Li](https://weizi-li.github.io/).
+If you want to know more about my background and experiences, please take a look at [my CV](https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/data/others/Bibek_Poudel.pdf). Besides academics, I occasionally write in my [blog](/archives). 
+"""
+
+[params]
+ShowReadingTime = true
+ShowBreadCrumbs = false
+ShowPostNavLinks = false
+comments = false
+ShowShareButtons= false
+
+[params.cover]
+hidden= true
+
+[[params.socialIcons]]
+name = "googlescholar"
+url = "https://scholar.google.com/"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "http://linkedin.com/in/poudelbibek"
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/poudel-bibek"
+
+[[params.socialIcons]]
+name = "email"
+url = "mailto:iambibek@me.com"
+
+[[params.socialIcons]]
+name = "discord"
+url = "https://discord.gg/pfWRyZjAf3"
+
+[[params.socialIcons]]
+name = "twitter"
+url = "https://twitter.com/matrix_multiply"
+
+[menu]
+[[menu.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+
+[[menu.main]]
+  name = 'Publications'
+  pageRef = '/publications'
+  weight = 20
+
+[[menu.main]]
+  name = 'Projects'
+  pageRef = '/projects'
+  weight = 30
+
+[[menu.main]]
+  name = 'Lectures'
+  pageRef = '/lectures'
+  weight = 40
+  
+  [[menu.main]]
+  name = 'Blog'
+  pageRef = '/archives'
+  weight = 50
