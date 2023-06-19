@@ -23,7 +23,7 @@ hidden= true
 
 [[params.socialIcons]]
 name = "googlescholar"
-url = "https://scholar.google.com/"
+url = "/handler"
 
 [[params.socialIcons]]
 name = "linkedin"
