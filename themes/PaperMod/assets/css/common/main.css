@@ -28,20 +28,20 @@
 }
 
 .social-icons {
-    padding: 10px 0;
+    padding: 12px 0;
 }
 
 .social-icons a:not(:last-of-type) {
-    margin-inline-end: 18px; 
+    margin-inline-end: 20px; 
 }
 
 .social-icons a svg {
-    height: 34px; 
-    width: 34px; 
+    height: 36px; 
+    width: 36px; 
 }
 
 .social-icons a svg {
-    stroke-width: 1.1; 
+    stroke-width: 1.3; 
 }
 
 code {
