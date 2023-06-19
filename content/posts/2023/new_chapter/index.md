@@ -1,7 +1,7 @@
 ---
 title: "A new chapter"
 date: 2023-06-06T13:59:38-05:00
-draft: false
+draft: true
 #showtoc: true
 cover:
     image: "images/game_day.jpeg"

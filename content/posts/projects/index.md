@@ -13,7 +13,7 @@ I have carried out projects in a wide range of topics.
 
 -------------------
 
-- "Artificial Intelligence Assignments", Coding assignments for graduate AI and ML courses at University of Memphis. Topics include Deep Q Networks, Proximal Policy Optimization and Finetuning of Transformer.
+- "Artificial Intelligence Assignments", Coding assignments for graduate level AI and ML courses at University of Memphis. Topics include Deep Q Networks, Proximal Policy Optimization and Finetuning of a Transformer.
     - [Supporting Repo](https://github.com/poudel-bibek/AI-Assignments), [Sample website](https://poudel-bibek.github.io/AI-Assignments/) (content not available)
 
 - "Robustness to Input Corruptions and Adversarial Examples in Steering Angle Prediction via Self-Supervision", Examined the use of self-supervised learning in steering angle prediction task to enhance model robustness under conditions such as snow, fog, frost, pixelation, and blur.
