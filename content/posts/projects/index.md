@@ -20,7 +20,7 @@ I have carried out projects in a wide range of topics.
     - [Report](https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/data/reports/self_supervised.pdf), [Video](https://youtu.be/WIzKSNEtSuo), [Code](https://github.com/poudel-bibek/Contrastive)
 
 - "Latent Representation of Inputs: A Defense Against Adversarial Examples in DQN", Used feature squeezing to improve the performance of a Deep Reinforcement Learning algorithm, DQN trained to play Atari Pong, under adversarial attacks.
-    - [Report]() 
+    - [Report](https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/data/reports/latent_represent.pdf) 
     <!-- [Code](/sorry/) -->
 
 - "Distributed Hyper-paramter tuning of Neural Networks", Parallelized the hyperparameter search objectives in grid search and random search using Distributed Hash Table so that computational resources are shared across multiple nodes to accelerate the search.
