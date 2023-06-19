@@ -20,7 +20,7 @@ My current research focuses on novel applications of Reinforcement Learning in I
 - "Hybrid Traffic Control and Coordination from Pixels", *In Submission*: Michael Villarreal, __Bibek Poudel__, Jia Pan, Weizi Li
     - [Arxiv](https://arxiv.org/pdf/2302.09167.pdf), [code](/handler/)
 
-- "AutoJoin: Efficient Adversarial Training for Tobust Maneuvering via Denoising Autoencoder and Joint Learning", *In Submission*: Michael Villarreal, __Bibek Poudel__, Ryan Wickman, Yu Shen, Weizi Li
+- "AutoJoin: Efficient Adversarial Training for Robust Maneuvering via Denoising Autoencoder and Joint Learning", *In Submission*: Michael Villarreal, __Bibek Poudel__, Ryan Wickman, Yu Shen, Weizi Li
     - [Arxiv](https://arxiv.org/pdf/2205.10933.pdf), [code](/handler/)
 
 - "Efficient Quality-Diversity Optimization through Diverse Quality Species", *GECCO 2023*: Ryan Wickman, __Bibek Poudel__, Michael Villarreal, Xiaofei Zhang, and Weizi Li
