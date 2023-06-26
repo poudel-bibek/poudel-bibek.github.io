@@ -27,7 +27,7 @@ I have carried out projects in a wide range of topics.
     - [Report](/sorry/)
 
 - "BarterBaron: A commerce app based on barter system trade", Developed a ebay-like commerce platform using Ruby on Rails framework with features like chat, content search, and user authentication (won "Best project in the class" award).
-    - [Demo video](https://youtu.be/ME8syiaELWw)
+    - [Demo video](https://youtu.be/ME8syiaELWw), [Code](https://github.com/memphis-cs-projects/comp7012-BarterBaron)
 
 - "Delta Design 3D Printer", Designed and developed a working prototype of a 3D printer using Arduino Mega (Senior year Engineering project).
     - [Report](https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/data/reports/3D_Delta_printer.pdf)
