@@ -15,7 +15,7 @@ My current research focuses on novel applications of Reinforcement Learning in I
 -------------------
 
 - "Can ChatGPT Enable ITS? The Case of Mixed Traffic Control via Reinforcement Learning", *In Submission*: Michael Villarreal, __Bibek Poudel__, Weizi Li
-    - [Arxiv](/handler/), [code](/handler/)
+    - [Arxiv](https://arxiv.org/abs/2306.08094), [code](/handler/)
 
 - "Hybrid Traffic Control and Coordination from Pixels", *In Submission*: Michael Villarreal, __Bibek Poudel__, Jia Pan, Weizi Li
     - [Arxiv](https://arxiv.org/pdf/2302.09167.pdf), [code](/handler/)
