@@ -6,7 +6,7 @@ theme = 'PaperMod'
 [params.homeInfoParams]
 Title = "Hi, I am Bibek Poudel."
 Content = """
-A Computer Science Ph.D. student in the Fluidic City lab at the [University of Tennessee in Knoxville](https://www.utk.edu/). My current research, conducted alongside [Dr. Weizi Li](https://weizi-li.github.io/), focuses on applications of Reinforcement Learning in multi-agent Autonomous systems. For more details on my academic background and experiences, please check out [my resume](https://github.com/poudel-bibek/poudel-bibek.github.io/blob/d32272f42a8c741f4ed6242e65c568ac4a2a5fb1/data/others/Bibek_Resume.pdf). Besides research, I occasionally write on [my blog](/archives).
+A Computer Science Ph.D. student in the Fluidic City lab at the [University of Tennessee in Knoxville](https://www.utk.edu/). My current research, conducted alongside [Dr. Weizi Li](https://weizi-li.github.io/), focuses on applications of Reinforcement Learning in multi-agent Autonomous systems. For more details on my academic background and experiences, please check out [my resume](https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/d32272f42a8c741f4ed6242e65c568ac4a2a5fb1/data/others/Bibek_Resume.pdf). Besides research, I occasionally write on [my blog](/archives).
 """
 
 [params]
