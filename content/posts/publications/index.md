@@ -14,7 +14,7 @@ My current research focuses on novel applications of Reinforcement Learning in I
 
 -------------------
 
-- ”Beyond Simulated Drivers: Evaluating the Impact of Real-World Car-Following in Mixed Traffic Control”,  *In Submission*: __Bibek Poudel__, Weizi Li, Kevin Heaslip
+- ”EnduRL: Enhancing Safety, Stability, and Efficiency of Mixed Traffic Under Real-World Perturbations Via Reinforcement Learning”,  *In Submission*: __Bibek Poudel__, Weizi Li, Kevin Heaslip
     - [Arxiv](/handler/), [code](/handler/)
 
 - "AutoJoin: Efficient Adversarial Training for Robust Maneuvering via Denoising Autoencoder and Joint Learning", *In Submission*: Michael Villarreal, __Bibek Poudel__, Ryan Wickman, Yu Shen, Weizi Li
