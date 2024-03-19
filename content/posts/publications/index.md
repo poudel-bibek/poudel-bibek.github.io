@@ -10,7 +10,7 @@ hiddenInHomeList: true
 <!-- 
 I have published my work in conferences such as ITSC and GECCO. -->
 
-My current research focuses on applications of Reinforcement Learning in multi-agent Autonomous systems.
+My current research focuses on applications of Reinforcement Learning in multi-agent autonomous systems.
 
 -------------------
 
