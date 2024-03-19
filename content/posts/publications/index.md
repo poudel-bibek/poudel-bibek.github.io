@@ -18,13 +18,13 @@ My current research focuses on applications of Reinforcement Learning in multi-a
     - [Arxiv](https://arxiv.org/abs/2311.12261), [code](https://github.com/poudel-bibek/EnduRL)
 
 - "AutoJoin: Efficient Adversarial Training for Robust Maneuvering via Denoising Autoencoder and Joint Learning", *In Submission*: Michael Villarreal, __Bibek Poudel__, Ryan Wickman, Yu Shen, Weizi Li
-    - [Arxiv](https://arxiv.org/abs/2205.10933), [code](/handler/)
+    - [Arxiv](https://arxiv.org/abs/2205.10933), [code](https://github.com/tmvllrrl/AutoJoin)
 
 - "Mixed Traffic Control and Coordination from Pixels", *ICRA 2024*: Michael Villarreal, __Bibek Poudel__, Jia Pan, Weizi Li
-    - [Arxiv](https://arxiv.org/abs/2302.09167), [code](/handler/)
+    - [Arxiv](https://arxiv.org/abs/2302.09167), [code](https://github.com/tmvllrrl/mtc-pixels)
 
 - "Can ChatGPT Enable ITS? The Case of Mixed Traffic Control via Reinforcement Learning", *ITSC 2023*: Michael Villarreal, __Bibek Poudel__, Weizi Li
-    - [Arxiv](https://arxiv.org/abs/2306.08094), [code](/handler/)
+    - [Arxiv](https://arxiv.org/abs/2306.08094), [code](https://github.com/tmvllrrl/its-study)
 
 - "Efficient Quality-Diversity Optimization through Diverse Quality Species", *GECCO 2023*: Ryan Wickman, __Bibek Poudel__, Michael Villarreal, Xiaofei Zhang, and Weizi Li
     - [Paper](https://dl.acm.org/doi/10.1145/3583133.3590581), [Arxiv](https://arxiv.org/abs/2304.07425), [code](https://github.com/rwickman/NEAT_RL)
