@@ -10,12 +10,12 @@ hiddenInHomeList: true
 <!-- 
 I have published my work in conferences such as ITSC and GECCO. -->
 
-My current research focuses on novel applications of Reinforcement Learning in Intelligent Transportation Systems.
+My current research focuses on applications of Reinforcement Learning in multi-agent Autonomous systems.
 
 -------------------
 
 - ”EnduRL: Enhancing Safety, Stability, and Efficiency of Mixed Traffic Under Real-World Perturbations Via Reinforcement Learning”,  *In Submission*: __Bibek Poudel__, Weizi Li, Kevin Heaslip
-    - [Arxiv](/handler/), [code](/handler/)
+    - [Arxiv](https://arxiv.org/abs/2311.12261), [code](https://github.com/poudel-bibek/EnduRL)
 
 - "AutoJoin: Efficient Adversarial Training for Robust Maneuvering via Denoising Autoencoder and Joint Learning", *In Submission*: Michael Villarreal, __Bibek Poudel__, Ryan Wickman, Yu Shen, Weizi Li
     - [Arxiv](https://arxiv.org/abs/2205.10933), [code](/handler/)
