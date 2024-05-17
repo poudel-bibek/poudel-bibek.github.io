@@ -12,6 +12,8 @@ hiddenInHomeList: true
 I have carried out projects in a wide range of topics.
 
 -------------------
+- "DocuMint: Docstring Generation for Python using Small Language Models", Benchmarked various small language models on the quality of their generated docstrings, created a fine-tuning dataset using the FOSS ecosystem, and fine-tuned Google's CodeGemma. Released the dataset and the fine-tuned model.
+    - [Report](https://arxiv.org/abs/2405.10243), [Code](https://github.com/Docu-Mint/DocuMint), [HuggingFace](https://huggingface.co/documint)
 
 - "Artificial Intelligence Assignments", Developed and delivered programming assignments for graduate level AI and ML courses at University of Memphis. Topics include Deep Q Networks, Proximal Policy Optimization and Finetuning of a Transformer.
     - [Supporting Repo](https://github.com/poudel-bibek/AI-Assignments), [Sample website](https://poudel-bibek.github.io/AI-Assignments/) (content not available)
