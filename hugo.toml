@@ -19,28 +19,24 @@ ShowShareButtons= false
 hidden= true
 
 [[params.socialIcons]]
-name = "googlescholar"
-url = "https://scholar.google.com/citations?user=PzBn1jgAAAAJ&hl=en"
+name = "email"
+url = "mailto:iambibek@me.com"
 
 [[params.socialIcons]]
 name = "linkedin"
 url = "http://linkedin.com/in/poudelbibek"
 
 [[params.socialIcons]]
+name = "googlescholar"
+url = "https://scholar.google.com/citations?user=PzBn1jgAAAAJ&hl=en"
+
+[[params.socialIcons]]
 name = "github"
 url = "https://github.com/poudel-bibek"
 
 [[params.socialIcons]]
-name = "email"
-url = "mailto:iambibek@me.com"
-
-[[params.socialIcons]]
-name = "discord"
-url = "https://discord.gg/pfWRyZjAf3"
-
-[[params.socialIcons]]
-name = "twitter"
-url = "https://twitter.com/matrix_multiply"
+name = "x"
+url = "https://x.com/matrix_multiply"
 
 [menu]
 [[menu.main]]
