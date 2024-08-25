@@ -7,15 +7,18 @@
     <header class="entry-header">
         <h1>{{ .Title | markdownify }}</h1>
     </header>
-    <div class="entry-content">
-        {{ .Content | markdownify }}
+    <div class="entry-content1">
+        {{ .Content1 | markdownify }}
+    </div>
+    <div class="entry-content2">
+        {{ .Content2 | markdownify }}
     </div>
     <footer class="entry-footer">
         {{ partial "social_icons.html" site.Params.socialIcons }}
     </footer>
     <br>
     <div style="height:2px; background-color:#333;"></div>
-    <br>
-    <span class="post-note">Latest Posts</span>
+    <div style="height: 20px;"></div>
+    <span class="post-note" style="font-size: 1.2em;">Latest Posts</span>
 </article>
 {{- end -}}

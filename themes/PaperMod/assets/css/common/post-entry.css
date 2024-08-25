@@ -19,8 +19,14 @@
     line-height: 1.3;
 }
 
-.first-entry .entry-content {
+.first-entry .entry-content1 {
     margin: 14px 0;
+    font-size: 16px;
+    -webkit-line-clamp: 3;
+}
+
+.first-entry .entry-content2 {
+    margin: 0px 0 14px 0;
     font-size: 16px;
     -webkit-line-clamp: 3;
 }
@@ -29,7 +35,7 @@
     font-size: 14px;
 }
 
-.home-info .entry-content {
+.home-info .entry-content1, .home-info .entry-content2 {
     -webkit-line-clamp: unset;
 }
 
@@ -56,7 +62,7 @@
     line-height: 1.3;
 }
 
-.entry-content {
+.entry-content1, .entry-content2 {
     margin: 8px 0;
     color: var(--secondary);
     font-size: 14px;
