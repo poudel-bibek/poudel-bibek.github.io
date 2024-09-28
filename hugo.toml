@@ -6,7 +6,7 @@ theme = 'PaperMod'
 [params.homeInfoParams]
 Title = "Hi, I am Bibek Poudel."
 Content1 = """A Computer Science Ph.D. student in the [Fluidic City lab](https://fluidic-city.github.io) at [UTK](https://www.utk.edu/). My current research, conducted alongside [Dr. Weizi Li](https://weizi-li.github.io/) and [Center for Transportation Research](https://ctr.utk.edu/person/bibek-poudel/), focuses on the application of Reinforcement Learning in autonomous systems like multi-agent simulation and real-world robots."""
-Content2 = """For more details on my academic background and experiences, please check out [my CV](https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/data/others/BP_CV.pdf). Besides research, I occasionally write on [my blog](/archives)."""
+Content2 = """For more details on my academic background and experiences, please check out [my CV](/pdfs/cv/). Besides research, I occasionally write on [my blog](/archives)."""
 
 [params]
 ShowReadingTime = true
@@ -59,7 +59,19 @@ url = "https://x.com/matrix_multiply"
   pageRef = '/lectures'
   weight = 40
   
-  [[menu.main]]
+[[menu.main]]
   name = 'Blog'
   pageRef = '/archives'
   weight = 50
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+[outputFormats.PDF]
+mediaType = "application/pdf"
+isPlainText = true
+isHTML = false
+
+[mediaTypes]
+[mediaTypes."application/pdf"]
+suffixes = ["pdf"]
