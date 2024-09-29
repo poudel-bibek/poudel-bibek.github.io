@@ -22,14 +22,14 @@ I have carried out projects in a wide range of topics.
     - [Demo video](https://youtu.be/ME8syiaELWw), [Code](https://github.com/memphis-cs-projects/comp7012-BarterBaron)
 
 - "Robustness to Input Corruptions and Adversarial Examples in Steering Angle Prediction via Self-Supervision", Examined the use of self-supervised learning in steering angle prediction task to enhance model robustness under conditions such as snow, fog, frost, pixelation, and blur.
-    - [Report](https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/Contrastive/Poudel2021DataMining.pdf), [Video](https://youtu.be/WIzKSNEtSuo), [Code](https://github.com/poudel-bibek/Contrastive)
+    - [Report](https://poudel-bibek.github.io/pdfs/projects/datamining), [Video](https://youtu.be/WIzKSNEtSuo), [Code](https://github.com/poudel-bibek/Contrastive)
 
 - "Latent Representation of Inputs: A Defense Against Adversarial Examples in DQN", Used feature squeezing to improve the performance of a Deep Reinforcement Learning algorithm, DQN trained to play Atari Pong, under adversarial attacks.
-    - [Report](https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/hosted_files/Projects/DQN_defense/2021_Defense_Poudel.pdf) 
+    - [Report](https://poudel-bibek.github.io/pdfs/projects/defense) 
     <!-- [Code](/sorry/) -->
 
 - "Distributed Hyper-paramter tuning of Neural Networks", Parallelized the hyperparameter search objectives in grid search and random search using Distributed Hash Table so that computational resources are shared across multiple nodes to accelerate the search.
     - [Report](/sorry/)
 
 - "Delta Design 3D Printer", Designed and developed a working prototype of a 3D printer using Arduino Mega (Senior year Engineering project).
-    - [Report](https://nbviewer.org/github/poudel-bibek/poudel-bibek.github.io/blob/main/data/reports/3D_Delta_printer.pdf)
+    - [Report](https://poudel-bibek.github.io/pdfs/reports/3d_delta_printer)
