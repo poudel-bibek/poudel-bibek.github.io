@@ -16,7 +16,7 @@ I have been a guest lecturer in various graduate and undergraduate courses such 
 --------------
 
 - An Introduction to Transformers
-    - Slides: [2023](https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers.md)
+    - Slides: [2023](https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers)
 - Optimization and Stochastic Gradient Descent 
     - Slides: [2023](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd), [2022](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd)
 - Introduction to Adversarial Machine Learning
