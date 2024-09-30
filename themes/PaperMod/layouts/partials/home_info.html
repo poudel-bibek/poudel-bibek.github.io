@@ -1,24 +1,26 @@
 {{- with site.Params.homeInfoParams }}
 <article class="first-entry home-info">
     <div class="entry-header" style="margin-bottom: 20px;">
-        <!-- <img src="https://github.com/poudel-bibek/poudel-bibek.github.io/assets/96804013/166bcc40-c159-4300-ae68-70ed083d43f9" alt="Image Description" style="width: 250px; height: 250px;"> -->
         <img src="hero.png" alt="Bibek is a friend of ChatGPT, Claude, and Gemini. Bibek Likes OpenAI, Google, and Anthropic." style="width: 250px; height: 250px;">
     </div>
     <header class="entry-header">
         <h1>{{ .Title | markdownify }}</h1>
     </header>
-    <div class="entry-content1">
+    <div class="entry-content1" style="margin-bottom: 1em;">
         {{ .Content1 | markdownify }}
     </div>
-    <div class="entry-content2">
+    <div class="entry-content2" style="margin-bottom: 1em;">
         {{ .Content2 | markdownify }}
+    </div>
+    <div class="entry-content3" style="margin-bottom: 1em;">
+        {{ .Content3 | markdownify }}
     </div>
     <footer class="entry-footer">
         {{ partial "social_icons.html" site.Params.socialIcons }}
     </footer>
     <br>
     <div style="height:2px; background-color:#333;"></div>
-    <div style="height: 20px;"></div>
+    <div style="height: 10px;"></div>
     <span class="post-note" style="font-size: 1.2em;">Latest Posts</span>
 </article>
 {{- end -}}

@@ -5,8 +5,9 @@ theme = 'PaperMod'
 
 [params.homeInfoParams]
 Title = "Hi, I am Bibek Poudel."
-Content1 = """A Computer Science Ph.D. student in the [Fluidic City lab](https://fluidic-city.github.io) at [UTK](https://www.utk.edu/). My current research, conducted alongside [Dr. Weizi Li](https://weizi-li.github.io/) and [Center for Transportation Research](https://ctr.utk.edu/person/bibek-poudel/), focuses on the application of Reinforcement Learning in autonomous systems like multi-agent simulation and real-world robots."""
-Content2 = """For more details on my academic background and experiences, please check out [my CV](/pdfs/cv/). Besides research, I occasionally write on [my blog](/archives)."""
+Content1 = """I am a final year Computer Science Ph.D. student in the [Fluidic City Lab](https://fluidic-city.github.io) at the [UTK](https://www.utk.edu/). My research is guided by [Dr. Weizi Li](https://weizi-li.github.io/) with support from [Center for Transportation Research](https://ctr.utk.edu/person/bibek-poudel/). My work lies at the intersection of reinforcement learning (RL), autonomous systems, and intelligent transportation, spanning from multi-agent simulations to real-world robotic systems."""
+Content2 = """In my last project, I helped provide personalized mobility assistance to wheelchair users, balancing their physical exertion and mobility needs using human-in-the-loop RL. My current research focuses on leveraging RL for the simultaneous design and control of urban environments. Specifically, I am interested in developing intelligent agents that extend beyond traditional traffic signal control to optimize urban infrastructure for diverse stakeholders, including urban designers and pedestrians."""
+Content3 = """For more details on my academic background and experiences, please check out [my CV](/pdfs/cv/). Besides research, I occasionally write on [my blog](/archives)."""
 
 [params]
 ShowReadingTime = true
