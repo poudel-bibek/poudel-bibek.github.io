@@ -15,16 +15,16 @@ I have been a guest lecturer in graduate and undergraduate courses such as Machi
 
 #### An Introduction to Transformers
 
-[Slides (2023)](https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers)
+- [Slides (2023)](https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers)
 
 -------------------
 
 #### Optimization and Stochastic Gradient Descent
- 
-[Slides (2023)](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd) | [Slides (2022)](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd)
+
+- [Slides (2023)](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd) | [Slides (2022)](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd)
 
 -------------------
 
 #### Introduction to Adversarial Machine Learning
 
-[Slides (2021)](https://poudel-bibek.github.io/pdfs/slides/intro_to_aml)
+- [Slides (2021)](https://poudel-bibek.github.io/pdfs/slides/intro_to_aml)
