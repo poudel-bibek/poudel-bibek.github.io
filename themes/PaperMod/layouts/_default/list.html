@@ -1,17 +1,5 @@
 {{- define "main" }}
 
-<!-- Debug information -->
-<!-- <div style="background-color: #f0f0f0; padding: 10px; margin-bottom: 20px;">
-  <h3>Debug Info:</h3>
-  <p>Total Pages: {{ len .Site.RegularPages }}</p>
-  <p>Pages in mainSections: {{ len (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}</p>
-  <p>mainSections: {{ .Site.Params.mainSections }}</p>
-  <ul>
-    {{ range .Site.RegularPages }}
-      <li>{{ .Title }} (Type: {{ .Type }}, Section: {{ .Section }})</li>
-    {{ end }}
-  </ul>
-</div> -->
 
 {{- if (and site.Params.profileMode.enabled .IsHome) }}
 {{- partial "index_profile.html" . }}
