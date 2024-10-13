@@ -33,7 +33,7 @@
 {{- $pages = site.RegularPages }}
 {{- end }}
 
-{{- $pages = where $pages "Params.excludeFromBlog" "!=" true }}
+{{- $pages = where $pages "Params.excludeFromBlog" "ne" true }}
 
 {{- range $pages.GroupByPublishDate "2006" }}
 {{- if ne .Key "0001" }}

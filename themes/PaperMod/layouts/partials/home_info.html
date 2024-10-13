@@ -13,7 +13,10 @@
         {{ .Content2 | markdownify }}
     </div>
     <div class="entry-content3" style="margin-bottom: 1em;">
-        {{ .Content3 | markdownify }}
+        {{ .Content3 | markdownify }} {{ .Content4 | markdownify }}
+    </div>
+    <div class="entry-content4" style="margin-bottom: 1em;">
+        {{ .Content5 | markdownify }}
     </div>
     <footer class="entry-footer">
         {{ partial "social_icons.html" site.Params.socialIcons }}
