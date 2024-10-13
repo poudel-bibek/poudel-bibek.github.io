@@ -13,14 +13,14 @@ hiddenInHomeList: true
 #### EnduRL: Enhancing Safety, Stability, and Efficiency of Mixed Traffic Under Real-World Perturbations Via Reinforcement Learning
 __Bibek Poudel__, Weizi Li, Kevin Heaslip  
 IROS 2024  
-[arXiv](https://arxiv.org/abs/2311.12261) | [Code](https://github.com/poudel-bibek/EnduRL) | [Video](https://youtu.be/TpyKSPNtrxM)
+[arXiv](https://arxiv.org/abs/2311.12261) | [Video](https://youtu.be/TpyKSPNtrxM) | [Code](https://github.com/poudel-bibek/EnduRL)
 
 -------------------
 
 #### AutoJoin: Efficient Adversarial Training for Robust Maneuvering via Denoising Autoencoder and Joint Learning
 Michael Villarreal, __Bibek Poudel__, Ryan Wickman, Yu Shen, Weizi Li  
 IROS 2024  
-[arXiv](https://arxiv.org/abs/2205.10933) | [Code](https://github.com/tmvllrrl/AutoJoin) | [Video](https://youtu.be/Gb-byAgnskI)
+[arXiv](https://arxiv.org/abs/2205.10933) | [Video](https://youtu.be/Gb-byAgnskI) | [Code](https://github.com/tmvllrrl/AutoJoin)
 
 -------------------
 
@@ -34,7 +34,7 @@ IEEE CYBER 2024
 #### Mixed Traffic Control and Coordination from Pixels
 Michael Villarreal, __Bibek Poudel__, Jia Pan, Weizi Li  
 ICRA 2024  
-[Paper](https://ieeexplore.ieee.org/abstract/document/10610517) | [arXiv](https://arxiv.org/abs/2302.09167) | [Code](https://github.com/tmvllrrl/mtc-pixels) | [Video](https://youtu.be/g-aBGhdFHXU)
+[Paper](https://ieeexplore.ieee.org/abstract/document/10610517) | [arXiv](https://arxiv.org/abs/2302.09167) | [Video](https://youtu.be/g-aBGhdFHXU) | [Code](https://github.com/tmvllrrl/mtc-pixels)
 
 -------------------
 
