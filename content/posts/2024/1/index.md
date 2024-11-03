@@ -1,7 +1,7 @@
 ---
 title: "Lessons on LeetCode: Part I"
 date: 2024-10-12T20:00:00
-draft: true
+draft: false
 summary: "Sample article showcasing basic code syntax and formatting for HTML elements."
 #showtoc: true
 excludeFromBlog: false
@@ -16,16 +16,22 @@ cover:
     hidden: false # Hidden from the home in the main config, but unhide here.
 ---
 
-The meta lesson: learn patterns not problems.
+The meta lessons: 
+- Learn patterns not problems.
+- Visualize. Visualize. Visualize.
+- Think out loud.
+- Start with brute force.
+- Never assume.
+
+1. Comparision in Loops
+
+- To solve comparision based problems, first instinct is to always loop through two arrays. 
+- If there is an equivariance of operations, a simple trick is to start the second array from current position of the first array. i.e., perform the upper triangular comparision (shown below):
+
+{{< figure src="images/1.png" attr="If the comparision between (1, 2) and (2,1) are the same, we can just do (1,2) in the upper triangle." align=center target="_blank" >}}
 
 
-Brute force:
-
-- My go-to strategy has always been to loop through the two arrays. However, depending on the nature of the problem (where operations between (1, 2) and (2,1) is same), one simple trick is to start the second array from current position of the first array. i.e., perform the upper triangular comparision.
-
-{{< figure src="images/1.png" attr="Photo by Aditya Telange on Unsplash" align=center link="https://unsplash.com/photos/Z0lL0okYjy0" target="_blank" >}}
-
-
+2. Deletion in lists and dicts
 
 ```python {linenos=inline}
 # delete an item from a list using index
@@ -42,14 +48,15 @@ a = [10, 10, 12, 13, 14, 15]
 a.remove(10)
 ```
 
+3. Set operations
+In python, sets are implemented using hash tables. This means that they have constant lookup time O(1) i.e., better than a list.
+
 ```python {linenos=inline}
 # Simple set operations
 lista = [10, 12, 13, 14, 15, 14, 14]
 seen = set()
 for a in lista:
-    if a in seen: # A set has a constant lookup time i.e., better than list here
-    # How come a set has a constant lookup time O(1)
-    # In Python, a set data structure is implemented using a hash table thats why
+    if a in seen:
         print(f"Repeated: {a}")
     else: 
         seen.add(a)
@@ -127,7 +134,6 @@ return pattern_word == pattern
 
 why do we need a ; after break? break;
 
-Never assume.
 
 Can I import things build into standard python package to solve leetcode?
 
@@ -143,11 +149,16 @@ Can I import things build into standard python package to solve leetcode?
 
 - Does average case mean worst cases occur rarely in practice?
 
-- Set and dict are unordered collections.
+- Set and dict are unordered collections. There is no indexing.
 
 ---
 
-There are ways to know about things without creating the thing. For example to know the length of the longest sequence, you dont hav
+There are ways to know about things without creating the thing. For example to know the length of the longest sequence, you don't have to create the actual sequence. You can just keep track of the length as you go. This is often useful in dynamic programming problems where you need to find the length of the longest subsequence or similar.
+
+Similarly, when dealing with paths in a graph or tree, you might not need to store the entire path, but just keep track of relevant information about it (like its length, start and end points, or some aggregated value).
+
+This principle of not materializing unnecessary data structures can lead to more efficient algorithms in terms of both time and space complexity. It's particularly useful in problems where you need to find properties of a set or sequence without needing the actual elements.
+
 
 ```jsx
 ''.join()
@@ -164,5 +175,6 @@ zip window trick:
 print(f'{log_likelihood=}')
 log_likelihood=tensor(-38.7856)
 ```
+
 
 

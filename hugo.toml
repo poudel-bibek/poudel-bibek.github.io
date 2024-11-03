@@ -15,7 +15,7 @@ theme = 'PaperMod'
     Title = "👋 Hi, I am Bibek Poudel."
     Content1 = """A Computer Science Ph.D. student in the [Fluidic City Lab](https://fluidic-city.github.io) at [UTK](https://www.utk.edu/)."""
     Content2 = """My research, advised by [Dr. Weizi Li](https://weizi-li.github.io/) with support from [Center for Transportation Research](https://ctr.utk.edu/person/bibek-poudel/), lies at the intersection of reinforcement learning (RL), autonomous systems, and intelligent transportation and spans from multi-agent simulations to real-world robots."""
-    Content3 = """In my last project, I was part of a team that developed a robotic wheelchair designed to provide personalized assistance to its users, balancing their needs for mobility and physical exertion."""
+    Content3 = """In my last project, I was part of (a team)[https://epic.eecs.utk.edu] that developed a robotic wheelchair that provides personalized assistance to its users, balancing their needs for mobility and physical exertion."""
     Content4 = """My current research focuses on leveraging RL to optimize urban environments for its diverse stakeholders. Specifically, I am interested in developing agents that can simultaneously make decisions on design (such as configuring unsignalized crosswalks for pedestrians) and control (such as traffic signal timing for vehicles)."""
     Content5 = """For more details on my academic background and experiences, please check out my [resume](/pdfs/resume/). Besides research, I occasionally write on my [blog](/archives)."""
 
