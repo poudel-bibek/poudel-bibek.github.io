@@ -23,6 +23,8 @@ The meta lessons:
 - Start with brute force.
 - Never assume.
 
+---
+
 1. Comparision in Loops
 
 - To solve comparision based problems, first instinct is to always loop through two arrays. 
