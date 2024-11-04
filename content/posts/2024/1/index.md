@@ -2,7 +2,7 @@
 title: "Lessons on LeetCode: Part I"
 date: 2024-10-12T20:00:00
 draft: false
-summary: "Sample article showcasing basic code syntax and formatting for HTML elements."
+summary: "Patterns and techniques for solving LeetCode problems in Python"
 #showtoc: true
 excludeFromBlog: false
 
