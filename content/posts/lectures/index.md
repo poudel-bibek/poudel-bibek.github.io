@@ -28,3 +28,9 @@ I have been a guest lecturer in graduate and undergraduate courses such as Machi
 #### Introduction to Adversarial Machine Learning
 
 - [Slides (2021)](https://poudel-bibek.github.io/pdfs/slides/intro_to_aml)
+
+-------------------
+
+#### SUMO Various Topics
+
+- [Slides (2024)](https://poudel-bibek.github.io/pdfs/slides/sumo_class)
