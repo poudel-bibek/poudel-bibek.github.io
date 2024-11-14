@@ -184,17 +184,17 @@ b[0] = 10 # This is NOT allowed
 
 6. Why do we need a semicolon after break? `break;`
 
+- We don't, its optional. Both break and break; work exactly the same way. 
 
 ---
 
-Additionally, here are some Python tricks I learned from watching [Karpathy's videos](https://www.youtube.com/andrejkarpathy):
+Additionally, here are some Python tricks I learned from watching [Youtube videos](https://www.youtube.com/andrejkarpathy) from Karpathy (a wizard):
 
 
 1. Using zip to grab pairs of items.
 
 
 ```python {linenos=inline}
-
 ids = [1, 2, 3, 4]
 for item in zip(ids, ids[1:]): 
     print(item) # Gets the pairs (1,2), (2,3), (3,4)
