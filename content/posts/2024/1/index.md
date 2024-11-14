@@ -26,21 +26,24 @@ The meta lessons:
 
 ---
 
+
 1. Comparision in Loops.
 
-- To solve comparision based problems, my first instinct was to always loop through two arrays. 
-- However, if comparision between (`a`,`b`) and (`b`,`a`) are the same, a simple trick is to start the second array from current position of the first array i.e., instead of comparing items in the full square shown below, only compare items in the upper triangle. 
 
-{{< figure src="images/1.png" attr="If the comparision between (1, 2) and (2,1) are the same, we can just do (1,2) in the upper triangle." align=center target="_blank" >}}
+- To solve comparision based problems, my first instinct was to always loop through two arrays. 
+- However, if a comparision (`a`,`b`) is the same as (`b`,`a`), a simple trick is to start the second array from current position of the first array i.e., instead of comparing items in the full square shown below, only compare items in the upper triangle. 
+
+{{< figure src="images/1.png" attr="If the comparision between (1, 2) and (2,1) are the same, we can just do (1,2) which is present in the upper triangle." align=center target="_blank" >}}
 
 ```python {linenos=inline}
-
 for i in range(len(nums)):
 	for j in range(i+1, len(nums)): # This is the upper triangle
 		print(nums[i], nums[j])
 ```
 
+
 2. The advantage of using a while loop over a for loop.
+
 
 ```python {linenos=inline}
 # I am habituated to think like a for loop, to convert for loop to while loop
@@ -51,12 +54,13 @@ i = 0
 while i< k: 
 	# somewhere inside  
 	i+=1
-
 ```
 
-3. Principle of `not materializing unnecessary data structures`.
 
-There are ways to know about things without creating the thing. For example:
+3. Principle of `not materializing unnecessary data structures` Or "there are ways to know about things without creating the thing".
+
+
+For example:
 
 a. To know the length of the longest sequence, you don't have to create the actual sequence. You can just keep track of the length as you go. 
 
@@ -76,9 +80,11 @@ b. When dealing with paths in a graph or tree, you might not need to store the e
 This can lead to more efficient algorithms in terms of both time and space complexity. 
 
 ----
-Python related (syntax and more) tricks, which I only learned while solving LeetCode:
+Python related (syntax and more) tricks, which I never bothered to learn until I started solving LeetCode:
+
 
 1. Deletion in lists and dicts
+
 
 ```python {linenos=inline}
 # delete an item from a list using index
@@ -95,7 +101,9 @@ a = [10, 10, 12, 13, 14, 15]
 a.remove(10)
 ```
 
+
 2. On Sets.
+
 
 Sets and dictionaries are both implemented using hash tables, this means that they have constant lookup time O(1) i.e., better than a list which is O(n) lookup.
 
@@ -114,7 +122,9 @@ for a in lista:
         seen.add(a)
 ```
 
+
 3. On Dictionaries.
+
 
 ```python {linenos=inline}  
 # Dict get method with default return values
@@ -139,6 +149,7 @@ print(list(mydict.values()))
 
 4. On chars and strings.
 
+
 ```python {linenos=inline} 
 # You can also sort characters. In some cases this may be helpful (such as checking equality)
 
@@ -149,7 +160,9 @@ ord('a') returns the unicode of the alphabet. then you can do +1 to increment it
 then you can use chr() to convert it back to the word
 ```
 
+
 5. On Lists and Tuples.
+
 
 Lists are mutable (can be changed after creation) but tuples are immutable. We can perform type conversion with `tuple()` and `list()` to convert between them. 
 
@@ -172,13 +185,16 @@ b[0] = 10 # This is NOT allowed
 6. Why do we need a semicolon after break? `break;`
 
 
-
 ---
 
-Karpathy is a coding wizard among mere mortals. Some Python tricks I learned from watching his videos:
+Additionally, here are some Python tricks I learned from watching [Karpathy's videos](https://www.youtube.com/andrejkarpathy):
+
+
+1. Using zip to grab pairs of items.
+
 
 ```python {linenos=inline}
-# Grab pairs of items using zip window trick
+
 ids = [1, 2, 3, 4]
 for item in zip(ids, ids[1:]): 
     print(item) # Gets the pairs (1,2), (2,3), (3,4)
@@ -191,6 +207,10 @@ for i in range(1, len(nums)):
         print(item)
 ```
 
+
+2. Returning conditions instead of if-else.
+
+
 ```python {linenos=inline}
 # 1. Instead of using if and else like this:
 if pattern_word == pattern:
@@ -202,11 +222,19 @@ else:
 return pattern_word == pattern
 ```
 
+
+3. Printing variables with their names.
+
+
 ```python {linenos=inline}
 # Print a variable with its name
 print(f'{log_likelihood=}')
 # prints log_likelihood=tensor(-38.7856)
 ```
+
+
+4. Joining a list of strings.
+
 
 ```python {linenos=inline}
 # Join a list of strings
@@ -227,6 +255,10 @@ print(result4)
 # Hello
 # World!
 ```
+
+
+5. Initializing an array of given size.
+
 
 ```python {linenos=inline}
 # Initializing an array of given size
