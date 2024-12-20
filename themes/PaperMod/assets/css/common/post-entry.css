@@ -69,10 +69,10 @@
 .entry-content3,
 .entry-content4,
 .entry-content5 {
-    margin: 8px 0;
+    margin: 4px 0;
     color: var(--secondary);
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.5;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
