@@ -8,6 +8,12 @@ hiddenInHomeList: true
 ---
 ![image](images/publications.png)
 
+
+#### Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning
+__Bibek Poudel__, Xuan Wang, Weizi Li, Lei Zhu, and Kevin Heaslip
+IROS 2025 (In Submission)  
+[pdf](https://poudel-bibek.github.io/pdfs/projects/joint_control/) | [Video](https://www.youtube.com/watch?v=Tec3H72cDT4) | [Code](https://github.com/poudel-bibek/Urban-Control)
+
 -------------------
 
 #### EnduRL: Enhancing Safety, Stability, and Efficiency of Mixed Traffic Under Real-World Perturbations Via Reinforcement Learning
