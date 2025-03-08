@@ -59,11 +59,16 @@ jobs:
           hugo \
             --gc \
             --minify \
-            --baseURL "${{ steps.pages.outputs.base_url }}/"          
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+      
+      - name: List public directory
+        run: ls -la public/
+          
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
+          name: github-pages
 
   # Deployment job
   deploy:
@@ -73,6 +78,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: List available artifacts
+        run: |
+          echo "Available artifacts:"
+          ls -la ${{ github.workspace }}
+          
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
