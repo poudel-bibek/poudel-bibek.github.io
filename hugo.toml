@@ -10,6 +10,7 @@ theme = 'PaperMod'
   comments = false
   ShowShareButtons = false
   mainSections = ["posts", "pdfs"]
+  customCSS = ["css/custom.css"]
 
   [params.homeInfoParams]
     Title = "👋 Hi, I am Bibek Poudel."

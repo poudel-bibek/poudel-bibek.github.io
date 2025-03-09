@@ -1,0 +1,14 @@
+/* Hide anchor links */
+.anchor {
+    display: none !important;
+}
+
+/* Ensure they stay hidden even on hover */
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+    display: none !important;
+} 
