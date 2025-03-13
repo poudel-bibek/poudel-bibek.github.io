@@ -16,6 +16,20 @@ IROS 2025 (In Submission)
 
 -------------------
 
+#### VibRun: Real-time Contactless Gait Analysis for Treadmill Running via Footstep Vibrations
+Tianhao Wu, Yi Wu, Rajasi Gore, __Bibek Poudel__, Çağdaş Karataş, Weizi Li, Jian Liu
+UbiComp 2025 
+[pdf](/comingsoon/)  
+
+-------------------
+
+#### PulseRide: A Robotic Wheelchair for Personalized Exertion Control with Human-in-the-Loop Reinforcement Learning
+Azizul Zahid, __Bibek Poudel__, Danny Scott, Jason Scott, Scott Crouter, Weizi Li, Sai Swaminathan
+CHASE 2025  
+[pdf](https://poudel-bibek.github.io/pdfs/projects/pulseride/)
+
+-------------------
+
 #### EnduRL: Enhancing Safety, Stability, and Efficiency of Mixed Traffic Under Real-World Perturbations Via Reinforcement Learning
 __Bibek Poudel__, Weizi Li, Kevin Heaslip  
 IROS 2024  
