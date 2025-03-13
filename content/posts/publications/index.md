@@ -9,6 +9,8 @@ hiddenInHomeList: true
 ![image](images/publications.png)
 
 
+-------------------
+
 #### Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning
 __Bibek Poudel__, Xuan Wang, Weizi Li, Lei Zhu, and Kevin Heaslip
 IROS 2025 (In Submission)  
