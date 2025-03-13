@@ -11,23 +11,23 @@ hiddenInHomeList: true
 
 -------------------
 
-#### Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning\n
-__Bibek Poudel__, Xuan Wang, Weizi Li, Lei Zhu, and Kevin Heaslip\n  
-IROS 2025 (In Submission)\n  
+#### Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning
+__Bibek Poudel__, Xuan Wang, Weizi Li, Lei Zhu, and Kevin Heaslip  
+IROS 2025 (In Submission)  
 [pdf](https://poudel-bibek.github.io/pdfs/projects/joint_control/) | [Video](https://www.youtube.com/watch?v=Tec3H72cDT4) | [Code](https://github.com/poudel-bibek/Urban-Control)
 
 -------------------
 
-#### VibRun: Real-time Contactless Gait Analysis for Treadmill Running via Footstep Vibrations\n
-Tianhao Wu, Yi Wu, Rajasi Gore, __Bibek Poudel__, Çağdaş Karataş, Weizi Li, Jian Liu\n  
-UbiComp 2025\n  
+#### VibRun: Real-time Contactless Gait Analysis for Treadmill Running via Footstep Vibrations
+Tianhao Wu, Yi Wu, Rajasi Gore, __Bibek Poudel__, Çağdaş Karataş, Weizi Li, Jian Liu  
+UbiComp 2025  
 [pdf](/comingsoon/)  
 
 -------------------
 
-#### PulseRide: A Robotic Wheelchair for Personalized Exertion Control with Human-in-the-Loop Reinforcement Learning\n
-Azizul Zahid, __Bibek Poudel__, Danny Scott, Jason Scott, Scott Crouter, Weizi Li, Sai Swaminathan\n  
-CHASE 2025\n  
+#### PulseRide: A Robotic Wheelchair for Personalized Exertion Control with Human-in-the-Loop Reinforcement Learning
+Azizul Zahid, __Bibek Poudel__, Danny Scott, Jason Scott, Scott Crouter, Weizi Li, Sai Swaminathan  
+CHASE 2025  
 [pdf](https://poudel-bibek.github.io/pdfs/projects/pulseride/)
 
 -------------------
