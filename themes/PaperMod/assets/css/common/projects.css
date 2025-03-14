@@ -62,6 +62,19 @@
     text-decoration: underline;
 }
 
+/* Style for the project introduction div */
+.project-introduction {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: var(--content);
+    font-size: 1em;
+}
+
+.project-introduction p {
+    margin-bottom: 1em;
+}
+
 /* Add gap between the top image and projects list */
 .projects-container {
     margin-top: 30px;

@@ -8,7 +8,9 @@ hiddenInHomeList: true
 layout: projects
 ---
 
-![image](images/projects.png)
+![image](/posts/projects/images/projects.png)
+
+I have worked on various projects including Language Models, Software Development, and Adversarial Machine Learning.
 
 -------------------
 

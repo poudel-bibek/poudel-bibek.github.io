@@ -12,12 +12,24 @@
 </header>
 
 <!-- 
+  REMOVED: We don't need to include the image here as it's already in the content
   Display the header image from the static directory
   NOTE: While images are in content/posts/publications/images/, they are copied to static/posts/publications/images/
   for serving, because Hugo only serves static assets from the /static directory by default.
 -->
+
+<!-- Display the introduction text -->
 <div class="post-content">
-  <img src="/posts/publications/images/publications.png" alt="Publications Banner" />
+  {{ $content := .RawContent }}
+  {{ $publications := split $content "-------------------" }}
+  
+  <!-- Display the introduction (first part before any separator) -->
+  {{ if gt (len $publications) 0 }}
+    {{ $intro := index $publications 0 }}
+    <div class="publication-introduction">
+      {{ $intro | markdownify }}
+    </div>
+  {{ end }}
 </div>
 
 <!-- Publications Content -->

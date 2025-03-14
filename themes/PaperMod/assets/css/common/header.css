@@ -66,8 +66,15 @@ body:not(.dark) #sun {
     font-size: 16px;
 }
 
-#menu .active {
+#menu span {
+    /* Add a transparent bottom border to all menu items to maintain consistent height */
+    border-bottom: 2px solid transparent;
+    /* Add a consistent font weight to prevent layout shifts */
     font-weight: 500;
+}
+
+#menu .active {
+    /* Change only the border color, not the weight or dimensions */
     border-bottom: 2px solid rgb(197, 1, 1);
 }
 

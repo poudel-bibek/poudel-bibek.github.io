@@ -113,7 +113,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://poudel-bibek.github.io/lectures/</guid>
-      <description> I have been a guest lecturer in graduate and undergraduate courses such as Machine Learning, Artificial Intelligence, and Intro to Neurocomputing.
+      <description>I have been a guest lecturer in graduate and undergraduate courses such as Machine Learning, Artificial Intelligence, and Intro to Neurocomputing.
 An Introduction to Transformers Slides (2023) Optimization and Stochastic Gradient Descent Slides (2023) | Slides (2022) Introduction to Adversarial Machine Learning Slides (2021) SUMO Various Topics Slides (2024) </description>
     </item>
     
@@ -132,10 +132,9 @@ An Introduction to Transformers Slides (2023) Optimization and Stochastic Gradie
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://poudel-bibek.github.io/projects/</guid>
-      <description>DocuMint: Docstring Generation for Python using Small Language Models Report | Code | HuggingFace
-Benchmarked small language models on their docstring generation quality, created a fine-tuning dataset using the FOSS ecosystem, and fine-tuned Google&amp;rsquo;s CodeGemma. Released the dataset and the fine-tuned model.
-Artificial Intelligence Assignments Code | Website
-Developed and delivered programming assignments for graduate level AI and ML courses at University of Memphis. Topics include Deep Q Networks, Proximal Policy Optimization and Finetuning of a Transformer.</description>
+      <description>I have worked on various projects including Language Models, Software Development, and Adversarial Machine Learning.
+DocuMint: Docstring Generation for Python using Small Language Models [thumbnail:documint] Benchmarked various Small Language Models on their docstring generation quality. Created a fine-tuning dataset and released it along with a fine-tuned Google&amp;rsquo;s CodeGemma model. arXiv | Code | HuggingFace
+Artificial Intelligence Assignments [thumbnail:ai-assignments] Developed and delivered programming assignments for graduate level AI and ML courses at University of Memphis.</description>
     </item>
     
     <item>
@@ -144,13 +143,11 @@ Developed and delivered programming assignments for graduate level AI and ML cou
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://poudel-bibek.github.io/posts/publications/</guid>
-      <description>Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning Bibek Poudel, Xuan Wang, Weizi Li, Lei Zhu, and Kevin Heaslip
+      <description>My research lies at the intersection of reinforcement learning, autonomous systems, and intelligent transportation. Below are my publications in peer-reviewed conferences and journals.
+Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning [thumbnail:joint-pedestrian] Bibek Poudel, Xuan Wang, Weizi Li, Lei Zhu, and Kevin Heaslip
 IROS 2025 (In Submission)
 PDF | Video | Code
-VibRun: Real-time Contactless Gait Analysis for Treadmill Running via Footstep Vibrations Tianhao Wu, Yi Wu, Rajasi Gore, Bibek Poudel, Çağdaş Karataş, Weizi Li, Jian Liu
-UbiComp 2025
-PDF
-PulseRide: A Robotic Wheelchair for Personalized Exertion Control with Human-in-the-Loop Reinforcement Learning Azizul Zahid, Bibek Poudel, Danny Scott, Jason Scott, Scott Crouter, Weizi Li, Sai Swaminathan</description>
+Beacon: A Naturalistic Driving Dataset During Blackouts for Benchmarking Traffic Reconstruction and Control [thumbnail:beacon] Supriya Sarker, Iftekharul Islam, Bibek Poudel, and Weizi Li IROS 2025 (In Submission)</description>
     </item>
     
     <item>

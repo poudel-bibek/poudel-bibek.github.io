@@ -98,6 +98,19 @@ body[class*="lectures"] .post-content > p:first-of-type {
     margin-bottom: calc(var(--gap) * 1.5);
 }
 
+/* Style for the lecture introduction div */
+.lecture-introduction {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: var(--content);
+    font-size: 1em;
+}
+
+.lecture-introduction p {
+    margin-bottom: 1em;
+}
+
 /* Hide the first horizontal rule that appears right after the intro paragraph */
 body[class*="lectures"] .post-content > p:first-of-type + hr {
     display: none;

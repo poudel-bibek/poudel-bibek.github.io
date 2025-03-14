@@ -2,42 +2,969 @@
 <html lang="en-us">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script>
+        
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+    </script>
     <style>
+        :root {
+            --primary-color: #005890;
+            --secondary-color: #444;
+            --background-color: #404040;
+            --page-background: #ffffff;
+            --control-bg: #ffffff;
+            --border-color: #ddd;
+        }
+        
         html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
             overflow: hidden;
+            background-color: var(--background-color);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
-        iframe {
+        
+        #viewer-container {
             width: 100%;
             height: 100%;
-            border: none;
+            overflow: auto;
             position: absolute;
             top: 0;
             left: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        #pdf-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: var(--control-bg);
+            color: var(--secondary-color);
+            padding: 8px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+        }
+        
+        #pdf-controls button {
+            margin: 0 5px;
+            padding: 6px 12px;
+            cursor: pointer;
+            background: white;
+            border: 1px solid var(--border-color);
+            color: var(--secondary-color);
+            border-radius: 3px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+        
+        #pdf-controls button:hover {
+            background: #f0f0f0;
+        }
+        
+        #pdf-controls button.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+        
+        #page-info {
+            margin: 0 10px;
+            white-space: nowrap;
+            font-size: 14px;
+        }
+        
+        #pdf-viewer {
+            flex: 1;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 0;
+            transition: margin-left 0.3s ease;
+            background-color: var(--background-color);
+        }
+        
+        #thumbnails-sidebar {
+            position: fixed;
+            left: -200px;
+            top: 0;
+            width: 200px;
+            height: 100%;
+            background: #333;
+            overflow-y: auto;
+            z-index: 100;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+            transition: left 0.3s ease;
+            padding-top: 50px;
+            color: #fff;
+        }
+        
+        #thumbnails-sidebar.open {
+            left: 0;
+        }
+        
+        #pdf-viewer.with-sidebar {
+            margin-left: 200px;
+        }
+        
+        .thumbnail-item {
+            padding: 5px;
+            cursor: pointer;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+        }
+        
+        .thumbnail-item.active {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .thumbnail-item img {
+            max-width: 80%;
+            height: auto;
+            border: 1px solid #555;
+        }
+        
+        .thumbnail-item .page-num {
+            display: block;
+            font-size: 12px;
+            margin-top: 5px;
+            color: #ddd;
+        }
+        
+        .pdf-page {
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background: var(--page-background);
+            max-width: 800px;
+            border-radius: 2px;
+        }
+        
+        #download-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            font-size: 14px;
+        }
+        
+        #download-link:hover {
+            background: #004370;
+        }
+        
+         
+        .dual-page-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 1620px;
+            margin-bottom: 20px;
+        }
+        
+        .dual-page-container .pdf-page {
+            margin: 0;
+            width: auto;
+            flex: 1;
+            max-width: 800px;
+        }
+        
+         
+        #search-container {
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        #search-input {
+            padding: 6px 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            font-size: 14px;
+            width: 150px;
+        }
+        
+        #search-prev, #search-next {
+            padding: 6px 8px;
+            cursor: pointer;
+        }
+        
+         
+        @media (max-width: 768px) {
+            .pdf-page {
+                width: 95%;
+                display: flex;
+                justify-content: center;
+                padding: 0;
+                box-sizing: border-box;
+                max-width: none;
+            }
+            
+            .pdf-page canvas {
+                width: 100% !important;
+                height: auto !important;
+                object-fit: contain;
+            }
+            
+            #pdf-controls {
+                padding: 5px;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+            
+            .control-group {
+                margin: 5px 0;
+            }
+            
+            #page-info {
+                order: -1;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+            
+            #thumbnails-sidebar {
+                width: 150px;
+            }
+            
+            #pdf-viewer.with-sidebar {
+                margin-left: 150px;
+            }
+            
+            #search-container {
+                width: 100%;
+                margin: 5px 0;
+            }
+            
+            #search-input {
+                width: 100%;
+            }
+            
+            .dual-page-container {
+                flex-direction: column;
+                max-width: none;
+            }
+            
+             
+            #view-mode-btn, #search-container {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <iframe id="pdf-iframe" src="/pdfs/projects/Poudel2025Control.pdf">
-        This browser does not support PDFs. Please download the PDF to view it: 
-        <a href="/pdfs/projects/Poudel2025Control.pdf">Download PDF</a>
-    </iframe>
+    <div id="viewer-container">
+        <div id="pdf-controls">
+            <div class="control-group">
+                <button id="prev-page">Previous</button>
+                <span id="page-info">Page <span id="page-num">1</span> of <span id="page-count">1</span></span>
+                <button id="next-page">Next</button>
+            </div>
+            
+            <div class="control-group">
+                <button id="zoom-out">-</button>
+                <button id="zoom-in">+</button>
+                <button id="view-mode-btn">Two Pages</button>
+                <button id="thumbnails-btn">Thumbnails</button>
+            </div>
+            
+            <div id="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button id="search-prev">◀</button>
+                <button id="search-next">▶</button>
+            </div>
+        </div>
+        
+        <div id="thumbnails-sidebar"></div>
+        <div id="pdf-viewer"></div>
+    </div>
+    
+    <a id="download-link" href="/pdfs/projects/Poudel2025Control.pdf" download>Download PDF</a>
+
     <script>
-        function adjustPdfZoom() {
-            var iframe = document.getElementById('pdf-iframe');
-            if (window.innerWidth <= 800) {
-                iframe.src = "\/pdfs\/projects\/Poudel2025Control.pdf#zoom=50";
+        
+        let pdfDoc = null,
+            pageNum = 1,
+            pageRendering = false,
+            pageNumPending = null,
+            scale = 1.0,
+            pagesRendered = new Set(),
+            viewMode = 'single', 
+            sidebarOpen = false,
+            currentSearchIndex = -1,
+            searchResults = [],
+            renderQueue = [];
+        
+        const container = document.getElementById('pdf-viewer');
+        const sidebar = document.getElementById('thumbnails-sidebar');
+        const prevButton = document.getElementById('prev-page');
+        const nextButton = document.getElementById('next-page');
+        const pageNumDisplay = document.getElementById('page-num');
+        const pageCountDisplay = document.getElementById('page-count');
+        const zoomInButton = document.getElementById('zoom-in');
+        const zoomOutButton = document.getElementById('zoom-out');
+        const viewModeButton = document.getElementById('view-mode-btn');
+        const thumbnailsButton = document.getElementById('thumbnails-btn');
+        const searchInput = document.getElementById('search-input');
+        const searchPrevButton = document.getElementById('search-prev');
+        const searchNextButton = document.getElementById('search-next');
+
+        
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            viewMode = 'single'; 
+            scale = 1.0;
+        }
+
+        
+        pdfjsLib.getDocument('\/pdfs\/projects\/Poudel2025Control.pdf').promise.then(function(pdf) {
+            pdfDoc = pdf;
+            pageCountDisplay.textContent = pdf.numPages;
+            
+            
+            generateThumbnails(pdf);
+            
+            
+            if (viewMode === 'single') {
+                renderPage(1);
             } else {
-                iframe.src = "\/pdfs\/projects\/Poudel2025Control.pdf";
+                renderDualPage(1);
+            }
+            
+            
+            if (!isMobile) {
+                setupSearch();
+            }
+            
+        }).catch(function(error) {
+            console.error('Error loading PDF:', error);
+            container.innerHTML = '<p style="color: var(--secondary-color); text-align: center; margin-top: 50px;">Failed to load PDF. Please try downloading it instead.</p>';
+        });
+
+        
+        function generateThumbnails(pdf) {
+            const fragment = document.createDocumentFragment();
+            
+            
+            const renderThumbnail = function(pageNum) {
+                pdf.getPage(pageNum).then(function(page) {
+                    const viewport = page.getViewport({ scale: 0.2 });
+                    
+                    const thumbnailItem = document.createElement('div');
+                    thumbnailItem.className = 'thumbnail-item';
+                    thumbnailItem.dataset.page = pageNum;
+                    
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+                    
+                    thumbnailItem.appendChild(canvas);
+                    
+                    const pageNumSpan = document.createElement('span');
+                    pageNumSpan.className = 'page-num';
+                    pageNumSpan.textContent = 'Page ' + pageNum;
+                    thumbnailItem.appendChild(pageNumSpan);
+                    
+                    
+                    page.render({
+                        canvasContext: context,
+                        viewport: viewport
+                    });
+                    
+                    
+                    thumbnailItem.addEventListener('click', function() {
+                        const clickedPage = parseInt(this.dataset.page);
+                        if (clickedPage !== pageNum) {
+                            pageNum = clickedPage;
+                            container.innerHTML = '';
+                            pagesRendered.clear();
+                            
+                            if (viewMode === 'single') {
+                                renderPage(pageNum);
+                            } else {
+                                renderDualPage(pageNum);
+                            }
+                            
+                            updateUI();
+                            
+                            
+                            document.querySelectorAll('.thumbnail-item').forEach(item => {
+                                item.classList.remove('active');
+                            });
+                            this.classList.add('active');
+                        }
+                        
+                        
+                        if (isMobile) {
+                            toggleSidebar();
+                        }
+                    });
+                    
+                    fragment.appendChild(thumbnailItem);
+                    
+                    
+                    if (pageNum === 1) {
+                        thumbnailItem.classList.add('active');
+                    }
+                });
+            };
+            
+            
+            for (let i = 1; i <= Math.min(5, pdf.numPages); i++) {
+                renderThumbnail(i);
+            }
+            
+            setTimeout(() => {
+                for (let i = 6; i <= pdf.numPages; i++) {
+                    renderThumbnail(i);
+                }
+                sidebar.appendChild(fragment);
+            }, 500);
+        }
+
+        
+        function setupSearch() {
+            searchInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter' && this.value.trim().length > 0) {
+                    performSearch(this.value.trim());
+                }
+            });
+            
+            searchNextButton.addEventListener('click', function() {
+                navigateSearch(1);
+            });
+            
+            searchPrevButton.addEventListener('click', function() {
+                navigateSearch(-1);
+            });
+        }
+
+        
+        function performSearch(query) {
+            searchResults = [];
+            currentSearchIndex = -1;
+            
+            let pendingSearches = pdfDoc.numPages;
+            
+            for (let i = 1; i <= pdfDoc.numPages; i++) {
+                pdfDoc.getPage(i).then(function(page) {
+                    page.getTextContent().then(function(textContent) {
+                        const text = textContent.items.map(item => item.str).join(' ');
+                        
+                        if (text.toLowerCase().includes(query.toLowerCase())) {
+                            searchResults.push(i);
+                        }
+                        
+                        pendingSearches--;
+                        
+                        if (pendingSearches === 0 && searchResults.length > 0) {
+                            
+                            navigateSearch(1);
+                        }
+                    });
+                });
             }
         }
-        window.addEventListener('load', adjustPdfZoom);
-        window.addEventListener('resize', adjustPdfZoom);
+
+        
+        function navigateSearch(direction) {
+            if (searchResults.length === 0) return;
+            
+            if (direction > 0) {
+                currentSearchIndex = (currentSearchIndex + 1) % searchResults.length;
+            } else {
+                currentSearchIndex = (currentSearchIndex - 1 + searchResults.length) % searchResults.length;
+            }
+            
+            const targetPage = searchResults[currentSearchIndex];
+            pageNum = targetPage;
+            
+            
+            container.innerHTML = '';
+            pagesRendered.clear();
+            
+            if (viewMode === 'single') {
+                renderPage(pageNum);
+            } else {
+                renderDualPage(pageNum);
+            }
+            
+            updateUI();
+            
+            
+            document.querySelectorAll('.thumbnail-item').forEach(item => {
+                item.classList.remove('active');
+                if (parseInt(item.dataset.page) === pageNum) {
+                    item.classList.add('active');
+                    item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+        }
+
+        
+        function toggleSidebar() {
+            sidebarOpen = !sidebarOpen;
+            if (sidebarOpen) {
+                sidebar.classList.add('open');
+                if (!isMobile) {
+                    container.classList.add('with-sidebar');
+                }
+                thumbnailsButton.classList.add('active');
+            } else {
+                sidebar.classList.remove('open');
+                container.classList.remove('with-sidebar');
+                thumbnailsButton.classList.remove('active');
+            }
+        }
+
+        
+        function renderPage(num) {
+            if (pagesRendered.has(num)) return;
+            
+            pageRendering = true;
+            
+            
+            const pageDiv = document.createElement('div');
+            pageDiv.className = 'pdf-page';
+            pageDiv.id = `page-${num}`;
+            container.appendChild(pageDiv);
+            
+            
+            pdfDoc.getPage(num).then(function(page) {
+                
+                const pixelRatio = window.devicePixelRatio || 1;
+                
+                const containerWidth = isMobile ? 
+                    container.clientWidth * 0.95 : 
+                    Math.min(800, container.clientWidth - 60); 
+                
+                
+                const viewport = page.getViewport({ scale: 1.0 }); 
+                const scaleNeeded = containerWidth / viewport.width;
+                const finalScale = scaleNeeded * scale; 
+                const scaledViewport = page.getViewport({ scale: finalScale });
+                
+                
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d', { alpha: false });
+                
+                
+                canvas.height = scaledViewport.height * pixelRatio;
+                canvas.width = scaledViewport.width * pixelRatio;
+                
+                
+                canvas.style.height = `${scaledViewport.height}px`;
+                canvas.style.width = `${scaledViewport.width}px`;
+                
+                
+                context.scale(pixelRatio, pixelRatio);
+                
+                
+                context.fillStyle = 'white';
+                context.fillRect(0, 0, canvas.width, canvas.height);
+                
+                pageDiv.appendChild(canvas);
+                
+                
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: scaledViewport,
+                    background: 'white',
+                    enableWebGL: true,
+                    renderInteractiveForms: true
+                };
+                
+                page.render(renderContext).promise.then(function() {
+                    pageRendering = false;
+                    pagesRendered.add(num);
+                    
+                    
+                    if (num === pageNum) {
+                        
+                        if (container.scrollTop + container.clientHeight > pageDiv.offsetTop + pageDiv.offsetHeight/2) {
+                            if (num < pdfDoc.numPages) {
+                                renderPage(num + 1);
+                            }
+                        }
+                    }
+                });
+            });
+        }
+
+        
+        function renderDualPage(startPage) {
+            
+            const dualContainer = document.createElement('div');
+            dualContainer.className = 'dual-page-container';
+            dualContainer.id = `dual-${startPage}`;
+            container.appendChild(dualContainer);
+            
+            
+            const leftPage = document.createElement('div');
+            leftPage.className = 'pdf-page';
+            leftPage.id = `page-${startPage}`;
+            dualContainer.appendChild(leftPage);
+            
+            pdfDoc.getPage(startPage).then(function(page) {
+                
+                const pixelRatio = window.devicePixelRatio || 1;
+                
+                const maxWidth = container.clientWidth - 40;
+                const containerWidth = isMobile ? 
+                    (maxWidth * 0.95) : 
+                    Math.min(800, (maxWidth - 10) / 2); 
+                
+                const viewport = page.getViewport({ scale: 1.0 });
+                const scaleNeeded = containerWidth / viewport.width;
+                const finalScale = scaleNeeded * scale;
+                const scaledViewport = page.getViewport({ scale: finalScale });
+                
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d', { alpha: false });
+                
+                
+                canvas.height = scaledViewport.height * pixelRatio;
+                canvas.width = scaledViewport.width * pixelRatio;
+                
+                
+                canvas.style.height = `${scaledViewport.height}px`;
+                canvas.style.width = `${scaledViewport.width}px`;
+                
+                
+                context.scale(pixelRatio, pixelRatio);
+                
+                
+                context.fillStyle = 'white';
+                context.fillRect(0, 0, canvas.width, canvas.height);
+                
+                leftPage.appendChild(canvas);
+                
+                
+                page.render({
+                    canvasContext: context,
+                    viewport: scaledViewport,
+                    background: 'white',
+                    enableWebGL: true,
+                    renderInteractiveForms: true
+                }).promise.then(function() {
+                    pagesRendered.add(startPage);
+                });
+            });
+            
+            
+            if (startPage < pdfDoc.numPages) {
+                const rightPage = document.createElement('div');
+                rightPage.className = 'pdf-page';
+                rightPage.id = `page-${startPage + 1}`;
+                dualContainer.appendChild(rightPage);
+                
+                pdfDoc.getPage(startPage + 1).then(function(page) {
+                    
+                    const pixelRatio = window.devicePixelRatio || 1;
+                    
+                    const maxWidth = container.clientWidth - 40;
+                    const containerWidth = isMobile ? 
+                        (maxWidth * 0.95) : 
+                        Math.min(800, (maxWidth - 10) / 2); 
+                    
+                    const viewport = page.getViewport({ scale: 1.0 });
+                    const scaleNeeded = containerWidth / viewport.width;
+                    const finalScale = scaleNeeded * scale;
+                    const scaledViewport = page.getViewport({ scale: finalScale });
+                    
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d', { alpha: false });
+                    
+                    
+                    canvas.height = scaledViewport.height * pixelRatio;
+                    canvas.width = scaledViewport.width * pixelRatio;
+                    
+                    
+                    canvas.style.height = `${scaledViewport.height}px`;
+                    canvas.style.width = `${scaledViewport.width}px`;
+                    
+                    
+                    context.scale(pixelRatio, pixelRatio);
+                    
+                    
+                    context.fillStyle = 'white';
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    rightPage.appendChild(canvas);
+                    
+                    
+                    page.render({
+                        canvasContext: context,
+                        viewport: scaledViewport,
+                        background: 'white',
+                        enableWebGL: true,
+                        renderInteractiveForms: true
+                    }).promise.then(function() {
+                        pagesRendered.add(startPage + 1);
+                        
+                        
+                        if (startPage + 2 <= pdfDoc.numPages) {
+                            renderDualPage(startPage + 2);
+                        }
+                    });
+                });
+            }
+        }
+
+        
+        function updateUI() {
+            pageNumDisplay.textContent = pageNum;
+            
+            
+            prevButton.disabled = pageNum <= 1;
+            nextButton.disabled = pageNum >= pdfDoc.numPages;
+            
+            
+            if (viewMode === 'double' && pageNum === pdfDoc.numPages - 1) {
+                nextButton.disabled = true;
+            }
+            
+            
+            if (viewMode === 'single') {
+                if (!pagesRendered.has(pageNum + 1) && pageNum < pdfDoc.numPages) {
+                    renderPage(pageNum + 1);
+                }
+            } else {
+                if (!pagesRendered.has(pageNum + 2) && pageNum + 1 < pdfDoc.numPages) {
+                    renderDualPage(pageNum + 2);
+                }
+            }
+            
+            
+            const targetElement = viewMode === 'single' ? 
+                document.getElementById(`page-${pageNum}`) : 
+                document.getElementById(`dual-${pageNum}`);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        
+        function toggleViewMode() {
+            viewMode = viewMode === 'single' ? 'double' : 'single';
+            viewModeButton.textContent = viewMode === 'single' ? 'Two Pages' : 'Single Page';
+            viewModeButton.classList.toggle('active', viewMode === 'double');
+            
+            
+            container.innerHTML = '';
+            pagesRendered.clear();
+            
+            if (viewMode === 'single') {
+                renderPage(pageNum);
+            } else {
+                
+                if (pageNum % 2 === 0 && pageNum > 1) {
+                    pageNum--;
+                }
+                renderDualPage(pageNum);
+            }
+            
+            updateUI();
+        }
+
+        
+        prevButton.addEventListener('click', function() {
+            if (pageNum <= 1) return;
+            
+            if (viewMode === 'single') {
+                pageNum--;
+            } else {
+                pageNum = Math.max(1, pageNum - 2);
+            }
+            
+            updateUI();
+        });
+
+        
+        nextButton.addEventListener('click', function() {
+            if (pageNum >= pdfDoc.numPages) return;
+            
+            if (viewMode === 'single') {
+                pageNum++;
+            } else {
+                pageNum = Math.min(pdfDoc.numPages, pageNum + 2);
+            }
+            
+            updateUI();
+        });
+
+        
+        zoomInButton.addEventListener('click', function() {
+            scale += 0.25;
+            
+            container.innerHTML = '';
+            pagesRendered.clear();
+            
+            if (viewMode === 'single') {
+                renderPage(pageNum);
+            } else {
+                renderDualPage(pageNum);
+            }
+            
+            updateUI();
+        });
+
+        
+        zoomOutButton.addEventListener('click', function() {
+            if (scale <= 0.5) return;
+            scale -= 0.25;
+            
+            container.innerHTML = '';
+            pagesRendered.clear();
+            
+            if (viewMode === 'single') {
+                renderPage(pageNum);
+            } else {
+                renderDualPage(pageNum);
+            }
+            
+            updateUI();
+        });
+
+        
+        viewModeButton.addEventListener('click', function() {
+            if (!isMobile) {
+                toggleViewMode();
+            }
+        });
+
+        
+        thumbnailsButton.addEventListener('click', function() {
+            toggleSidebar();
+        });
+
+        
+        container.addEventListener('scroll', function() {
+            if (pageRendering) return;
+            
+            
+            let closestPage = 1;
+            let closestDistance = Infinity;
+            
+            if (viewMode === 'single') {
+                const pages = document.querySelectorAll('.pdf-page');
+                
+                pages.forEach(function(page) {
+                    const pageId = parseInt(page.id.split('-')[1]);
+                    const rect = page.getBoundingClientRect();
+                    const pageCenter = rect.top + rect.height/2;
+                    const viewportCenter = container.getBoundingClientRect().top + container.clientHeight/2;
+                    const distance = Math.abs(pageCenter - viewportCenter);
+                    
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestPage = pageId;
+                    }
+                    
+                    
+                    if (pageId === pdfDoc.numPages) return;
+                    
+                    
+                    if (rect.bottom > 0 && rect.top < container.clientHeight && !pagesRendered.has(pageId + 1)) {
+                        renderPage(pageId + 1);
+                    }
+                });
+            } else {
+                
+                const containers = document.querySelectorAll('.dual-page-container');
+                
+                containers.forEach(function(dualContainer) {
+                    const startPage = parseInt(dualContainer.id.split('-')[1]);
+                    const rect = dualContainer.getBoundingClientRect();
+                    const containerCenter = rect.top + rect.height/2;
+                    const viewportCenter = container.getBoundingClientRect().top + container.clientHeight/2;
+                    const distance = Math.abs(containerCenter - viewportCenter);
+                    
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestPage = startPage;
+                    }
+                    
+                    
+                    if (startPage + 1 >= pdfDoc.numPages) return;
+                    
+                    
+                    if (rect.bottom > 0 && rect.top < container.clientHeight && !pagesRendered.has(startPage + 2)) {
+                        renderDualPage(startPage + 2);
+                    }
+                });
+            }
+            
+            
+            if (closestPage !== pageNum) {
+                pageNum = closestPage;
+                
+                
+                document.querySelectorAll('.thumbnail-item').forEach(item => {
+                    item.classList.remove('active');
+                    if (parseInt(item.dataset.page) === pageNum) {
+                        item.classList.add('active');
+                    }
+                });
+                
+                pageNumDisplay.textContent = pageNum;
+            }
+        });
+
+        
+        window.addEventListener('resize', function() {
+            
+            const currentWidth = window.innerWidth;
+            const newIsMobile = currentWidth <= 768;
+            
+            
+            if (newIsMobile !== isMobile) {
+                
+                if (newIsMobile && viewMode === 'double') {
+                    viewMode = 'single';
+                    viewModeButton.textContent = 'Two Pages';
+                    viewModeButton.classList.remove('active');
+                }
+            }
+            
+            
+            container.innerHTML = '';
+            pagesRendered.clear();
+            
+            if (viewMode === 'single') {
+                renderPage(pageNum);
+            } else {
+                renderDualPage(pageNum);
+            }
+            
+            updateUI();
+        });
     </script>
 </body>
 </html>

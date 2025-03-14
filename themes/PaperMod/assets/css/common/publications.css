@@ -83,6 +83,19 @@
     }
 }
 
+/* Style for the publication introduction div */
+.publication-introduction {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: var(--content);
+    font-size: 1em;
+}
+
+.publication-introduction p {
+    margin-bottom: 1em;
+}
+
 /* Add gap between the top image and publications list */
 .publications-container {
     margin-top: 30px;
