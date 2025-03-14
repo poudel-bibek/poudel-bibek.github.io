@@ -571,11 +571,26 @@
                 
                 // Create a canvas for this page
                 const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d', { 
-                    alpha: false,
-                    antialias: true,
-                    depth: false
-                });
+                
+                // Try to get WebGL2 context first, then fallback to 2d
+                let context;
+                try {
+                    context = canvas.getContext('webgl2', {
+                        alpha: false,
+                        antialias: true,
+                        depth: true,
+                        preserveDrawingBuffer: true
+                    });
+                    if (!context) {
+                        throw new Error('WebGL2 not available');
+                    }
+                } catch (e) {
+                    console.log('Falling back to 2d context');
+                    context = canvas.getContext('2d', {
+                        alpha: false,
+                        willReadFrequently: true
+                    });
+                }
                 
                 // Set canvas dimensions accounting for pixel ratio for crisp rendering
                 canvas.height = Math.floor(scaledViewport.height * pixelRatio);
@@ -585,21 +600,24 @@
                 canvas.style.height = `${Math.floor(scaledViewport.height)}px`;
                 canvas.style.width = `${Math.floor(scaledViewport.width)}px`;
                 
-                // Scale up the context to account for pixel ratio
-                context.scale(pixelRatio, pixelRatio);
-                
-                // Set background for the canvas
-                context.fillStyle = 'white';
-                context.fillRect(0, 0, canvas.width, canvas.height);
+                // For 2d context, we need to scale
+                if (context instanceof CanvasRenderingContext2D) {
+                    // Clear the canvas first
+                    context.fillStyle = '#FFFFFF';
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    // Scale up the context to account for pixel ratio
+                    context.scale(pixelRatio, pixelRatio);
+                }
                 
                 pageDiv.appendChild(canvas);
                 
-                // Render the page with high quality settings
+                // Render the page with appropriate settings based on context type
                 const renderContext = {
                     canvasContext: context,
                     viewport: scaledViewport,
                     background: 'white',
-                    enableWebGL: true,
+                    enableWebGL: context instanceof WebGL2RenderingContext,
                     renderInteractiveForms: true,
                     useSystemFonts: true
                 };
@@ -609,6 +627,14 @@
                 renderTask.promise.then(function() {
                     pageRendering = false;
                     pagesRendered.add(num);
+                    
+                    // Force a repaint in Chromium browsers
+                    if (navigator.userAgent.includes('Chrome')) {
+                        canvas.style.opacity = '0.99';
+                        setTimeout(() => {
+                            canvas.style.opacity = '1';
+                        }, 0);
+                    }
                     
                     // If we're scrolling, ensure more pages are loaded
                     if (num === pageNum) {
@@ -621,6 +647,13 @@
                 }).catch(function(error) {
                     console.error('Error rendering page:', error);
                     pageRendering = false;
+                    
+                    // On error, try re-rendering with 2d context
+                    if (context instanceof WebGL2RenderingContext) {
+                        console.log('Retrying with 2d context');
+                        pagesRendered.delete(num);
+                        renderPage(num);
+                    }
                 });
             });
         }
@@ -657,11 +690,26 @@
                     const scaledViewport = page.getViewport({ scale: finalScale });
                     
                     const canvas = document.createElement('canvas');
-                    const context = canvas.getContext('2d', { 
-                        alpha: false,
-                        antialias: true,
-                        depth: false
-                    });
+                    
+                    // Try to get WebGL2 context first, then fallback to 2d
+                    let context;
+                    try {
+                        context = canvas.getContext('webgl2', {
+                            alpha: false,
+                            antialias: true,
+                            depth: true,
+                            preserveDrawingBuffer: true
+                        });
+                        if (!context) {
+                            throw new Error('WebGL2 not available');
+                        }
+                    } catch (e) {
+                        console.log('Falling back to 2d context');
+                        context = canvas.getContext('2d', {
+                            alpha: false,
+                            willReadFrequently: true
+                        });
+                    }
                     
                     canvas.height = Math.floor(scaledViewport.height * pixelRatio);
                     canvas.width = Math.floor(scaledViewport.width * pixelRatio);
@@ -669,9 +717,15 @@
                     canvas.style.height = `${Math.floor(scaledViewport.height)}px`;
                     canvas.style.width = `${Math.floor(scaledViewport.width)}px`;
                     
-                    context.scale(pixelRatio, pixelRatio);
-                    context.fillStyle = 'white';
-                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    // For 2d context, we need to scale
+                    if (context instanceof CanvasRenderingContext2D) {
+                        // Clear the canvas first
+                        context.fillStyle = '#FFFFFF';
+                        context.fillRect(0, 0, canvas.width, canvas.height);
+                        
+                        // Scale up the context to account for pixel ratio
+                        context.scale(pixelRatio, pixelRatio);
+                    }
                     
                     pageDiv.appendChild(canvas);
                     
@@ -679,13 +733,30 @@
                         canvasContext: context,
                         viewport: scaledViewport,
                         background: 'white',
-                        enableWebGL: true,
+                        enableWebGL: context instanceof WebGL2RenderingContext,
                         renderInteractiveForms: true,
                         useSystemFonts: true
                     };
                     
                     return page.render(renderContext).promise.then(() => {
                         pagesRendered.add(pageNum);
+                        
+                        // Force a repaint in Chromium browsers
+                        if (navigator.userAgent.includes('Chrome')) {
+                            canvas.style.opacity = '0.99';
+                            setTimeout(() => {
+                                canvas.style.opacity = '1';
+                            }, 0);
+                        }
+                    }).catch(error => {
+                        console.error('Error rendering page:', error);
+                        
+                        // On error, try re-rendering with 2d context
+                        if (context instanceof WebGL2RenderingContext) {
+                            console.log('Retrying with 2d context');
+                            pagesRendered.delete(pageNum);
+                            return renderDualPageSide(pageNum, isRightPage);
+                        }
                     });
                 });
             };
