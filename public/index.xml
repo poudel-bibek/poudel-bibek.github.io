@@ -1,10 +1,193 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title/><link>https://poudel-bibek.github.io/</link><description>Recent content on</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 12 Oct 2024 20:00:00 +0000</lastBuildDate><atom:link href="https://poudel-bibek.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Lessons on LeetCode: Part I</title><link>https://poudel-bibek.github.io/posts/2024/1/</link><pubDate>Sat, 12 Oct 2024 20:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/posts/2024/1/</guid><description>Patterns and techniques for solving LeetCode problems in Python</description></item><item><title>💔</title><link>https://poudel-bibek.github.io/sorry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/sorry/</guid><description>sorry</description></item><item><title>3D Delta Printer Report</title><link>https://poudel-bibek.github.io/pdfs/reports/3d_delta_printer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/reports/3d_delta_printer/</guid><description/></item><item><title>Bibek Poudel's CV</title><link>https://poudel-bibek.github.io/pdfs/cv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/cv/</guid><description/></item><item><title>Bibek Poudel's Resume</title><link>https://poudel-bibek.github.io/pdfs/resume/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/resume/</guid><description/></item><item><title>Data Mining Project: Contrastive Learning</title><link>https://poudel-bibek.github.io/pdfs/projects/datamining/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/projects/datamining/</guid><description/></item><item><title>DQN Defense Project</title><link>https://poudel-bibek.github.io/pdfs/projects/defense/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/projects/defense/</guid><description/></item><item><title>Introduction to AML 2021</title><link>https://poudel-bibek.github.io/pdfs/slides/intro_to_aml/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/slides/intro_to_aml/</guid><description/></item><item><title>Introduction to Transformers 2023</title><link>https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers/</guid><description/></item><item><title>Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning</title><link>https://poudel-bibek.github.io/pdfs/projects/joint_control/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/projects/joint_control/</guid><description/></item><item><title>Lectures</title><link>https://poudel-bibek.github.io/lectures/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/lectures/</guid><description> I have been a guest lecturer in graduate and undergraduate courses such as Machine Learning, Artificial Intelligence, and Intro to Neurocomputing.
-An Introduction to Transformers Slides (2023) Optimization and Stochastic Gradient Descent Slides (2023) | Slides (2022) Introduction to Adversarial Machine Learning Slides (2021) SUMO Various Topics Slides (2024)</description></item><item><title>Optimization and SGD 2023</title><link>https://poudel-bibek.github.io/pdfs/slides/optimization_sgd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/slides/optimization_sgd/</guid><description/></item><item><title>Projects</title><link>https://poudel-bibek.github.io/projects/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/projects/</guid><description>DocuMint: Docstring Generation for Python using Small Language Models Report | Code | HuggingFace
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title></title>
+    <link>https://poudel-bibek.github.io/</link>
+    <description>Recent content on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 12 Oct 2024 20:00:00 +0000</lastBuildDate><atom:link href="https://poudel-bibek.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lessons on LeetCode: Part I</title>
+      <link>https://poudel-bibek.github.io/posts/2024/1/</link>
+      <pubDate>Sat, 12 Oct 2024 20:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/posts/2024/1/</guid>
+      <description>Patterns and techniques for solving LeetCode problems in Python</description>
+    </item>
+    
+    <item>
+      <title>💔</title>
+      <link>https://poudel-bibek.github.io/sorry/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/sorry/</guid>
+      <description>sorry</description>
+    </item>
+    
+    <item>
+      <title>🚧</title>
+      <link>https://poudel-bibek.github.io/comingsoon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/comingsoon/</guid>
+      <description>coming soon</description>
+    </item>
+    
+    <item>
+      <title>3D Delta Printer Report</title>
+      <link>https://poudel-bibek.github.io/pdfs/reports/3d_delta_printer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/reports/3d_delta_printer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bibek Poudel&#39;s CV</title>
+      <link>https://poudel-bibek.github.io/pdfs/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/cv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bibek Poudel&#39;s Resume</title>
+      <link>https://poudel-bibek.github.io/pdfs/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/resume/</guid>
+      <description></description>
+    </item>
+    
+    
+    <item>
+      <title>Data Mining Project: Contrastive Learning</title>
+      <link>https://poudel-bibek.github.io/pdfs/projects/datamining/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/projects/datamining/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DQN Defense Project</title>
+      <link>https://poudel-bibek.github.io/pdfs/projects/defense/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/projects/defense/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introduction to AML 2021</title>
+      <link>https://poudel-bibek.github.io/pdfs/slides/intro_to_aml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/slides/intro_to_aml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introduction to Transformers 2023</title>
+      <link>https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning</title>
+      <link>https://poudel-bibek.github.io/pdfs/projects/joint_control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/projects/joint_control/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lectures</title>
+      <link>https://poudel-bibek.github.io/lectures/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/lectures/</guid>
+      <description> I have been a guest lecturer in graduate and undergraduate courses such as Machine Learning, Artificial Intelligence, and Intro to Neurocomputing.
+An Introduction to Transformers Slides (2023) Optimization and Stochastic Gradient Descent Slides (2023) | Slides (2022) Introduction to Adversarial Machine Learning Slides (2021) SUMO Various Topics Slides (2024) </description>
+    </item>
+    
+    <item>
+      <title>Optimization and SGD 2023</title>
+      <link>https://poudel-bibek.github.io/pdfs/slides/optimization_sgd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/slides/optimization_sgd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://poudel-bibek.github.io/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/projects/</guid>
+      <description>DocuMint: Docstring Generation for Python using Small Language Models Report | Code | HuggingFace
 Benchmarked small language models on their docstring generation quality, created a fine-tuning dataset using the FOSS ecosystem, and fine-tuned Google&amp;rsquo;s CodeGemma. Released the dataset and the fine-tuned model.
 Artificial Intelligence Assignments Code | Website
-Developed and delivered programming assignments for graduate level AI and ML courses at University of Memphis. Topics include Deep Q Networks, Proximal Policy Optimization and Finetuning of a Transformer.</description></item><item><title>Publications</title><link>https://poudel-bibek.github.io/posts/publications/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/posts/publications/</guid><description>Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning Bibek Poudel, Xuan Wang, Weizi Li, Lei Zhu, and Kevin Heaslip IROS 2025 (In Submission)
-pdf | Video | Code
-EnduRL: Enhancing Safety, Stability, and Efficiency of Mixed Traffic Under Real-World Perturbations Via Reinforcement Learning Bibek Poudel, Weizi Li, Kevin Heaslip
-IROS 2024
-arXiv | Video | Code
-AutoJoin: Efficient Adversarial Training for Robust Maneuvering via Denoising Autoencoder and Joint Learning Michael Villarreal, Bibek Poudel, Ryan Wickman, Yu Shen, Weizi Li</description></item><item><title>Research Proposal</title><link>https://poudel-bibek.github.io/pdfs/projects/proposal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/projects/proposal/</guid><description/></item><item><title>SUMO Class</title><link>https://poudel-bibek.github.io/pdfs/slides/sumo_class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/slides/sumo_class/</guid><description/></item><item><title>🤖</title><link>https://poudel-bibek.github.io/handler/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/handler/</guid><description>handler</description></item></channel></rss>
+Developed and delivered programming assignments for graduate level AI and ML courses at University of Memphis. Topics include Deep Q Networks, Proximal Policy Optimization and Finetuning of a Transformer.</description>
+    </item>
+    
+    <item>
+      <title>Publications</title>
+      <link>https://poudel-bibek.github.io/posts/publications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/posts/publications/</guid>
+      <description>Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning Bibek Poudel, Xuan Wang, Weizi Li, Lei Zhu, and Kevin Heaslip
+IROS 2025 (In Submission)
+PDF | Video | Code
+VibRun: Real-time Contactless Gait Analysis for Treadmill Running via Footstep Vibrations Tianhao Wu, Yi Wu, Rajasi Gore, Bibek Poudel, Çağdaş Karataş, Weizi Li, Jian Liu
+UbiComp 2025
+PDF
+PulseRide: A Robotic Wheelchair for Personalized Exertion Control with Human-in-the-Loop Reinforcement Learning Azizul Zahid, Bibek Poudel, Danny Scott, Jason Scott, Scott Crouter, Weizi Li, Sai Swaminathan</description>
+    </item>
+    
+    <item>
+      <title>PulseRide</title>
+      <link>https://poudel-bibek.github.io/pdfs/projects/pulseride/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/projects/pulseride/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Research Proposal</title>
+      <link>https://poudel-bibek.github.io/pdfs/projects/proposal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/projects/proposal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SUMO Class</title>
+      <link>https://poudel-bibek.github.io/pdfs/slides/sumo_class/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/slides/sumo_class/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>🤖</title>
+      <link>https://poudel-bibek.github.io/handler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/handler/</guid>
+      <description>handler</description>
+    </item>
+    
+  </channel>
+</rss>

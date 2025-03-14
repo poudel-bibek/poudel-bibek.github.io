@@ -1,0 +1,90 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <h1>
+    {{ .Title }}
+  </h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description }}
+  </div>
+  {{- end }}
+</header>
+
+<!-- 
+  Display the header image from the static directory
+  NOTE: While images are in content/posts/projects/images/, they are copied to static/posts/projects/images/
+  for serving, because Hugo only serves static assets from the /static directory by default.
+-->
+<div class="post-content">
+  <img src="/posts/projects/images/projects.png" alt="Projects Banner" />
+</div>
+
+<!-- Projects Content -->
+<div class="projects-container">
+  {{ $content := .RawContent }}
+  {{ $projects := split $content "-------------------" }}
+  {{ range $index, $part := $projects }}
+    {{ if gt $index 0 }}
+      {{ $part := $part | default "" }}
+      {{ if ne $part "" }}
+        {{ $title := findRE "####\\s+(.+)" $part 1 }}
+        {{ $titleText := "" }}
+        {{ if $title }}
+          {{ $titleText = replaceRE "####\\s+(.+)" "$1" (index $title 0) }}
+          
+          <!-- Extract thumbnail name from the [thumbnail:name] tag -->
+          {{ $thumbnailTag := findRE "\\[thumbnail:([^\\]]+)\\]" $part 1 }}
+          {{ $shortName := "" }}
+          
+          {{ if $thumbnailTag }}
+            {{ $shortName = replaceRE "\\[thumbnail:([^\\]]+)\\]" "$1" (index $thumbnailTag 0) }}
+          {{ end }}
+          
+          <!-- Remove thumbnail tag from content before processing -->
+          {{ $cleanContent := replaceRE "\\[thumbnail:[^\\]]+\\]" "" $part }}
+          {{ $descriptionAndLinks := replaceRE "####\\s+(.+)" "" $cleanContent 1 }}
+          {{ $parts := split $descriptionAndLinks "\n" }}
+          
+          {{ $description := "" }}
+          {{ $links := "" }}
+          
+          {{ range $lineIndex, $line := $parts }}
+            {{ $line := $line | default "" }}
+            {{ if ne $line "" }}
+              {{ $trimmedLine := $line | replaceRE "^\\s+|\\s+$" "" }}
+              {{ if and (ne $trimmedLine "") (not (hasPrefix $trimmedLine "[")) }}
+                {{ $description = $line }}
+              {{ else if hasPrefix $trimmedLine "[" }}
+                {{ $links = $line }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+          
+          <article class="project-entry">
+            <div class="project-content">
+              <div class="project-thumbnail">
+                <!-- 
+                  Thumbnails are loaded from static directory
+                  Original images are in content/posts/projects/thumbnails/ but served from static directory
+                -->
+                <img src="/posts/projects/thumbnails/{{ $shortName }}.png" alt="{{ $titleText }}" loading="lazy">
+              </div>
+              <div class="project-details">
+                <h2>{{ $titleText }}</h2>
+                {{ if $description }}
+                  <p class="description">{{ $description }}</p>
+                {{ end }}
+                {{ if $links }}
+                  <p class="links">{{ $links | markdownify }}</p>
+                {{ end }}
+              </div>
+            </div>
+          </article>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</div>
+
+{{- end }}{{/* end main */}} 

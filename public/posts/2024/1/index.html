@@ -1,106 +1,469 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Lessons on LeetCode: Part I |</title><meta name=keywords content><meta name=description content="Patterns and techniques for solving LeetCode problems in Python"><meta name=author content><link rel=canonical href=https://poudel-bibek.github.io/posts/2024/1/><link crossorigin=anonymous href=/assets/css/stylesheet.5b257e29806b15cd0d75aede317e02d4c01110e8a9f9d1771b6f28144e1a5351.css integrity="sha256-WyV+KYBrFc0Nda7eMX4C1MAREOip+dF3G28oFE4aU1E=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG+9vmJ0cTS+ovo0FeA=" onload=hljs.initHighlightingOnLoad()></script>
-<link rel=icon href=https://poudel-bibek.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://poudel-bibek.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://poudel-bibek.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://poudel-bibek.github.io/apple-touch-icon.png><link rel=mask-icon href=https://poudel-bibek.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="Lessons on LeetCode: Part I"><meta property="og:description" content="Patterns and techniques for solving LeetCode problems in Python"><meta property="og:type" content="article"><meta property="og:url" content="https://poudel-bibek.github.io/posts/2024/1/"><meta property="og:image" content="https://poudel-bibek.github.io/images/lc.png"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-10-12T20:00:00+00:00"><meta property="article:modified_time" content="2024-10-12T20:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://poudel-bibek.github.io/images/lc.png"><meta name=twitter:title content="Lessons on LeetCode: Part I"><meta name=twitter:description content="Patterns and techniques for solving LeetCode problems in Python"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://poudel-bibek.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Lessons on LeetCode: Part I","item":"https://poudel-bibek.github.io/posts/2024/1/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Lessons on LeetCode: Part I","name":"Lessons on LeetCode: Part I","description":"Patterns and techniques for solving LeetCode problems in Python","keywords":[],"articleBody":"The meta lessons:\nLearn patterns not problems. Visualize. Visualize. Visualize. Think about how to solve the problem before writing code. Think out loud. Its ok to start with brute force. Never assume. Comparision in Loops. To solve comparision based problems, my first instinct was to always loop through two arrays. However, if a comparision (a,b) is the same as (b,a), a simple trick is to start the second array from current position of the first array i.e., instead of comparing items in the full square shown below, only compare items in the upper triangle. If the comparision between (1, 2) and (2,1) are the same, we can just do (1,2) which is present in the upper triangle.\n1for i in range(len(nums)): 2\tfor j in range(i+1, len(nums)): # This is the upper triangle 3\tprint(nums[i], nums[j]) The advantage of using a while loop over a for loop. 1# I am habituated to think like a for loop, to convert for loop to while loop 2for i in range(k): 3 4# To make this a while loop it requires initialization, update and termination for the loop variable 5i = 0 6while i\u003c k: 7\t# somewhere inside 8\ti+=1 Principle of not materializing unnecessary data structures Or “there are ways to know about things without creating the thing”. For example:\na. To know the length of the longest sequence, you don’t have to create the actual sequence. You can just keep track of the length as you go.\n1# Instead of creating the sequence, keep track of the length as you go 2longest = 0 3for i in range(len(nums)): 4\tlongest = max(longest, nums[i]) b. When dealing with paths in a graph or tree, you might not need to store the entire path, but just keep track of relevant information about it (like its length, start and end points, or some aggregated value).\nThis can lead to more efficient algorithms in terms of both time and space complexity.\nPython related (syntax and more) tricks, which I never bothered to learn until I started solving LeetCode:\nDeletion in lists and dicts 1# delete an item from a list using index 2a = [10, 12, 13, 14, 15] 3del a[3] # deletes the item in index 3 4 5# Interestingly, the same method works to remove an item from dictionary based on key 6mydict = {5: 3, 2: 1, 3: 3, 1: 2} 7del mydict[5] 8print(mydict) 9 10# delete an item from a list using value 11a = [10, 10, 12, 13, 14, 15] 12a.remove(10) On Sets. Sets and dictionaries are both implemented using hash tables, this means that they have constant lookup time O(1) i.e., better than a list which is O(n) lookup.\nBefore Python 3.7, sets and dicts were unordered collections i.e., the concept of indexing did not apply. When we print them, they are in random order. Since Python 3.7, dictionaries preserve insertion order (!important). For sets, this is still true. When we print them, they are in random order.\n1# Simple set operations 2lista = [10, 12, 13, 14, 15, 14, 14] 3seen = set() 4for a in lista: 5 if a in seen: 6 print(f\"Repeated: {a}\") 7 else: 8 seen.add(a) On Dictionaries. 1# Dict get method with default return values 2chars = \"believers\" 3mydict= {} 4for char in chars: 5\t# If it finds, it returns the stored value. If not return a 0 6\tmydict[char] = mydict.get(char, 0) + 1 # Genius way to count chars in a string 7print(mydict) Dict keys and values are of type dict_keys and dict_values respectively. We need to convert them to list explicitly. The order of keys and values in dict_keys and dict_values are same as that in the dict (preserves insertion order).\n1mydict = {1: 3, 2: 2, 3: 1} 2print(mydict) 3print(list(mydict.keys())) 4print(list(mydict.values())) On chars and strings. 1# You can also sort characters. In some cases this may be helpful (such as checking equality) 1ord('a') returns the unicode of the alphabet. then you can do +1 to increment it. 2then you can use chr() to convert it back to the word On Lists and Tuples. Lists are mutable (can be changed after creation) but tuples are immutable. We can perform type conversion with tuple() and list() to convert between them.\n1# Tuples are immutable 2b = tuple([1, 2, 3]) # tuple expects single iterable argument like a list during creation 3b[0] = 10 # This raises TypeError: 'tuple' object does not support item assignment 4 5# Lists are mutable 6a = [1, 2, 3] 7a[0] = 10 # This works! Lists can be modified 8print(a) # [10, 2, 3] 9 10# If we do tuple() on a list, it becomes immutable 11a = [1, 2, 3] 12b = tuple(a) 13b[0] = 10 # This is NOT allowed Why do we need a semicolon after break? break; We don’t, its optional. Both break and break; work exactly the same way. Additionally, here are some Python tricks I learned from watching Youtube videos from Karpathy (a wizard):\nUsing zip to grab pairs of items. 1ids = [1, 2, 3, 4] 2for item in zip(ids, ids[1:]): 3 print(item) # Gets the pairs (1,2), (2,3), (3,4) 4 # If its changed to ids[2:] we get (1,3), (2,4) 5 6# Utilizing zip to traverse the upper triangle (discussed above). 7nums = [1, 2, 3, 4, 5] 8for i in range(1, len(nums)): 9 for item in zip(nums, nums[i:]): 10 print(item) Returning conditions instead of if-else. 1# 1. Instead of using if and else like this: 2if pattern_word == pattern: 3 return True 4else: 5 return False 6 7# 2. Return the condition itself 8return pattern_word == pattern Printing variables with their names. 1# Print a variable with its name 2print(f'{log_likelihood=}') 3# prints log_likelihood=tensor(-38.7856) Joining a list of strings. 1# Join a list of strings 2words = [\"Hello\", \"World!\"] 3 4# Join with empty string 5result1 = ''.join(words) 6print(result1) # HelloWorld! 7 8# Instead of empty string, you can use space, comma, newline etc. 9# Join with space 10result2 = ' '.join(words) 11print(result2) # Hello World! 12 13# Join with newline 14result4 = '\\n'.join(words) 15print(result4) 16# Hello 17# World! Initializing an array of given size. 1# Initializing an array of given size 2new_arr = [0] * size ","wordCount":"1040","inLanguage":"en","image":"https://poudel-bibek.github.io/images/lc.png","datePublished":"2024-10-12T20:00:00Z","dateModified":"2024-10-12T20:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://poudel-bibek.github.io/posts/2024/1/"},"publisher":{"@type":"Organization","name":"","logo":{"@type":"ImageObject","url":"https://poudel-bibek.github.io/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://poudel-bibek.github.io/ title=Home><span>Home</span></a></li><li><a href=https://poudel-bibek.github.io/posts/publications/ title=Publications><span>Publications</span></a></li><li><a href=https://poudel-bibek.github.io/projects/ title=Projects><span>Projects</span></a></li><li><a href=https://poudel-bibek.github.io/lectures/ title=Lectures><span>Lectures</span></a></li><li><a href=https://poudel-bibek.github.io/archives/ title=Blog><span>Blog</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class=post-title>Lessons on LeetCode: Part I</h1><div class=post-meta><span title='2024-10-12 20:00:00 +0000 UTC'>October 12, 2024</span>&nbsp;·&nbsp;5 min</div></header><figure class=entry-cover><img loading=lazy srcset="https://poudel-bibek.github.io/posts/2024/1/images/lc_hue56f229207cc922027401a38662f60be_139567_360x0_resize_box_3.png 360w ,https://poudel-bibek.github.io/posts/2024/1/images/lc_hue56f229207cc922027401a38662f60be_139567_480x0_resize_box_3.png 480w ,https://poudel-bibek.github.io/posts/2024/1/images/lc.png 500w" sizes="(min-width: 768px) 720px, 100vw" src=https://poudel-bibek.github.io/posts/2024/1/images/lc.png alt width=500 height=260></figure><div class=post-content><p>The meta lessons:</p><ul><li>Learn patterns not problems.</li><li>Visualize. Visualize. Visualize.</li><li>Think about how to solve the problem before writing code.</li><li>Think out loud.</li><li>Its ok to start with brute force.</li><li>Never assume.</li></ul><hr><ol><li>Comparision in Loops.</li></ol><ul><li>To solve comparision based problems, my first instinct was to always loop through two arrays.</li><li>However, if a comparision (<code>a</code>,<code>b</code>) is the same as (<code>b</code>,<code>a</code>), a simple trick is to start the second array from current position of the first array i.e., instead of comparing items in the full square shown below, only compare items in the upper triangle.</li></ul><figure class=align-center><img loading=lazy src=images/1.png#center><figcaption><p>If the comparision between (1, 2) and (2,1) are the same, we can just do (1,2) which is present in the upper triangle.</p></figcaption></figure><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(nums)):
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>	<span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>, len(nums)): <span style=color:#75715e># This is the upper triangle</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>		print(nums[i], nums[j])
-</span></span></code></pre></div><ol start=2><li>The advantage of using a while loop over a for loop.</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># I am habituated to think like a for loop, to convert for loop to while loop</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(k): 
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span><span style=color:#75715e># To make this a while loop it requires initialization, update and termination for the loop variable</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> 
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span><span style=color:#66d9ef>while</span> i<span style=color:#f92672>&lt;</span> k: 
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>	<span style=color:#75715e># somewhere inside  </span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8</span><span>	i<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>
-</span></span></code></pre></div><ol start=3><li>Principle of <code>not materializing unnecessary data structures</code> Or &ldquo;there are ways to know about things without creating the thing&rdquo;.</li></ol><p>For example:</p><p>a. To know the length of the longest sequence, you don&rsquo;t have to create the actual sequence. You can just keep track of the length as you go.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Instead of creating the sequence, keep track of the length as you go</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>longest <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(nums)):
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>	longest <span style=color:#f92672>=</span> max(longest, nums[i])
-</span></span></code></pre></div><p>b. When dealing with paths in a graph or tree, you might not need to store the entire path, but just keep track of relevant information about it (like its length, start and end points, or some aggregated value).</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python></code></pre></div><p>This can lead to more efficient algorithms in terms of both time and space complexity.</p><hr><p>Python related (syntax and more) tricks, which I never bothered to learn until I started solving LeetCode:</p><ol><li>Deletion in lists and dicts</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#75715e># delete an item from a list using index</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>a <span style=color:#f92672>=</span> [<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>12</span>, <span style=color:#ae81ff>13</span>, <span style=color:#ae81ff>14</span>, <span style=color:#ae81ff>15</span>]
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span><span style=color:#66d9ef>del</span> a[<span style=color:#ae81ff>3</span>] <span style=color:#75715e># deletes the item in index 3</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span><span style=color:#75715e># Interestingly, the same method works to remove an item from dictionary based on key</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>mydict <span style=color:#f92672>=</span> {<span style=color:#ae81ff>5</span>: <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>2</span>: <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>3</span>: <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>1</span>: <span style=color:#ae81ff>2</span>}
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span><span style=color:#66d9ef>del</span> mydict[<span style=color:#ae81ff>5</span>]
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>print(mydict)
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span><span style=color:#75715e># delete an item from a list using value</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>a <span style=color:#f92672>=</span> [<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>12</span>, <span style=color:#ae81ff>13</span>, <span style=color:#ae81ff>14</span>, <span style=color:#ae81ff>15</span>]
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>a<span style=color:#f92672>.</span>remove(<span style=color:#ae81ff>10</span>)
-</span></span></code></pre></div><ol start=2><li>On Sets.</li></ol><p>Sets and dictionaries are both implemented using hash tables, this means that they have constant lookup time O(1) i.e., better than a list which is O(n) lookup.</p><p>Before Python 3.7, sets and dicts were unordered collections i.e., the concept of indexing did not apply. When we print them, they are in random order.
-Since Python 3.7, dictionaries preserve insertion order (!important). For sets, this is still true. When we print them, they are in random order.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Simple set operations</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>lista <span style=color:#f92672>=</span> [<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>12</span>, <span style=color:#ae81ff>13</span>, <span style=color:#ae81ff>14</span>, <span style=color:#ae81ff>15</span>, <span style=color:#ae81ff>14</span>, <span style=color:#ae81ff>14</span>]
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>seen <span style=color:#f92672>=</span> set()
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span><span style=color:#66d9ef>for</span> a <span style=color:#f92672>in</span> lista:
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>    <span style=color:#66d9ef>if</span> a <span style=color:#f92672>in</span> seen:
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>        print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#34;Repeated: </span><span style=color:#e6db74>{</span>a<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>)
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>    <span style=color:#66d9ef>else</span>: 
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8</span><span>        seen<span style=color:#f92672>.</span>add(a)
-</span></span></code></pre></div><ol start=3><li>On Dictionaries.</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Dict get method with default return values</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>chars <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;believers&#34;</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>mydict<span style=color:#f92672>=</span> {}
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span><span style=color:#66d9ef>for</span> char <span style=color:#f92672>in</span> chars: 
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>	<span style=color:#75715e># If it finds, it returns the stored value. If not return a 0</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>	mydict[char] <span style=color:#f92672>=</span> mydict<span style=color:#f92672>.</span>get(char, <span style=color:#ae81ff>0</span>) <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span> <span style=color:#75715e># Genius way to count chars in a string</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span>print(mydict)
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Lessons on LeetCode: Part I | </title>
+<meta name="keywords" content="">
+<meta name="description" content="Patterns and techniques for solving LeetCode problems in Python">
+<meta name="author" content="">
+<link rel="canonical" href="https://poudel-bibek.github.io/posts/2024/1/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0d6e7531c993db8092e335b3f7044dda22eab0ccc0537561e7191f945fcfb08d.css" integrity="sha256-DW51McmT24CS4zWz9wRN2iLqsMzAU3Vh5xkflF/PsI0=" rel="preload stylesheet" as="style">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<link rel="icon" href="https://poudel-bibek.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://poudel-bibek.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://poudel-bibek.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://poudel-bibek.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://poudel-bibek.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Lessons on LeetCode: Part I" />
+<meta property="og:description" content="Patterns and techniques for solving LeetCode problems in Python" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://poudel-bibek.github.io/posts/2024/1/" />
+<meta property="og:image" content="https://poudel-bibek.github.io/images/lc.png" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-10-12T20:00:00+00:00" />
+<meta property="article:modified_time" content="2024-10-12T20:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://poudel-bibek.github.io/images/lc.png" />
+<meta name="twitter:title" content="Lessons on LeetCode: Part I"/>
+<meta name="twitter:description" content="Patterns and techniques for solving LeetCode problems in Python"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://poudel-bibek.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Lessons on LeetCode: Part I",
+      "item": "https://poudel-bibek.github.io/posts/2024/1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Lessons on LeetCode: Part I",
+  "name": "Lessons on LeetCode: Part I",
+  "description": "Patterns and techniques for solving LeetCode problems in Python",
+  "keywords": [
+    
+  ],
+  "articleBody": "The meta lessons:\nLearn patterns not problems. Visualize. Visualize. Visualize. Think about how to solve the problem before writing code. Think out loud. Its ok to start with brute force. Never assume. Comparision in Loops. To solve comparision based problems, my first instinct was to always loop through two arrays. However, if a comparision (a,b) is the same as (b,a), a simple trick is to start the second array from current position of the first array i.e., instead of comparing items in the full square shown below, only compare items in the upper triangle. If the comparision between (1, 2) and (2,1) are the same, we can just do (1,2) which is present in the upper triangle.\n1for i in range(len(nums)): 2\tfor j in range(i+1, len(nums)): # This is the upper triangle 3\tprint(nums[i], nums[j]) The advantage of using a while loop over a for loop. 1# I am habituated to think like a for loop, to convert for loop to while loop 2for i in range(k): 3 4# To make this a while loop it requires initialization, update and termination for the loop variable 5i = 0 6while i\u003c k: 7\t# somewhere inside 8\ti+=1 Principle of not materializing unnecessary data structures Or “there are ways to know about things without creating the thing”. For example:\na. To know the length of the longest sequence, you don’t have to create the actual sequence. You can just keep track of the length as you go.\n1# Instead of creating the sequence, keep track of the length as you go 2longest = 0 3for i in range(len(nums)): 4\tlongest = max(longest, nums[i]) b. When dealing with paths in a graph or tree, you might not need to store the entire path, but just keep track of relevant information about it (like its length, start and end points, or some aggregated value).\nThis can lead to more efficient algorithms in terms of both time and space complexity.\nPython related (syntax and more) tricks, which I never bothered to learn until I started solving LeetCode:\nDeletion in lists and dicts 1# delete an item from a list using index 2a = [10, 12, 13, 14, 15] 3del a[3] # deletes the item in index 3 4 5# Interestingly, the same method works to remove an item from dictionary based on key 6mydict = {5: 3, 2: 1, 3: 3, 1: 2} 7del mydict[5] 8print(mydict) 9 10# delete an item from a list using value 11a = [10, 10, 12, 13, 14, 15] 12a.remove(10) On Sets. Sets and dictionaries are both implemented using hash tables, this means that they have constant lookup time O(1) i.e., better than a list which is O(n) lookup.\nBefore Python 3.7, sets and dicts were unordered collections i.e., the concept of indexing did not apply. When we print them, they are in random order. Since Python 3.7, dictionaries preserve insertion order (!important). For sets, this is still true. When we print them, they are in random order.\n1# Simple set operations 2lista = [10, 12, 13, 14, 15, 14, 14] 3seen = set() 4for a in lista: 5 if a in seen: 6 print(f\"Repeated: {a}\") 7 else: 8 seen.add(a) On Dictionaries. 1# Dict get method with default return values 2chars = \"believers\" 3mydict= {} 4for char in chars: 5\t# If it finds, it returns the stored value. If not return a 0 6\tmydict[char] = mydict.get(char, 0) + 1 # Genius way to count chars in a string 7print(mydict) Dict keys and values are of type dict_keys and dict_values respectively. We need to convert them to list explicitly. The order of keys and values in dict_keys and dict_values are same as that in the dict (preserves insertion order).\n1mydict = {1: 3, 2: 2, 3: 1} 2print(mydict) 3print(list(mydict.keys())) 4print(list(mydict.values())) On chars and strings. 1# You can also sort characters. In some cases this may be helpful (such as checking equality) 1ord('a') returns the unicode of the alphabet. then you can do +1 to increment it. 2then you can use chr() to convert it back to the word On Lists and Tuples. Lists are mutable (can be changed after creation) but tuples are immutable. We can perform type conversion with tuple() and list() to convert between them.\n1# Tuples are immutable 2b = tuple([1, 2, 3]) # tuple expects single iterable argument like a list during creation 3b[0] = 10 # This raises TypeError: 'tuple' object does not support item assignment 4 5# Lists are mutable 6a = [1, 2, 3] 7a[0] = 10 # This works! Lists can be modified 8print(a) # [10, 2, 3] 9 10# If we do tuple() on a list, it becomes immutable 11a = [1, 2, 3] 12b = tuple(a) 13b[0] = 10 # This is NOT allowed Why do we need a semicolon after break? break; We don’t, its optional. Both break and break; work exactly the same way. Additionally, here are some Python tricks I learned from watching Youtube videos from Karpathy (a wizard):\nUsing zip to grab pairs of items. 1ids = [1, 2, 3, 4] 2for item in zip(ids, ids[1:]): 3 print(item) # Gets the pairs (1,2), (2,3), (3,4) 4 # If its changed to ids[2:] we get (1,3), (2,4) 5 6# Utilizing zip to traverse the upper triangle (discussed above). 7nums = [1, 2, 3, 4, 5] 8for i in range(1, len(nums)): 9 for item in zip(nums, nums[i:]): 10 print(item) Returning conditions instead of if-else. 1# 1. Instead of using if and else like this: 2if pattern_word == pattern: 3 return True 4else: 5 return False 6 7# 2. Return the condition itself 8return pattern_word == pattern Printing variables with their names. 1# Print a variable with its name 2print(f'{log_likelihood=}') 3# prints log_likelihood=tensor(-38.7856) Joining a list of strings. 1# Join a list of strings 2words = [\"Hello\", \"World!\"] 3 4# Join with empty string 5result1 = ''.join(words) 6print(result1) # HelloWorld! 7 8# Instead of empty string, you can use space, comma, newline etc. 9# Join with space 10result2 = ' '.join(words) 11print(result2) # Hello World! 12 13# Join with newline 14result4 = '\\n'.join(words) 15print(result4) 16# Hello 17# World! Initializing an array of given size. 1# Initializing an array of given size 2new_arr = [0] * size ",
+  "wordCount" : "1040",
+  "inLanguage": "en",
+  "image":"https://poudel-bibek.github.io/images/lc.png","datePublished": "2024-10-12T20:00:00Z",
+  "dateModified": "2024-10-12T20:00:00Z",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://poudel-bibek.github.io/posts/2024/1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://poudel-bibek.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://poudel-bibek.github.io/" title="Home">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://poudel-bibek.github.io/posts/publications/" title="Publications">
+                    <span>Publications</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://poudel-bibek.github.io/projects/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://poudel-bibek.github.io/lectures/" title="Lectures">
+                    <span>Lectures</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://poudel-bibek.github.io/archives/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Lessons on LeetCode: Part I
+    </h1>
+    <div class="post-meta"><span title='2024-10-12 20:00:00 +0000 UTC'>October 12, 2024</span>&nbsp;·&nbsp;5 min
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="lazy" srcset="https://poudel-bibek.github.io/posts/2024/1/images/lc_hue56f229207cc922027401a38662f60be_139567_360x0_resize_box_3.png 360w ,https://poudel-bibek.github.io/posts/2024/1/images/lc_hue56f229207cc922027401a38662f60be_139567_480x0_resize_box_3.png 480w ,https://poudel-bibek.github.io/posts/2024/1/images/lc.png 500w" 
+            sizes="(min-width: 768px) 720px, 100vw" src="https://poudel-bibek.github.io/posts/2024/1/images/lc.png" alt="" 
+            width="500" height="260">
+        
+</figure>
+  <div class="post-content"><p>The meta lessons:</p>
+<ul>
+<li>Learn patterns not problems.</li>
+<li>Visualize. Visualize. Visualize.</li>
+<li>Think about how to solve the problem before writing code.</li>
+<li>Think out loud.</li>
+<li>Its ok to start with brute force.</li>
+<li>Never assume.</li>
+</ul>
+<hr>
+<ol>
+<li>Comparision in Loops.</li>
+</ol>
+<ul>
+<li>To solve comparision based problems, my first instinct was to always loop through two arrays.</li>
+<li>However, if a comparision (<code>a</code>,<code>b</code>) is the same as (<code>b</code>,<code>a</code>), a simple trick is to start the second array from current position of the first array i.e., instead of comparing items in the full square shown below, only compare items in the upper triangle.</li>
+</ul>
+<figure class="align-center ">
+    <img loading="lazy" src="images/1.png#center"/> <figcaption>
+            <p>If the comparision between (1, 2) and (2,1) are the same, we can just do (1,2) which is present in the upper triangle.</p>
+        </figcaption>
+</figure>
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(nums)):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>	<span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, len(nums)): <span style="color:#75715e"># This is the upper triangle</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>		print(nums[i], nums[j])
+</span></span></code></pre></div><ol start="2">
+<li>The advantage of using a while loop over a for loop.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#75715e"># I am habituated to think like a for loop, to convert for loop to while loop</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(k): 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#75715e"># To make this a while loop it requires initialization, update and termination for the loop variable</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span><span style="color:#66d9ef">while</span> i<span style="color:#f92672">&lt;</span> k: 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>	<span style="color:#75715e"># somewhere inside  </span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>	i<span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><ol start="3">
+<li>Principle of <code>not materializing unnecessary data structures</code> Or &ldquo;there are ways to know about things without creating the thing&rdquo;.</li>
+</ol>
+<p>For example:</p>
+<p>a. To know the length of the longest sequence, you don&rsquo;t have to create the actual sequence. You can just keep track of the length as you go.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#75715e"># Instead of creating the sequence, keep track of the length as you go</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>longest <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(len(nums)):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>	longest <span style="color:#f92672">=</span> max(longest, nums[i])
+</span></span></code></pre></div><p>b. When dealing with paths in a graph or tree, you might not need to store the entire path, but just keep track of relevant information about it (like its length, start and end points, or some aggregated value).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"></code></pre></div><p>This can lead to more efficient algorithms in terms of both time and space complexity.</p>
+<hr>
+<p>Python related (syntax and more) tricks, which I never bothered to learn until I started solving LeetCode:</p>
+<ol>
+<li>Deletion in lists and dicts</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#75715e"># delete an item from a list using index</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">15</span>]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span><span style="color:#66d9ef">del</span> a[<span style="color:#ae81ff">3</span>] <span style="color:#75715e"># deletes the item in index 3</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#75715e"># Interestingly, the same method works to remove an item from dictionary based on key</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>mydict <span style="color:#f92672">=</span> {<span style="color:#ae81ff">5</span>: <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>: <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>: <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>: <span style="color:#ae81ff">2</span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span><span style="color:#66d9ef">del</span> mydict[<span style="color:#ae81ff">5</span>]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>print(mydict)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#75715e"># delete an item from a list using value</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">15</span>]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>a<span style="color:#f92672">.</span>remove(<span style="color:#ae81ff">10</span>)
+</span></span></code></pre></div><ol start="2">
+<li>On Sets.</li>
+</ol>
+<p>Sets and dictionaries are both implemented using hash tables, this means that they have constant lookup time O(1) i.e., better than a list which is O(n) lookup.</p>
+<p>Before Python 3.7, sets and dicts were unordered collections i.e., the concept of indexing did not apply. When we print them, they are in random order.
+Since Python 3.7, dictionaries preserve insertion order (!important). For sets, this is still true. When we print them, they are in random order.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#75715e"># Simple set operations</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>lista <span style="color:#f92672">=</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">12</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">15</span>, <span style="color:#ae81ff">14</span>, <span style="color:#ae81ff">14</span>]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>seen <span style="color:#f92672">=</span> set()
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#66d9ef">for</span> a <span style="color:#f92672">in</span> lista:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    <span style="color:#66d9ef">if</span> a <span style="color:#f92672">in</span> seen:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>        print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Repeated: </span><span style="color:#e6db74">{</span>a<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>    <span style="color:#66d9ef">else</span>: 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span>        seen<span style="color:#f92672">.</span>add(a)
+</span></span></code></pre></div><ol start="3">
+<li>On Dictionaries.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#75715e"># Dict get method with default return values</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>chars <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;believers&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>mydict<span style="color:#f92672">=</span> {}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#66d9ef">for</span> char <span style="color:#f92672">in</span> chars: 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>	<span style="color:#75715e"># If it finds, it returns the stored value. If not return a 0</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>	mydict[char] <span style="color:#f92672">=</span> mydict<span style="color:#f92672">.</span>get(char, <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span> <span style="color:#75715e"># Genius way to count chars in a string</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span>print(mydict)
 </span></span></code></pre></div><p>Dict keys and values are of type <code>dict_keys</code> and <code>dict_values</code> respectively. We need to convert them to list explicitly.
-The order of keys and values in <code>dict_keys</code> and <code>dict_values</code> are same as that in the dict (preserves insertion order).</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>mydict <span style=color:#f92672>=</span> {<span style=color:#ae81ff>1</span>: <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>2</span>: <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>: <span style=color:#ae81ff>1</span>}
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>print(mydict)
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>print(list(mydict<span style=color:#f92672>.</span>keys()))
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span>print(list(mydict<span style=color:#f92672>.</span>values()))
-</span></span></code></pre></div><ol start=4><li>On chars and strings.</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># You can also sort characters. In some cases this may be helpful (such as checking equality)</span>
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span>ord(<span style=color:#e6db74>&#39;a&#39;</span>) returns the unicode of the alphabet<span style=color:#f92672>.</span> then you can do <span style=color:#f92672>+</span><span style=color:#ae81ff>1</span> to increment it<span style=color:#f92672>.</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>then you can use chr() to convert it back to the word
-</span></span></code></pre></div><ol start=5><li>On Lists and Tuples.</li></ol><p>Lists are mutable (can be changed after creation) but tuples are immutable. We can perform type conversion with <code>tuple()</code> and <code>list()</code> to convert between them.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#75715e># Tuples are immutable</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>b <span style=color:#f92672>=</span> tuple([<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>]) <span style=color:#75715e># tuple expects single iterable argument like a list during creation</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>b[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span> <span style=color:#75715e># This raises TypeError: &#39;tuple&#39; object does not support item assignment</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span><span style=color:#75715e># Lists are mutable</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>a <span style=color:#f92672>=</span> [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>]
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>a[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span> <span style=color:#75715e># This works! Lists can be modified</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span>print(a) <span style=color:#75715e># [10, 2, 3]</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span><span style=color:#75715e># If we do tuple() on a list, it becomes immutable</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>a <span style=color:#f92672>=</span> [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>]
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>b <span style=color:#f92672>=</span> tuple(a)
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span>b[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span> <span style=color:#75715e># This is NOT allowed</span>
-</span></span></code></pre></div><ol start=6><li>Why do we need a semicolon after break? <code>break;</code></li></ol><ul><li>We don&rsquo;t, its optional. Both break and break; work exactly the same way.</li></ul><hr><p>Additionally, here are some Python tricks I learned from watching <a href=https://www.youtube.com/andrejkarpathy>Youtube videos</a> from Karpathy (a wizard):</p><ol><li>Using zip to grab pairs of items.</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span>ids <span style=color:#f92672>=</span> [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>]
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span><span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> zip(ids, ids[<span style=color:#ae81ff>1</span>:]): 
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>    print(item) <span style=color:#75715e># Gets the pairs (1,2), (2,3), (3,4)</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span>                <span style=color:#75715e># If its changed to ids[2:] we get (1,3), (2,4)</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span><span style=color:#75715e># Utilizing zip to traverse the upper triangle (discussed above).</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>nums <span style=color:#f92672>=</span> [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>]
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>, len(nums)):
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span>    <span style=color:#66d9ef>for</span> item <span style=color:#f92672>in</span> zip(nums, nums[i:]):
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>        print(item)
-</span></span></code></pre></div><ol start=2><li>Returning conditions instead of if-else.</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># 1. Instead of using if and else like this:</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span><span style=color:#66d9ef>if</span> pattern_word <span style=color:#f92672>==</span> pattern:
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">4</span><span><span style=color:#66d9ef>else</span>:
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">5</span><span>    <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">6</span><span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">7</span><span><span style=color:#75715e># 2. Return the condition itself</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">8</span><span><span style=color:#66d9ef>return</span> pattern_word <span style=color:#f92672>==</span> pattern
-</span></span></code></pre></div><ol start=3><li>Printing variables with their names.</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Print a variable with its name</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>print(<span style=color:#e6db74>f</span><span style=color:#e6db74>&#39;</span><span style=color:#e6db74>{</span>log_likelihood<span style=color:#e6db74>=}</span><span style=color:#e6db74>&#39;</span>)
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">3</span><span><span style=color:#75715e># prints log_likelihood=tensor(-38.7856)</span>
-</span></span></code></pre></div><ol start=4><li>Joining a list of strings.</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1</span><span><span style=color:#75715e># Join a list of strings</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2</span><span>words <span style=color:#f92672>=</span> [<span style=color:#e6db74>&#34;Hello&#34;</span>, <span style=color:#e6db74>&#34;World!&#34;</span>]
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3</span><span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4</span><span><span style=color:#75715e># Join with empty string</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5</span><span>result1 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>join(words)
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6</span><span>print(result1)  <span style=color:#75715e># HelloWorld!</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7</span><span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8</span><span><span style=color:#75715e># Instead of empty string, you can use space, comma, newline etc.</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9</span><span><span style=color:#75715e># Join with space</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10</span><span>result2 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39; &#39;</span><span style=color:#f92672>.</span>join(words)
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11</span><span>print(result2)  <span style=color:#75715e># Hello World!</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12</span><span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13</span><span><span style=color:#75715e># Join with newline</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14</span><span>result4 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#39;</span><span style=color:#f92672>.</span>join(words)
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15</span><span>print(result4)
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16</span><span><span style=color:#75715e># Hello</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17</span><span><span style=color:#75715e># World!</span>
-</span></span></code></pre></div><ol start=5><li>Initializing an array of given size.</li></ol><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">1</span><span><span style=color:#75715e># Initializing an array of given size</span>
-</span></span><span style=display:flex><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">2</span><span>new_arr <span style=color:#f92672>=</span> [<span style=color:#ae81ff>0</span>] <span style=color:#f92672>*</span> size
-</span></span></code></pre></div></div><footer class=post-footer><ul class=post-tags></ul></footer></article></main><footer class=footer><span></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script></body></html>
+The order of keys and values in <code>dict_keys</code> and <code>dict_values</code> are same as that in the dict (preserves insertion order).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>mydict <span style="color:#f92672">=</span> {<span style="color:#ae81ff">1</span>: <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>: <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>: <span style="color:#ae81ff">1</span>}
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>print(mydict)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>print(list(mydict<span style="color:#f92672">.</span>keys()))
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>print(list(mydict<span style="color:#f92672">.</span>values()))
+</span></span></code></pre></div><ol start="4">
+<li>On chars and strings.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#75715e"># You can also sort characters. In some cases this may be helpful (such as checking equality)</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>ord(<span style="color:#e6db74">&#39;a&#39;</span>) returns the unicode of the alphabet<span style="color:#f92672">.</span> then you can do <span style="color:#f92672">+</span><span style="color:#ae81ff">1</span> to increment it<span style="color:#f92672">.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>then you can use chr() to convert it back to the word
+</span></span></code></pre></div><ol start="5">
+<li>On Lists and Tuples.</li>
+</ol>
+<p>Lists are mutable (can be changed after creation) but tuples are immutable. We can perform type conversion with <code>tuple()</code> and <code>list()</code> to convert between them.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#75715e"># Tuples are immutable</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>b <span style="color:#f92672">=</span> tuple([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]) <span style="color:#75715e"># tuple expects single iterable argument like a list during creation</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>b[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#75715e"># This raises TypeError: &#39;tuple&#39; object does not support item assignment</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span><span style="color:#75715e"># Lists are mutable</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>a[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#75715e"># This works! Lists can be modified</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>print(a) <span style="color:#75715e"># [10, 2, 3]</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span><span style="color:#75715e"># If we do tuple() on a list, it becomes immutable</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>b <span style="color:#f92672">=</span> tuple(a)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>b[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#75715e"># This is NOT allowed</span>
+</span></span></code></pre></div><ol start="6">
+<li>Why do we need a semicolon after break? <code>break;</code></li>
+</ol>
+<ul>
+<li>We don&rsquo;t, its optional. Both break and break; work exactly the same way.</li>
+</ul>
+<hr>
+<p>Additionally, here are some Python tricks I learned from watching <a href="https://www.youtube.com/andrejkarpathy">Youtube videos</a> from Karpathy (a wizard):</p>
+<ol>
+<li>Using zip to grab pairs of items.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>ids <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span><span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> zip(ids, ids[<span style="color:#ae81ff">1</span>:]): 
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>    print(item) <span style="color:#75715e"># Gets the pairs (1,2), (2,3), (3,4)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>                <span style="color:#75715e"># If its changed to ids[2:] we get (1,3), (2,4)</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span><span style="color:#75715e"># Utilizing zip to traverse the upper triangle (discussed above).</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>nums <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, len(nums)):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>    <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> zip(nums, nums[i:]):
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>        print(item)
+</span></span></code></pre></div><ol start="2">
+<li>Returning conditions instead of if-else.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#75715e"># 1. Instead of using if and else like this:</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#66d9ef">if</span> pattern_word <span style="color:#f92672">==</span> pattern:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">True</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span><span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">False</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7</span><span><span style="color:#75715e"># 2. Return the condition itself</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8</span><span><span style="color:#66d9ef">return</span> pattern_word <span style="color:#f92672">==</span> pattern
+</span></span></code></pre></div><ol start="3">
+<li>Printing variables with their names.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#75715e"># Print a variable with its name</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">{</span>log_likelihood<span style="color:#e6db74">=}</span><span style="color:#e6db74">&#39;</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span><span style="color:#75715e"># prints log_likelihood=tensor(-38.7856)</span>
+</span></span></code></pre></div><ol start="4">
+<li>Joining a list of strings.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span><span style="color:#75715e"># Join a list of strings</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>words <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;Hello&#34;</span>, <span style="color:#e6db74">&#34;World!&#34;</span>]
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span><span style="color:#75715e"># Join with empty string</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>result1 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;</span><span style="color:#f92672">.</span>join(words)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>print(result1)  <span style="color:#75715e"># HelloWorld!</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span><span style="color:#75715e"># Instead of empty string, you can use space, comma, newline etc.</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span><span style="color:#75715e"># Join with space</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>result2 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39; &#39;</span><span style="color:#f92672">.</span>join(words)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>print(result2)  <span style="color:#75715e"># Hello World!</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span><span style="color:#75715e"># Join with newline</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>result4 <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#39;</span><span style="color:#f92672">.</span>join(words)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>print(result4)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span><span style="color:#75715e"># Hello</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span><span style="color:#75715e"># World!</span>
+</span></span></code></pre></div><ol start="5">
+<li>Initializing an array of given size.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#75715e"># Initializing an array of given size</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>new_arr <span style="color:#f92672">=</span> [<span style="color:#ae81ff">0</span>] <span style="color:#f92672">*</span> size
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    
+    <span>
+        
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

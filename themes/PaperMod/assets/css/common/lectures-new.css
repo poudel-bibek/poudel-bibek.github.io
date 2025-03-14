@@ -1,0 +1,281 @@
+/* Clean, simplified styling for the lectures page */
+
+/* SCOPE EVERYTHING to the lectures page so we don't affect other pages */
+/* Wrapper selector to scope all rules */
+.lecture-page .content,
+.post-single.lectures,
+body[class*="lectures"] .post-content,
+body[class*="lecture"] .post-content,
+.post-content[data-path^="/lectures"] {
+    /* Base styles for lectures page content */
+}
+
+/* Override .main style for list pages to remove top border */
+.lecture-page main,
+body[class*="lectures"] main {
+    border-top: none !important;
+}
+
+/* Override section styling to remove borders - ONLY for lectures */
+body[class*="lectures"] .main > .article-list, 
+body[class*="lectures"] .main > .first-entry, 
+body[class*="lectures"] .main > article, 
+body[class*="lectures"] .main > .entry-header,
+body[class*="lectures"] .main > .page-header {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+/* Target all possible heading elements - ONLY for lectures page */
+body[class*="lectures"] h1, 
+body[class*="lectures"] h2, 
+body[class*="lectures"] h3, 
+body[class*="lectures"] h5, 
+body[class*="lectures"] h6,
+body[class*="lectures"] .post-title, 
+body[class*="lectures"] .page-title, 
+body[class*="lectures"] .entry-title {
+    border: none !important;
+    border-bottom: none !important;
+    border-top: none !important;
+    box-shadow: none !important;
+}
+
+/* Target all possible header containers - ONLY for lectures */
+body[class*="lectures"] header, 
+body[class*="lectures"] .header, 
+body[class*="lectures"] .post-header, 
+body[class*="lectures"] .page-header, 
+body[class*="lectures"] .entry-header {
+    border: none !important;
+    border-bottom: none !important;
+    border-top: none !important;
+    margin-bottom: 0 !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+    position: relative;
+}
+
+/* Remove pseudo-elements that might be creating lines - ONLY for lectures */
+body[class*="lectures"] header::after, 
+body[class*="lectures"] header::before,
+body[class*="lectures"] .header::after, 
+body[class*="lectures"] .header::before,
+body[class*="lectures"] .post-header::after, 
+body[class*="lectures"] .post-header::before,
+body[class*="lectures"] .page-header::after, 
+body[class*="lectures"] .page-header::before,
+body[class*="lectures"] h1::after, 
+body[class*="lectures"] h1::before,
+body[class*="lectures"] .post-title::after, 
+body[class*="lectures"] .post-title::before {
+    display: none !important;
+    content: none !important;
+    border: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+/* Remove any borders from top-level elements - ONLY for lectures */
+body[class*="lectures"] .post-single, 
+body[class*="lectures"] main, 
+body[class*="lectures"] article, 
+body[class*="lectures"] .main, 
+body[class*="lectures"] .content {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+/* Control content styling precisely - ONLY for lectures */
+body[class*="lectures"] .post-single .post-content {
+    margin-top: 30px;
+    position: relative;
+}
+
+/* Style for the intro paragraph - ONLY for lectures */
+body[class*="lectures"] .post-content > p:first-of-type {
+    margin-top: calc(var(--gap) * 1.5);
+    margin-bottom: calc(var(--gap) * 1.5);
+}
+
+/* Hide the first horizontal rule that appears right after the intro paragraph */
+body[class*="lectures"] .post-content > p:first-of-type + hr {
+    display: none;
+}
+
+/* Style lecture section titles to match publication titles */
+body[class*="lectures"] .post-content h4,
+.lecture-entry h2 {
+    margin: 0 0 8px 0;
+    padding-top: calc(var(--gap) * 1.5);
+    padding-bottom: 0;
+    font-size: 1.3em;
+    line-height: 1.4;
+    font-weight: 500;
+    color: var(--primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Style horizontal rules exactly like in projects/publications - border-bottom on containers */
+body[class*="lectures"] .post-content hr,
+.lectures-container .lecture-entry {
+    display: block !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    border-bottom: 1px solid var(--tertiary) !important; /* Match projects/publications exactly */
+    background: transparent !important;
+}
+
+/* Create lecture sections that mimic project-entry/publication-entry */
+body[class*="lectures"] .post-content h4 + *,
+body[class*="lectures"] .post-content h4 ~ p,
+body[class*="lectures"] .post-content h4 ~ ul {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+/* Create spacing after sections like in projects/publications */
+body[class*="lectures"] .post-content h4 + *,
+body[class*="lectures"] .post-content h4 ~ p:last-of-type,
+body[class*="lectures"] .post-content h4 ~ ul:last-of-type {
+    padding-bottom: calc(var(--gap) * 1.5);
+}
+
+/* Style for lists within lectures page - ONLY for lectures */
+body[class*="lectures"] .post-content ul,
+.lecture-entry ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Style list items in lecture sections */
+body[class*="lectures"] .post-content ul li,
+.lecture-entry ul li {
+    margin-bottom: 4px;
+}
+
+/* Style links in lecture sections to match publications links */
+body[class*="lectures"] .post-content a,
+.lecture-entry a {
+    color: var(--primary);
+    text-decoration: none;
+    box-shadow: none;
+}
+
+body[class*="lectures"] .post-content a:hover,
+.lecture-entry a:hover {
+    text-decoration: underline;
+}
+
+/* Special styling for links paragraph to match projects/publications */
+.lecture-entry .links,
+.lecture-details .links {
+    margin: 0;
+    color: var(--secondary);
+    font-size: 0.9em;
+}
+
+.lecture-entry .links a,
+.lecture-details .links a {
+    color: var(--primary);
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+.lecture-entry .links a:hover,
+.lecture-details .links a:hover {
+    text-decoration: underline;
+}
+
+/* Styling for lecture links with bullets */
+.lecture-links {
+    margin: 0;
+    padding-left: 20px;
+    list-style-type: disc;
+    color: var(--secondary);
+    font-size: 0.9em;
+    margin-bottom: 0;
+}
+
+.lecture-links li {
+    margin-bottom: 8px;
+}
+
+.lecture-links li:last-child {
+    margin-bottom: 0;
+}
+
+.lecture-links a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.lecture-links a:hover {
+    text-decoration: underline;
+}
+
+/* Ensure consistent spacing between sections */
+body[class*="lectures"] .post-content hr + h4 {
+    margin-top: 0;
+    border-top: none !important;
+} 
+
+/* Additional styles for the lectures layout */
+.lectures-container {
+    margin-top: 30px;
+    border-top: 1px solid var(--tertiary);
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* Add significant space with the spacer div */
+.lecture-spacer {
+    height: 40px; /* Large explicit height */
+    min-height: 40px;
+    width: 100%;
+    display: block;
+    clear: both;
+}
+
+.lecture-entry {
+    margin-bottom: 0;
+    padding-top: calc(var(--gap) * 2);
+    padding-bottom: 0; /* Remove bottom padding as we're using the spacer */
+    border-bottom: 1px solid var(--tertiary);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative; /* For absolute positioning if needed */
+}
+
+.lecture-content {
+    display: flex;
+    gap: var(--gap);
+    align-items: flex-start;
+}
+
+.lecture-details {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.lecture-details h2 {
+    margin: 0 0 16px 0;
+    font-size: 1.3em;
+    line-height: 1.4;
+    font-weight: 500;
+    color: var(--primary);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* More spacing for the last lecture */
+.lecture-entry:last-child .lecture-spacer {
+    height: 50px; /* Even more height for the last one */
+}
+
+/* First lecture should have proper top padding */
+.lecture-entry:first-child {
+    padding-top: calc(var(--gap) * 2);
+} 

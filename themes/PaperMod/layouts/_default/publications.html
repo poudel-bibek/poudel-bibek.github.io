@@ -1,0 +1,107 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <h1>
+    {{ .Title }}
+  </h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description }}
+  </div>
+  {{- end }}
+</header>
+
+<!-- 
+  Display the header image from the static directory
+  NOTE: While images are in content/posts/publications/images/, they are copied to static/posts/publications/images/
+  for serving, because Hugo only serves static assets from the /static directory by default.
+-->
+<div class="post-content">
+  <img src="/posts/publications/images/publications.png" alt="Publications Banner" />
+</div>
+
+<!-- Publications Content -->
+<div class="publications-container">
+  {{ $content := .RawContent }}
+  {{ $publications := split $content "-------------------" }}
+  {{ range $index, $part := $publications }}
+    {{ if gt $index 0 }}
+      {{ $part := $part | default "" }}
+      {{ if ne $part "" }}
+        {{ $title := findRE "####\\s+(.+)" $part 1 }}
+        {{ $titleText := "" }}
+        {{ if $title }}
+          {{ $titleText = replaceRE "####\\s+(.+)" "$1" (index $title 0) }}
+          
+          <!-- Extract thumbnail name from the [thumbnail:name] tag -->
+          {{ $thumbnailTag := findRE "\\[thumbnail:([^\\]]+)\\]" $part 1 }}
+          {{ $shortName := "" }}
+          
+          {{ if $thumbnailTag }}
+            {{ $shortName = replaceRE "\\[thumbnail:([^\\]]+)\\]" "$1" (index $thumbnailTag 0) }}
+          {{ end }}
+          
+          <!-- Get the content without the title and thumbnail tag -->
+          {{ $withoutTitle := replaceRE "####\\s+(.+)" "" $part 1 }}
+          {{ $cleanContent := replaceRE "\\[thumbnail:[^\\]]+\\]" "" $withoutTitle }}
+          
+          <!-- Extract lines more reliably, filtering out empty lines -->
+          {{ $contentLines := split $cleanContent "\n" }}
+          {{ $nonEmptyLines := slice }}
+          {{ range $contentLines }}
+            {{ $trimmedLine := . | replaceRE "^\\s+|\\s+$" "" }}
+            {{ if ne $trimmedLine "" }}
+              {{ $nonEmptyLines = $nonEmptyLines | append . }}
+            {{ end }}
+          {{ end }}
+          
+          <!-- Assign content to variables based on line content patterns -->
+          {{ $authors := "" }}
+          {{ $venue := "" }}
+          {{ $links := "" }}
+          
+          {{ range $idx, $line := $nonEmptyLines }}
+            {{ $trimmedLine := $line | replaceRE "^\\s+|\\s+$" "" }}
+            
+            <!-- Check if this line contains markdown formatting like __Name__ -->
+            {{ if findRE "__[^_]+__" $line }}
+              {{ $authors = $line }}
+            <!-- Check if this line looks like a venue (publication details) -->
+            {{ else if and (eq $venue "") (not (hasPrefix $trimmedLine "[")) }}
+              {{ $venue = $line }}
+            <!-- Check if this line has markdown links -->
+            {{ else if hasPrefix $trimmedLine "[" }}
+              {{ $links = $line }}
+            {{ end }}
+          {{ end }}
+          
+          <article class="publication-entry">
+            <div class="publication-content">
+              <div class="publication-thumbnail">
+                <!-- 
+                  Thumbnails are loaded from static directory
+                  Original images are in content/posts/publications/thumbnails/ but served from static directory
+                -->
+                <img src="/posts/publications/thumbnails/{{ $shortName }}.png" alt="{{ $titleText }}" loading="lazy">
+              </div>
+              <div class="publication-details">
+                <h2>{{ $titleText }}</h2>
+                {{ if $authors }}
+                  <p class="authors">{{ $authors | markdownify }}</p>
+                {{ end }}
+                {{ if $venue }}
+                  <p class="venue">{{ $venue | markdownify }}</p>
+                {{ end }}
+                {{ if $links }}
+                  <p class="links">{{ $links | markdownify }}</p>
+                {{ end }}
+              </div>
+            </div>
+          </article>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</div>
+
+{{- end }}{{/* end main */}} 

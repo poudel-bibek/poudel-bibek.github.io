@@ -1,3 +1,43 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>Introduction to AML 2021</title><style>html,body{margin:0;padding:0;width:100%;height:100%;overflow:hidden}iframe{width:100%;height:100%;border:none;position:absolute;top:0;left:0}</style></head><body><iframe id=pdf-iframe src=/pdfs/slides/Intro_to_AML_2021.pdf>This browser does not support PDFs. Please download the PDF to view it:
-<a href=/pdfs/slides/Intro_to_AML_2021.pdf>Download PDF</a></iframe>
-<script>function adjustPdfZoom(){var e=document.getElementById("pdf-iframe");window.innerWidth<=800?e.src="/pdfs/slides/Intro_to_AML_2021.pdf#zoom=50":e.src="/pdfs/slides/Intro_to_AML_2021.pdf"}window.addEventListener("load",adjustPdfZoom),window.addEventListener("resize",adjustPdfZoom)</script></body></html>
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Introduction to AML 2021</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="pdf-iframe" src="/pdfs/slides/Intro_to_AML_2021.pdf">
+        This browser does not support PDFs. Please download the PDF to view it: 
+        <a href="/pdfs/slides/Intro_to_AML_2021.pdf">Download PDF</a>
+    </iframe>
+    <script>
+        function adjustPdfZoom() {
+            var iframe = document.getElementById('pdf-iframe');
+            if (window.innerWidth <= 800) {
+                iframe.src = "\/pdfs\/slides\/Intro_to_AML_2021.pdf#zoom=50";
+            } else {
+                iframe.src = "\/pdfs\/slides\/Intro_to_AML_2021.pdf";
+            }
+        }
+        window.addEventListener('load', adjustPdfZoom);
+        window.addEventListener('resize', adjustPdfZoom);
+    </script>
+</body>
+</html>

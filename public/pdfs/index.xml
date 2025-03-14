@@ -1,1 +1,118 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Pdfs on</title><link>https://poudel-bibek.github.io/pdfs/</link><description>Recent content in Pdfs on</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://poudel-bibek.github.io/pdfs/index.xml" rel="self" type="application/rss+xml"/><item><title>3D Delta Printer Report</title><link>https://poudel-bibek.github.io/pdfs/reports/3d_delta_printer/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/reports/3d_delta_printer/</guid><description/></item><item><title>Bibek Poudel's CV</title><link>https://poudel-bibek.github.io/pdfs/cv/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/cv/</guid><description/></item><item><title>Bibek Poudel's Resume</title><link>https://poudel-bibek.github.io/pdfs/resume/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/resume/</guid><description/></item><item><title>Data Mining Project: Contrastive Learning</title><link>https://poudel-bibek.github.io/pdfs/projects/datamining/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/projects/datamining/</guid><description/></item><item><title>DQN Defense Project</title><link>https://poudel-bibek.github.io/pdfs/projects/defense/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/projects/defense/</guid><description/></item><item><title>Introduction to AML 2021</title><link>https://poudel-bibek.github.io/pdfs/slides/intro_to_aml/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/slides/intro_to_aml/</guid><description/></item><item><title>Introduction to Transformers 2023</title><link>https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers/</guid><description/></item><item><title>Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning</title><link>https://poudel-bibek.github.io/pdfs/projects/joint_control/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/projects/joint_control/</guid><description/></item><item><title>Optimization and SGD 2023</title><link>https://poudel-bibek.github.io/pdfs/slides/optimization_sgd/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/slides/optimization_sgd/</guid><description/></item><item><title>Research Proposal</title><link>https://poudel-bibek.github.io/pdfs/projects/proposal/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/projects/proposal/</guid><description/></item><item><title>SUMO Class</title><link>https://poudel-bibek.github.io/pdfs/slides/sumo_class/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://poudel-bibek.github.io/pdfs/slides/sumo_class/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Pdfs on </title>
+    <link>https://poudel-bibek.github.io/pdfs/</link>
+    <description>Recent content in Pdfs on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://poudel-bibek.github.io/pdfs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3D Delta Printer Report</title>
+      <link>https://poudel-bibek.github.io/pdfs/reports/3d_delta_printer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/reports/3d_delta_printer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bibek Poudel&#39;s CV</title>
+      <link>https://poudel-bibek.github.io/pdfs/cv/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/cv/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bibek Poudel&#39;s Resume</title>
+      <link>https://poudel-bibek.github.io/pdfs/resume/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/resume/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Mining Project: Contrastive Learning</title>
+      <link>https://poudel-bibek.github.io/pdfs/projects/datamining/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/projects/datamining/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DQN Defense Project</title>
+      <link>https://poudel-bibek.github.io/pdfs/projects/defense/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/projects/defense/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introduction to AML 2021</title>
+      <link>https://poudel-bibek.github.io/pdfs/slides/intro_to_aml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/slides/intro_to_aml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Introduction to Transformers 2023</title>
+      <link>https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning</title>
+      <link>https://poudel-bibek.github.io/pdfs/projects/joint_control/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/projects/joint_control/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Optimization and SGD 2023</title>
+      <link>https://poudel-bibek.github.io/pdfs/slides/optimization_sgd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/slides/optimization_sgd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PulseRide</title>
+      <link>https://poudel-bibek.github.io/pdfs/projects/pulseride/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/projects/pulseride/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Research Proposal</title>
+      <link>https://poudel-bibek.github.io/pdfs/projects/proposal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/projects/proposal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SUMO Class</title>
+      <link>https://poudel-bibek.github.io/pdfs/slides/sumo_class/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://poudel-bibek.github.io/pdfs/slides/sumo_class/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

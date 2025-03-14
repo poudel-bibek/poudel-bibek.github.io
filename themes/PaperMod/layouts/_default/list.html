@@ -41,10 +41,22 @@
 
 {{- $pages := union .RegularPages .Sections }}
 
+{{- /* First, filter out all drafts */}}
+{{- $pages = where $pages "Draft" "ne" true }}
+
+{{- if eq .Title "Blog" }}
+   {{- /* Special handling for Blog page */}}
+   {{- $pages = where $pages "Params.excludeFromBlog" "ne" true }}
+   {{- $pages = where $pages "Draft" "ne" true }}
+{{- end }}
+
 {{- if .IsHome }}
-{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
-{{- $pages = where $pages "Params.hiddenInHomeList" "ne" true  }}
-{{- $pages = where $pages "Params.excludeFromBlog" "ne" true  }}
+   {{- /* Special handling for Home page */}}
+   {{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+   {{- $pages = where $pages "Draft" "ne" true }}
+   {{- $pages = where $pages "Params.hiddenInHomeList" "ne" true }}
+   {{- $pages = where $pages "Params.excludeFromBlog" "ne" true }}
+   {{- $pages = where $pages "Params.hidden" "ne" true }}
 {{- end }}
 
 {{- $paginator := .Paginate $pages }}

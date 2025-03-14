@@ -1,0 +1,56 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <h1>
+    {{ .Title }}
+  </h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description }}
+  </div>
+  {{- end }}
+</header>
+
+<!-- 
+  Display the header image from the static directory
+-->
+<div class="post-content">
+  <img src="/lectures/images/lectures.png" alt="Lectures Banner" />
+</div>
+
+<!-- Lectures Content -->
+<div class="projects-container lectures-container">
+  {{ $content := .RawContent }}
+  {{ $lectures := split $content "-------------------" }}
+  {{ range $index, $part := $lectures }}
+    {{ if gt $index 0 }}
+      {{ $part := $part | default "" }}
+      {{ if ne $part "" }}
+        {{ $title := findRE "####\\s+(.+)" $part 1 }}
+        {{ $titleText := "" }}
+        {{ if $title }}
+          {{ $titleText = replaceRE "####\\s+(.+)" "$1" (index $title 0) }}
+          
+          <!-- Process content without changing bullets -->
+          {{ $contentWithoutTitle := replaceRE "####\\s+(.+)" "" $part 1 }}
+          
+          <article class="project-entry lecture-entry">
+            <div class="project-content lecture-content">
+              <div class="project-details lecture-details">
+                <h2>{{ $titleText }}</h2>
+                <!-- Use the original content formatting but add links class -->
+                <ul class="lecture-links">
+                  {{ $contentWithoutTitle | markdownify }}
+                </ul>
+                <!-- Add an empty spacer div -->
+                <div class="lecture-spacer"></div>
+              </div>
+            </div>
+          </article>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+</div>
+
+{{- end }}{{/* end main */}} 

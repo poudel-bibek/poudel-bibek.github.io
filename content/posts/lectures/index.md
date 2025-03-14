@@ -5,9 +5,8 @@ draft: false
 hidemeta : true
 ShowBreadCrumbs: false
 hiddenInHomeList: true
+layout: lectures
 ---
-
-![image](images/lectures.png)
 
 I have been a guest lecturer in graduate and undergraduate courses such as Machine Learning, Artificial Intelligence, and Intro to Neurocomputing.
 
@@ -34,3 +33,5 @@ I have been a guest lecturer in graduate and undergraduate courses such as Machi
 #### SUMO Various Topics
 
 - [Slides (2024)](https://poudel-bibek.github.io/pdfs/slides/sumo_class)
+
+-------------------

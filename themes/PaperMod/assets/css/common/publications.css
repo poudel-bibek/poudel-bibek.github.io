@@ -1,0 +1,94 @@
+.publication-entry {
+    margin-bottom: 0;
+    padding: calc(var(--gap) * 1.5) 0;
+    border-bottom: 1px solid var(--tertiary);
+}
+
+.publication-entry:hover {
+    /* No special hover effect needed with separator lines */
+}
+
+.publication-content {
+    display: flex;
+    gap: var(--gap);
+    align-items: flex-start;
+}
+
+.publication-thumbnail {
+    flex-shrink: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.publication-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.publication-details {
+    flex-grow: 1;
+}
+
+.publication-details h2 {
+    margin: 0 0 8px 0;
+    font-size: 1.2em;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.publication-details .authors {
+    margin: 0 0 4px 0;
+    color: var(--secondary);
+    font-size: 0.9em;
+}
+
+.publication-details .venue {
+    margin: 0 0 4px 0;
+    color: var(--secondary);
+    font-size: 0.9em;
+    font-style: italic;
+}
+
+.publication-details .links {
+    margin: 0;
+    color: var(--secondary);
+    font-size: 0.9em;
+}
+
+.publication-details .links a {
+    color: var(--primary);
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+.publication-details .links a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .publication-content {
+        flex-direction: column;
+    }
+    
+    .publication-thumbnail {
+        width: 100%;
+        height: 200px;
+        margin-bottom: var(--gap);
+    }
+}
+
+/* Add gap between the top image and publications list */
+.publications-container {
+    margin-top: 30px;
+    border-top: 1px solid var(--tertiary);
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/* First publication should have proper top padding */
+.publication-entry:first-child {
+    padding-top: calc(var(--gap) * 1.5);
+} 

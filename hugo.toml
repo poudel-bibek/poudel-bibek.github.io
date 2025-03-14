@@ -4,6 +4,7 @@ title = ''
 theme = 'PaperMod'
 
 [params]
+  defaultTheme = "dark"
   ShowReadingTime = true
   ShowBreadCrumbs = false
   ShowPostNavLinks = false

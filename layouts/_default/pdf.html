@@ -2,8 +2,14 @@
 <html lang="{{ .Site.LanguageCode }}">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Title }}</title>
+    <!-- Include PDF.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script>
+        // Set worker path
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+    </script>
     <style>
         html, body {
             margin: 0;
@@ -11,33 +17,310 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
+            background-color: #444;
         }
-        iframe {
+        #viewer-container {
             width: 100%;
             height: 100%;
-            border: none;
+            overflow: auto;
             position: absolute;
             top: 0;
             left: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        #pdf-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #333;
+            color: white;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        #pdf-controls button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            background: #555;
+            border: none;
+            color: white;
+            border-radius: 3px;
+        }
+        #pdf-controls button:hover {
+            background: #777;
+        }
+        #page-info {
+            margin: 0 10px;
+            white-space: nowrap;
+        }
+        #pdf-viewer {
+            flex: 1;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .pdf-page {
+            margin-bottom: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        #download-link {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: #0069d9;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            z-index: 100;
+        }
+        #download-link:hover {
+            background: #0056b3;
+        }
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .pdf-page canvas {
+                width: 100% !important;
+                height: auto !important;
+                max-width: calc(100vw - 20px);
+            }
+            #pdf-controls {
+                padding: 5px;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+            #page-info {
+                order: -1;
+                width: 100%;
+                text-align: center;
+                margin-bottom: 5px;
+            }
         }
     </style>
 </head>
 <body>
-    <iframe id="pdf-iframe" src="{{ .Params.pdf }}">
-        This browser does not support PDFs. Please download the PDF to view it: 
-        <a href="{{ .Params.pdf }}">Download PDF</a>
-    </iframe>
+    <div id="viewer-container">
+        <div id="pdf-controls">
+            <button id="prev-page">Previous</button>
+            <span id="page-info">Page <span id="page-num">1</span> / <span id="page-count">1</span></span>
+            <button id="next-page">Next</button>
+            <button id="zoom-out">-</button>
+            <button id="zoom-in">+</button>
+        </div>
+        <div id="pdf-viewer"></div>
+    </div>
+    <a id="download-link" href="{{ .Params.pdf }}" download>Download PDF</a>
+
     <script>
-        function adjustPdfZoom() {
-            var iframe = document.getElementById('pdf-iframe');
-            if (window.innerWidth <= 800) {
-                iframe.src = "{{ .Params.pdf }}#zoom=50";
-            } else {
-                iframe.src = "{{ .Params.pdf }}";
+        // PDF viewing settings
+        let pdfDoc = null,
+            pageNum = 1,
+            pageRendering = false,
+            pageNumPending = null,
+            scale = 1.0,
+            pagesRendered = new Set();
+        
+        const container = document.getElementById('pdf-viewer');
+        const prevButton = document.getElementById('prev-page');
+        const nextButton = document.getElementById('next-page');
+        const pageNumDisplay = document.getElementById('page-num');
+        const pageCountDisplay = document.getElementById('page-count');
+        const zoomInButton = document.getElementById('zoom-in');
+        const zoomOutButton = document.getElementById('zoom-out');
+
+        // Detect if we're on mobile
+        const isMobile = window.innerWidth <= 768;
+        if (isMobile) {
+            scale = 1.0; // Start with full width on mobile
+        }
+
+        // Load the PDF
+        pdfjsLib.getDocument('{{ .Params.pdf }}').promise.then(function(pdf) {
+            pdfDoc = pdf;
+            pageCountDisplay.textContent = pdf.numPages;
+            
+            // Initial render of first page
+            renderPage(1);
+            
+            // Pre-render additional pages if on mobile
+            if (isMobile) {
+                // Pre-render first 3 pages
+                for (let i = 2; i <= Math.min(3, pdf.numPages); i++) {
+                    renderPage(i);
+                }
+            }
+        }).catch(function(error) {
+            console.error('Error loading PDF:', error);
+            container.innerHTML = '<p style="color: white; text-align: center; margin-top: 50px;">Failed to load PDF. Please try downloading it instead.</p>';
+        });
+
+        // Render a specific page
+        function renderPage(num) {
+            if (pagesRendered.has(num)) return;
+            
+            pageRendering = true;
+            
+            // Create a div for this page
+            const pageDiv = document.createElement('div');
+            pageDiv.className = 'pdf-page';
+            pageDiv.id = `page-${num}`;
+            container.appendChild(pageDiv);
+            
+            // Get the page
+            pdfDoc.getPage(num).then(function(page) {
+                const viewport = page.getViewport({ scale: scale });
+                
+                // Create a canvas for this page
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                
+                // If mobile, adjust canvas width
+                if (isMobile) {
+                    const containerWidth = container.clientWidth - 20; // Account for padding
+                    const ratio = containerWidth / canvas.width;
+                    canvas.width = containerWidth;
+                    canvas.height = viewport.height * ratio;
+                    viewport.width = containerWidth;
+                    viewport.height = viewport.height * ratio;
+                }
+                
+                pageDiv.appendChild(canvas);
+                
+                // Render the page
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                
+                page.render(renderContext).promise.then(function() {
+                    pageRendering = false;
+                    pagesRendered.add(num);
+                    
+                    // If we're scrolling down, ensure more pages are loaded
+                    if (num === pageNum) {
+                        // Check if we need to render more pages
+                        if (container.scrollTop + container.clientHeight > pageDiv.offsetTop + pageDiv.offsetHeight/2) {
+                            if (num < pdfDoc.numPages) {
+                                renderPage(num + 1);
+                            }
+                        }
+                    }
+                });
+            });
+        }
+
+        // Update page counters
+        function updateUI() {
+            pageNumDisplay.textContent = pageNum;
+            
+            // Manage button states
+            prevButton.disabled = pageNum <= 1;
+            nextButton.disabled = pageNum >= pdfDoc.numPages;
+            
+            // Check if we need to render the next page
+            if (!pagesRendered.has(pageNum + 1) && pageNum < pdfDoc.numPages) {
+                renderPage(pageNum + 1);
+            }
+            
+            // Scroll to current page
+            const currentPage = document.getElementById(`page-${pageNum}`);
+            if (currentPage) {
+                currentPage.scrollIntoView();
             }
         }
-        window.addEventListener('load', adjustPdfZoom);
-        window.addEventListener('resize', adjustPdfZoom);
+
+        // Previous page button
+        prevButton.addEventListener('click', function() {
+            if (pageNum <= 1) return;
+            pageNum--;
+            updateUI();
+        });
+
+        // Next page button
+        nextButton.addEventListener('click', function() {
+            if (pageNum >= pdfDoc.numPages) return;
+            pageNum++;
+            updateUI();
+        });
+
+        // Zoom in button
+        zoomInButton.addEventListener('click', function() {
+            scale += 0.25;
+            // Clear and re-render with new scale
+            container.innerHTML = '';
+            pagesRendered.clear();
+            renderPage(pageNum);
+            updateUI();
+        });
+
+        // Zoom out button
+        zoomOutButton.addEventListener('click', function() {
+            if (scale <= 0.5) return;
+            scale -= 0.25;
+            // Clear and re-render with new scale
+            container.innerHTML = '';
+            pagesRendered.clear();
+            renderPage(pageNum);
+            updateUI();
+        });
+
+        // Handle scroll to load more pages (lazy loading)
+        container.addEventListener('scroll', function() {
+            if (pageRendering) return;
+            
+            const pages = document.querySelectorAll('.pdf-page');
+            let closestPage = 1;
+            let closestDistance = Infinity;
+            
+            // Find which page is most visible in the viewport
+            pages.forEach(function(page) {
+                const pageId = parseInt(page.id.split('-')[1]);
+                const rect = page.getBoundingClientRect();
+                const pageCenter = rect.top + rect.height/2;
+                const viewportCenter = container.getBoundingClientRect().top + container.clientHeight/2;
+                const distance = Math.abs(pageCenter - viewportCenter);
+                
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestPage = pageId;
+                }
+                
+                // Check if we need to render more pages
+                if (pageId === pdfDoc.numPages) return;
+                
+                // If page is visible and next page isn't rendered, render it
+                if (rect.bottom > 0 && !pagesRendered.has(pageId + 1)) {
+                    renderPage(pageId + 1);
+                }
+            });
+            
+            // Update current page if it's different
+            if (closestPage !== pageNum) {
+                pageNum = closestPage;
+                updateUI();
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            // Only re-render everything if screen size category changed (mobile/desktop)
+            const wasMobile = isMobile;
+            const nowMobile = window.innerWidth <= 768;
+            
+            if (wasMobile !== nowMobile) {
+                container.innerHTML = '';
+                pagesRendered.clear();
+                renderPage(pageNum);
+                updateUI();
+            }
+        });
     </script>
 </body>
 </html>
