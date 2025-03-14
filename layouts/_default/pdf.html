@@ -571,15 +571,19 @@
                 
                 // Create a canvas for this page
                 const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d', { alpha: false });
+                const context = canvas.getContext('2d', { 
+                    alpha: false,
+                    antialias: true,
+                    depth: false
+                });
                 
                 // Set canvas dimensions accounting for pixel ratio for crisp rendering
-                canvas.height = scaledViewport.height * pixelRatio;
-                canvas.width = scaledViewport.width * pixelRatio;
+                canvas.height = Math.floor(scaledViewport.height * pixelRatio);
+                canvas.width = Math.floor(scaledViewport.width * pixelRatio);
                 
                 // Scale down the canvas display size to match the viewport
-                canvas.style.height = `${scaledViewport.height}px`;
-                canvas.style.width = `${scaledViewport.width}px`;
+                canvas.style.height = `${Math.floor(scaledViewport.height)}px`;
+                canvas.style.width = `${Math.floor(scaledViewport.width)}px`;
                 
                 // Scale up the context to account for pixel ratio
                 context.scale(pixelRatio, pixelRatio);
@@ -596,101 +600,56 @@
                     viewport: scaledViewport,
                     background: 'white',
                     enableWebGL: true,
-                    renderInteractiveForms: true
+                    renderInteractiveForms: true,
+                    useSystemFonts: true
                 };
                 
-                page.render(renderContext).promise.then(function() {
+                const renderTask = page.render(renderContext);
+                
+                renderTask.promise.then(function() {
                     pageRendering = false;
                     pagesRendered.add(num);
                     
-                    // If we're scrolling down, ensure more pages are loaded
+                    // If we're scrolling, ensure more pages are loaded
                     if (num === pageNum) {
                         // Check if we need to render more pages
-                        if (container.scrollTop + container.clientHeight > pageDiv.offsetTop + pageDiv.offsetHeight/2) {
-                            if (num < pdfDoc.numPages) {
-                                renderPage(num + 1);
-                            }
+                        const nextPageNum = num + 1;
+                        if (nextPageNum <= pdfDoc.numPages && !pagesRendered.has(nextPageNum)) {
+                            renderPage(nextPageNum);
                         }
                     }
+                }).catch(function(error) {
+                    console.error('Error rendering page:', error);
+                    pageRendering = false;
                 });
             });
         }
 
         // Render two pages side by side (dual page mode)
         function renderDualPage(startPage) {
+            if (startPage > pdfDoc.numPages) return;
+            
             // Create a container for the dual pages
             const dualContainer = document.createElement('div');
             dualContainer.className = 'dual-page-container';
             dualContainer.id = `dual-${startPage}`;
             container.appendChild(dualContainer);
             
-            // Render left page
-            const leftPage = document.createElement('div');
-            leftPage.className = 'pdf-page';
-            leftPage.id = `page-${startPage}`;
-            dualContainer.appendChild(leftPage);
-            
-            pdfDoc.getPage(startPage).then(function(page) {
-                // Account for device pixel ratio for sharper rendering
-                const pixelRatio = window.devicePixelRatio || 1;
+            // Function to render a single page within dual mode
+            const renderDualPageSide = (pageNum, isRightPage) => {
+                if (pageNum > pdfDoc.numPages) return Promise.resolve();
+                if (pagesRendered.has(pageNum)) return Promise.resolve();
                 
-                const maxWidth = container.clientWidth - 40;
-                const containerWidth = isMobile ? 
-                    (maxWidth * 0.95) : 
-                    Math.min(800, (maxWidth - 10) / 2); // Account for gap
+                const pageDiv = document.createElement('div');
+                pageDiv.className = 'pdf-page';
+                pageDiv.id = `page-${pageNum}`;
+                dualContainer.appendChild(pageDiv);
                 
-                const viewport = page.getViewport({ scale: 1.0 });
-                const scaleNeeded = containerWidth / viewport.width;
-                const finalScale = scaleNeeded * scale;
-                const scaledViewport = page.getViewport({ scale: finalScale });
-                
-                const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d', { alpha: false });
-                
-                // Set canvas dimensions accounting for pixel ratio for crisp rendering
-                canvas.height = scaledViewport.height * pixelRatio;
-                canvas.width = scaledViewport.width * pixelRatio;
-                
-                // Scale down the canvas display size to match the viewport
-                canvas.style.height = `${scaledViewport.height}px`;
-                canvas.style.width = `${scaledViewport.width}px`;
-                
-                // Scale up the context to account for pixel ratio
-                context.scale(pixelRatio, pixelRatio);
-                
-                // Set background for the canvas
-                context.fillStyle = 'white';
-                context.fillRect(0, 0, canvas.width, canvas.height);
-                
-                leftPage.appendChild(canvas);
-                
-                // Render the page with high quality settings
-                page.render({
-                    canvasContext: context,
-                    viewport: scaledViewport,
-                    background: 'white',
-                    enableWebGL: true,
-                    renderInteractiveForms: true
-                }).promise.then(function() {
-                    pagesRendered.add(startPage);
-                });
-            });
-            
-            // Render right page (if not last page)
-            if (startPage < pdfDoc.numPages) {
-                const rightPage = document.createElement('div');
-                rightPage.className = 'pdf-page';
-                rightPage.id = `page-${startPage + 1}`;
-                dualContainer.appendChild(rightPage);
-                
-                pdfDoc.getPage(startPage + 1).then(function(page) {
-                    // Account for device pixel ratio for sharper rendering
+                return pdfDoc.getPage(pageNum).then(function(page) {
                     const pixelRatio = window.devicePixelRatio || 1;
                     
                     const maxWidth = container.clientWidth - 40;
-                    const containerWidth = isMobile ? 
-                        (maxWidth * 0.95) : 
-                        Math.min(800, (maxWidth - 10) / 2); // Account for gap
+                    const containerWidth = Math.min(800, (maxWidth - 10) / 2);
                     
                     const viewport = page.getViewport({ scale: 1.0 });
                     const scaleNeeded = containerWidth / viewport.width;
@@ -698,42 +657,57 @@
                     const scaledViewport = page.getViewport({ scale: finalScale });
                     
                     const canvas = document.createElement('canvas');
-                    const context = canvas.getContext('2d', { alpha: false });
+                    const context = canvas.getContext('2d', { 
+                        alpha: false,
+                        antialias: true,
+                        depth: false
+                    });
                     
-                    // Set canvas dimensions accounting for pixel ratio for crisp rendering
-                    canvas.height = scaledViewport.height * pixelRatio;
-                    canvas.width = scaledViewport.width * pixelRatio;
+                    canvas.height = Math.floor(scaledViewport.height * pixelRatio);
+                    canvas.width = Math.floor(scaledViewport.width * pixelRatio);
                     
-                    // Scale down the canvas display size to match the viewport
-                    canvas.style.height = `${scaledViewport.height}px`;
-                    canvas.style.width = `${scaledViewport.width}px`;
+                    canvas.style.height = `${Math.floor(scaledViewport.height)}px`;
+                    canvas.style.width = `${Math.floor(scaledViewport.width)}px`;
                     
-                    // Scale up the context to account for pixel ratio
                     context.scale(pixelRatio, pixelRatio);
-                    
-                    // Set background for the canvas
                     context.fillStyle = 'white';
                     context.fillRect(0, 0, canvas.width, canvas.height);
                     
-                    rightPage.appendChild(canvas);
+                    pageDiv.appendChild(canvas);
                     
-                    // Render the page with high quality settings
-                    page.render({
+                    const renderContext = {
                         canvasContext: context,
                         viewport: scaledViewport,
                         background: 'white',
                         enableWebGL: true,
-                        renderInteractiveForms: true
-                    }).promise.then(function() {
-                        pagesRendered.add(startPage + 1);
-                        
-                        // If there are more pages to render, continue
-                        if (startPage + 2 <= pdfDoc.numPages) {
-                            renderDualPage(startPage + 2);
-                        }
+                        renderInteractiveForms: true,
+                        useSystemFonts: true
+                    };
+                    
+                    return page.render(renderContext).promise.then(() => {
+                        pagesRendered.add(pageNum);
                     });
                 });
-            }
+            };
+            
+            // Render both pages
+            Promise.all([
+                renderDualPageSide(startPage, false),
+                renderDualPageSide(startPage + 1, true)
+            ]).then(() => {
+                // If there are more pages and we're near the bottom, render the next pair
+                const nextStartPage = startPage + 2;
+                if (nextStartPage <= pdfDoc.numPages) {
+                    const currentContainer = document.getElementById(`dual-${startPage}`);
+                    if (currentContainer && 
+                        container.scrollTop + container.clientHeight > 
+                        currentContainer.offsetTop + currentContainer.offsetHeight/2) {
+                        renderDualPage(nextStartPage);
+                    }
+                }
+            }).catch(error => {
+                console.error('Error rendering dual pages:', error);
+            });
         }
 
         // Update page counters and UI
@@ -868,58 +842,43 @@
         container.addEventListener('scroll', function() {
             if (pageRendering) return;
             
+            const scrollBottom = container.scrollTop + container.clientHeight;
+            const containerHeight = container.scrollHeight;
+            
+            // If we're near the bottom (within 1000px), try to load more pages
+            if (containerHeight - scrollBottom < 1000) {
+                let lastRenderedPage = 0;
+                pagesRendered.forEach(pageNum => {
+                    lastRenderedPage = Math.max(lastRenderedPage, pageNum);
+                });
+                
+                if (lastRenderedPage < pdfDoc.numPages) {
+                    const nextPageNum = lastRenderedPage + 1;
+                    if (viewMode === 'single') {
+                        renderPage(nextPageNum);
+                    } else if (nextPageNum % 2 === 1) {
+                        renderDualPage(nextPageNum);
+                    }
+                }
+            }
+            
             // Find which page is most visible in the viewport
             let closestPage = 1;
             let closestDistance = Infinity;
             
-            if (viewMode === 'single') {
-                const pages = document.querySelectorAll('.pdf-page');
+            const pages = document.querySelectorAll('.pdf-page');
+            pages.forEach(function(page) {
+                const pageId = parseInt(page.id.split('-')[1]);
+                const rect = page.getBoundingClientRect();
+                const pageCenter = rect.top + rect.height/2;
+                const viewportCenter = container.getBoundingClientRect().top + container.clientHeight/2;
+                const distance = Math.abs(pageCenter - viewportCenter);
                 
-                pages.forEach(function(page) {
-                    const pageId = parseInt(page.id.split('-')[1]);
-                    const rect = page.getBoundingClientRect();
-                    const pageCenter = rect.top + rect.height/2;
-                    const viewportCenter = container.getBoundingClientRect().top + container.clientHeight/2;
-                    const distance = Math.abs(pageCenter - viewportCenter);
-                    
-                    if (distance < closestDistance) {
-                        closestDistance = distance;
-                        closestPage = pageId;
-                    }
-                    
-                    // Check if we need to render more pages
-                    if (pageId === pdfDoc.numPages) return;
-                    
-                    // If page is visible and next page isn't rendered, render it
-                    if (rect.bottom > 0 && rect.top < container.clientHeight && !pagesRendered.has(pageId + 1)) {
-                        renderPage(pageId + 1);
-                    }
-                });
-            } else {
-                // Dual page mode - detect which page pair is most visible
-                const containers = document.querySelectorAll('.dual-page-container');
-                
-                containers.forEach(function(dualContainer) {
-                    const startPage = parseInt(dualContainer.id.split('-')[1]);
-                    const rect = dualContainer.getBoundingClientRect();
-                    const containerCenter = rect.top + rect.height/2;
-                    const viewportCenter = container.getBoundingClientRect().top + container.clientHeight/2;
-                    const distance = Math.abs(containerCenter - viewportCenter);
-                    
-                    if (distance < closestDistance) {
-                        closestDistance = distance;
-                        closestPage = startPage;
-                    }
-                    
-                    // Check if we need to render more pages
-                    if (startPage + 1 >= pdfDoc.numPages) return;
-                    
-                    // If container is visible and next pair isn't rendered, render it
-                    if (rect.bottom > 0 && rect.top < container.clientHeight && !pagesRendered.has(startPage + 2)) {
-                        renderDualPage(startPage + 2);
-                    }
-                });
-            }
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestPage = pageId;
+                }
+            });
             
             // Update current page if it's different
             if (closestPage !== pageNum) {
