@@ -14,7 +14,8 @@
         :root {
             --primary-color: #005890;
             --secondary-color: #444;
-            --background-color: #f5f5f5;
+            --background-color: #404040;
+            --page-background: #ffffff;
             --control-bg: #ffffff;
             --border-color: #ddd;
         }
@@ -50,7 +51,8 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
         
         .control-group {
@@ -93,8 +95,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px 0;
+            padding: 30px 0;
             transition: margin-left 0.3s ease;
+            background-color: var(--background-color);
         }
         
         #thumbnails-sidebar {
@@ -103,12 +106,13 @@
             top: 0;
             width: 200px;
             height: 100%;
-            background: white;
+            background: #333;
             overflow-y: auto;
             z-index: 100;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            box-shadow: 2px 0 5px rgba(0,0,0,0.3);
             transition: left 0.3s ease;
             padding-top: 50px;
+            color: #fff;
         }
         
         #thumbnails-sidebar.open {
@@ -122,33 +126,36 @@
         .thumbnail-item {
             padding: 5px;
             cursor: pointer;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             text-align: center;
         }
         
         .thumbnail-item.active {
-            background-color: #f0f0f0;
+            background-color: rgba(255,255,255,0.1);
         }
         
         .thumbnail-item img {
             max-width: 80%;
             height: auto;
-            border: 1px solid #ddd;
+            border: 1px solid #555;
         }
         
         .thumbnail-item .page-num {
             display: block;
             font-size: 12px;
             margin-top: 5px;
+            color: #ddd;
         }
         
         .pdf-page {
-            margin-bottom: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
             width: 100%;
             display: flex;
             justify-content: center;
-            background: white;
+            background: var(--page-background);
+            max-width: 800px;
+            border-radius: 2px;
         }
         
         #download-link {
@@ -161,7 +168,7 @@
             text-decoration: none;
             border-radius: 5px;
             z-index: 100;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
             font-size: 14px;
         }
         
@@ -175,11 +182,15 @@
             justify-content: center;
             gap: 10px;
             width: 100%;
+            max-width: 1620px;
+            margin-bottom: 20px;
         }
         
         .dual-page-container .pdf-page {
             margin: 0;
             width: auto;
+            flex: 1;
+            max-width: 800px;
         }
         
         /* Search bar */
@@ -205,11 +216,12 @@
         /* Mobile-specific styles */
         @media (max-width: 768px) {
             .pdf-page {
-                width: 100%;
+                width: 95%;
                 display: flex;
                 justify-content: center;
-                padding: 0 10px;
+                padding: 0;
                 box-sizing: border-box;
+                max-width: none;
             }
             
             .pdf-page canvas {
@@ -254,6 +266,7 @@
             
             .dual-page-container {
                 flex-direction: column;
+                max-width: none;
             }
             
             /* Hide some controls on mobile */
@@ -544,8 +557,8 @@
             // Get the page
             pdfDoc.getPage(num).then(function(page) {
                 const containerWidth = isMobile ? 
-                    container.clientWidth - 20 : // Account for padding on mobile
-                    Math.min(800, container.clientWidth - 40); // Limit max width on desktop
+                    container.clientWidth * 0.95 : // 95% width on mobile
+                    Math.min(800, container.clientWidth - 60); // Limit max width on desktop
                 
                 // Calculate viewport with appropriate scale
                 const viewport = page.getViewport({ scale: 1.0 }); // Start with scale 1
@@ -559,12 +572,17 @@
                 canvas.height = scaledViewport.height;
                 canvas.width = scaledViewport.width;
                 
+                // Set background for the canvas
+                context.fillStyle = 'white';
+                context.fillRect(0, 0, canvas.width, canvas.height);
+                
                 pageDiv.appendChild(canvas);
                 
                 // Render the page
                 const renderContext = {
                     canvasContext: context,
-                    viewport: scaledViewport
+                    viewport: scaledViewport,
+                    background: 'white'
                 };
                 
                 page.render(renderContext).promise.then(function() {
@@ -599,7 +617,10 @@
             dualContainer.appendChild(leftPage);
             
             pdfDoc.getPage(startPage).then(function(page) {
-                const containerWidth = (container.clientWidth - 60) / 2; // Divide space for two pages
+                const maxWidth = container.clientWidth - 40;
+                const containerWidth = isMobile ? 
+                    (maxWidth * 0.95) : 
+                    Math.min(800, (maxWidth - 10) / 2); // Account for gap
                 
                 const viewport = page.getViewport({ scale: 1.0 });
                 const scaleNeeded = containerWidth / viewport.width;
@@ -611,11 +632,16 @@
                 canvas.height = scaledViewport.height;
                 canvas.width = scaledViewport.width;
                 
+                // Set background for the canvas
+                context.fillStyle = 'white';
+                context.fillRect(0, 0, canvas.width, canvas.height);
+                
                 leftPage.appendChild(canvas);
                 
                 page.render({
                     canvasContext: context,
-                    viewport: scaledViewport
+                    viewport: scaledViewport,
+                    background: 'white'
                 }).promise.then(function() {
                     pagesRendered.add(startPage);
                 });
@@ -629,7 +655,10 @@
                 dualContainer.appendChild(rightPage);
                 
                 pdfDoc.getPage(startPage + 1).then(function(page) {
-                    const containerWidth = (container.clientWidth - 60) / 2; // Divide space for two pages
+                    const maxWidth = container.clientWidth - 40;
+                    const containerWidth = isMobile ? 
+                        (maxWidth * 0.95) : 
+                        Math.min(800, (maxWidth - 10) / 2); // Account for gap
                     
                     const viewport = page.getViewport({ scale: 1.0 });
                     const scaleNeeded = containerWidth / viewport.width;
@@ -641,11 +670,16 @@
                     canvas.height = scaledViewport.height;
                     canvas.width = scaledViewport.width;
                     
+                    // Set background for the canvas
+                    context.fillStyle = 'white';
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    
                     rightPage.appendChild(canvas);
                     
                     page.render({
                         canvasContext: context,
-                        viewport: scaledViewport
+                        viewport: scaledViewport,
+                        background: 'white'
                     }).promise.then(function() {
                         pagesRendered.add(startPage + 1);
                         

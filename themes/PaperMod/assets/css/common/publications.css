@@ -75,7 +75,7 @@
     
     .publication-thumbnail {
         width: 100%;
-        max-width: 350px;
+        max-width: 300px;
         height: 200px;
         margin-bottom: var(--gap);
         margin-left: auto;
