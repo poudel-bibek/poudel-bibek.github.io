@@ -556,6 +556,9 @@
             
             // Get the page
             pdfDoc.getPage(num).then(function(page) {
+                // Account for device pixel ratio for sharper rendering
+                const pixelRatio = window.devicePixelRatio || 1;
+                
                 const containerWidth = isMobile ? 
                     container.clientWidth * 0.95 : // 95% width on mobile
                     Math.min(800, container.clientWidth - 60); // Limit max width on desktop
@@ -568,9 +571,18 @@
                 
                 // Create a canvas for this page
                 const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-                canvas.height = scaledViewport.height;
-                canvas.width = scaledViewport.width;
+                const context = canvas.getContext('2d', { alpha: false });
+                
+                // Set canvas dimensions accounting for pixel ratio for crisp rendering
+                canvas.height = scaledViewport.height * pixelRatio;
+                canvas.width = scaledViewport.width * pixelRatio;
+                
+                // Scale down the canvas display size to match the viewport
+                canvas.style.height = `${scaledViewport.height}px`;
+                canvas.style.width = `${scaledViewport.width}px`;
+                
+                // Scale up the context to account for pixel ratio
+                context.scale(pixelRatio, pixelRatio);
                 
                 // Set background for the canvas
                 context.fillStyle = 'white';
@@ -578,11 +590,13 @@
                 
                 pageDiv.appendChild(canvas);
                 
-                // Render the page
+                // Render the page with high quality settings
                 const renderContext = {
                     canvasContext: context,
                     viewport: scaledViewport,
-                    background: 'white'
+                    background: 'white',
+                    enableWebGL: true,
+                    renderInteractiveForms: true
                 };
                 
                 page.render(renderContext).promise.then(function() {
@@ -617,6 +631,9 @@
             dualContainer.appendChild(leftPage);
             
             pdfDoc.getPage(startPage).then(function(page) {
+                // Account for device pixel ratio for sharper rendering
+                const pixelRatio = window.devicePixelRatio || 1;
+                
                 const maxWidth = container.clientWidth - 40;
                 const containerWidth = isMobile ? 
                     (maxWidth * 0.95) : 
@@ -628,9 +645,18 @@
                 const scaledViewport = page.getViewport({ scale: finalScale });
                 
                 const canvas = document.createElement('canvas');
-                const context = canvas.getContext('2d');
-                canvas.height = scaledViewport.height;
-                canvas.width = scaledViewport.width;
+                const context = canvas.getContext('2d', { alpha: false });
+                
+                // Set canvas dimensions accounting for pixel ratio for crisp rendering
+                canvas.height = scaledViewport.height * pixelRatio;
+                canvas.width = scaledViewport.width * pixelRatio;
+                
+                // Scale down the canvas display size to match the viewport
+                canvas.style.height = `${scaledViewport.height}px`;
+                canvas.style.width = `${scaledViewport.width}px`;
+                
+                // Scale up the context to account for pixel ratio
+                context.scale(pixelRatio, pixelRatio);
                 
                 // Set background for the canvas
                 context.fillStyle = 'white';
@@ -638,10 +664,13 @@
                 
                 leftPage.appendChild(canvas);
                 
+                // Render the page with high quality settings
                 page.render({
                     canvasContext: context,
                     viewport: scaledViewport,
-                    background: 'white'
+                    background: 'white',
+                    enableWebGL: true,
+                    renderInteractiveForms: true
                 }).promise.then(function() {
                     pagesRendered.add(startPage);
                 });
@@ -655,6 +684,9 @@
                 dualContainer.appendChild(rightPage);
                 
                 pdfDoc.getPage(startPage + 1).then(function(page) {
+                    // Account for device pixel ratio for sharper rendering
+                    const pixelRatio = window.devicePixelRatio || 1;
+                    
                     const maxWidth = container.clientWidth - 40;
                     const containerWidth = isMobile ? 
                         (maxWidth * 0.95) : 
@@ -666,9 +698,18 @@
                     const scaledViewport = page.getViewport({ scale: finalScale });
                     
                     const canvas = document.createElement('canvas');
-                    const context = canvas.getContext('2d');
-                    canvas.height = scaledViewport.height;
-                    canvas.width = scaledViewport.width;
+                    const context = canvas.getContext('2d', { alpha: false });
+                    
+                    // Set canvas dimensions accounting for pixel ratio for crisp rendering
+                    canvas.height = scaledViewport.height * pixelRatio;
+                    canvas.width = scaledViewport.width * pixelRatio;
+                    
+                    // Scale down the canvas display size to match the viewport
+                    canvas.style.height = `${scaledViewport.height}px`;
+                    canvas.style.width = `${scaledViewport.width}px`;
+                    
+                    // Scale up the context to account for pixel ratio
+                    context.scale(pixelRatio, pixelRatio);
                     
                     // Set background for the canvas
                     context.fillStyle = 'white';
@@ -676,10 +717,13 @@
                     
                     rightPage.appendChild(canvas);
                     
+                    // Render the page with high quality settings
                     page.render({
                         canvasContext: context,
                         viewport: scaledViewport,
-                        background: 'white'
+                        background: 'white',
+                        enableWebGL: true,
+                        renderInteractiveForms: true
                     }).promise.then(function() {
                         pagesRendered.add(startPage + 1);
                         
