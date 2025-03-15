@@ -1,6 +1,7 @@
 <div class="social-icons">
     {{- range . }}
-    <a href="{{ trim .url " " }}" target="_blank" rel="noopener noreferrer me" title="{{ (.title | default .name) | title }}">
+    <a href="{{ trim .url " " }}" target="_blank" rel="noopener noreferrer me" title="{{ (.title | default .name) | title }}" 
+       data-label="{{ if eq .name "x" }}Twitter{{ else if eq .name "googlescholar" }}Scholar{{ else }}{{ .name | title }}{{ end }}">
         {{ partial "svg.html" . }}
     </a>
     {{- end }}

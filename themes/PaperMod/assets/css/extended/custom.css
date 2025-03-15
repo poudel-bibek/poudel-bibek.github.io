@@ -1,0 +1,39 @@
+/* 
+ * Custom styles for social icons 
+ * Makes icons left-aligned with labels underneath
+ */
+.social-icons {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.social-icons a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--secondary);
+  margin-right: 60px;
+  transition: color 0.2s ease;
+}
+
+.social-icons a svg {
+  height: 32.4px;
+  width: 32.4px;
+  margin-bottom: 8px;
+}
+
+/* Icon labels */
+.social-icons a::after {
+  content: attr(data-label);
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Hover effects consistent with theme - color change only */
+.social-icons a:hover {
+  color: var(--primary);
+} 
