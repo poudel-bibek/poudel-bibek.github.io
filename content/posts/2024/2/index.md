@@ -4,16 +4,16 @@ date: 2024-11-14T20:00:00
 draft: true
 summary: "Patterns and techniques for solving LeetCode problems in Python"
 #showtoc: true
-excludeFromBlog: true
+excludeFromBlog: false
 
 cover:
     image: "images/lc.png"
     alt: "<alt text>"
     caption: "" 
     relative: false 
-    hiddenInList: true
+    hiddenInList: false
     hiddenInSingle: false
-    hidden: true
+    hidden: false
 ---
 ```python
 # A frequent pattern that emerges in many problems is to find top k elements. 
