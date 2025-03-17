@@ -67,8 +67,8 @@ Returns: Approximated entropy of the GMM
 ------------
 
 Papers: 
-Huber paper: 
-NeurIPS paper: 
+Huber paper: https://www-personal.acfr.usyd.edu.au/tbailey/papers/mfi08_huber.pdf
+NeurIPS paper: https://proceedings.neurips.cc/paper_files/paper/2023/file/ee860a9fa65a55a335754c557a5211de-Paper-Conference.pdf
 
 
 The huber paper proposes two things: 
