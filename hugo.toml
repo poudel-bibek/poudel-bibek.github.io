@@ -48,10 +48,6 @@ url = "https://scholar.google.com/citations?user=PzBn1jgAAAAJ&hl=en"
 name = "github"
 url = "https://github.com/poudel-bibek"
 
-[[params.socialIcons]]
-name = "x"
-url = "https://x.com/matrix_multiply"
-
 [menu]
 [[menu.main]]
   name = 'Home'
