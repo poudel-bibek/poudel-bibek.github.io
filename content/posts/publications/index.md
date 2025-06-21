@@ -41,7 +41,7 @@ UbiComp 2025
 [thumbnail:pulseride]
 Azizul Zahid, __Bibek Poudel__, Danny Scott, Jason Scott, Scott Crouter, Weizi Li, and Sai Swaminathan  
 CHASE 2025  
-[PDF](https://poudel-bibek.github.io/pdfs/projects/pulseride/)
+[arXiv](https://arxiv.org/abs/2506.05056)
 
 -------------------
 
