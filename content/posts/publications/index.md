@@ -16,15 +16,15 @@ My research lies at the intersection of reinforcement learning, autonomous syste
 #### Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning
 [thumbnail:joint-pedestrian]
 __Bibek Poudel__, Xuan Wang, Weizi Li, Lei Zhu, and Kevin Heaslip  
-IROS 2025 (In Submission)  
-[PDF](https://poudel-bibek.github.io/pdfs/projects/joint_control/) | [Video](https://www.youtube.com/watch?v=Tec3H72cDT4) | [Code](https://github.com/poudel-bibek/Urban-Control)
+IROS 2025 
+[arXiv](https://arxiv.org/abs/2504.05018) | [Video](https://www.youtube.com/watch?v=Tec3H72cDT4) | [Code](https://github.com/poudel-bibek/Urban-Control)
 
 -------------------
 
 #### Beacon: A Naturalistic Driving Dataset During Blackouts for Benchmarking Traffic Reconstruction and Control
 [thumbnail:beacon]
 Supriya Sarker, Iftekharul Islam, __Bibek Poudel__, and Weizi Li
-IROS 2025 (In Submission)  
+IROS 2025 
 [arXiv](https://arxiv.org/abs/2412.14208) 
 
 -------------------
