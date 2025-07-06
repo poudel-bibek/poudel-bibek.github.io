@@ -26,8 +26,8 @@ theme = 'PaperMod'
     Content1 = """Final year Computer Science Ph.D. student in the [Fluidic City Lab](https://fluidic-city.github.io) at [UTK](https://www.utk.edu/)."""
     Content2 = """My research, advised by [Dr. Weizi Li](https://weizi-li.github.io/) with support from [Center for Transportation Research](https://ctr.utk.edu/person/bibek-poudel/), lies at the intersection of reinforcement learning (RL), autonomous systems, and intelligent transportation - spanning from multi-agent simulation to real-world robots."""
     Content3 = """Currently, I am [developing](https://youtu.be/fmLydgvk2p4) RL agents that can simultaneously design and control urban environments to optimize outcomes for multiple stakeholders: pedestrians, vehicles, and urban planners."""
-    Content4 = """Recently, I worked with [a team](https://epic.eecs.utk.edu) to develop a robotic wheelchair for personalized exertion control using Human-in-the-loop RL."""
-    Content5 = """For details on my background and experiences, please check out my [resume](/pdfs/resume/). Besides research, I am developing [cowrite](https://cowrite.io/), a tool that helps researchers publish faster. Sometimes, I write on my [blog](/archives)."""
+    Content4 = """Recently, I worked with [EPIC lab](https://epic.eecs.utk.edu) to develop a robotic wheelchair for personalized exertion control using Human-in-the-loop RL."""
+    Content5 = """For details on my background and experiences, please check out my [resume](/pdfs/resume/). Besides my own research, I am developing [cowrite](https://cowrite.io/), a tool that helps researchers publish faster. Sometimes, I write on my [blog](/archives)."""
 
   [params.cover]
     hidden = true
