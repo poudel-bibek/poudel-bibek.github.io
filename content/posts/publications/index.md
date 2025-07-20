@@ -29,11 +29,11 @@ IROS 2025
 
 -------------------
 
-#### VibRun: Real-time Contactless Gait Analysis for Treadmill Running via Footstep Vibrations
+#### VibRun: Real-time Unobtrusive Gait Analysis for Treadmill Running via Footstep Vibrations
 [thumbnail:vibrun]
-Tianhao Wu, Yi Wu, Rajasi Gore, __Bibek Poudel__, Çağdaş Karataş, Weizi Li, and Jian Liu  
+Tianhao Wu, Yi Wu, __Bibek Poudel__, Syed Meerza, Rajasi Gore, Weizi Li, Zan Gao, Çağdaş Karataş, and Jian Liu  
 UbiComp 2025  
-[PDF](/comingsoon/)  
+[PDF](https://poudel-bibek.github.io/pdfs/projects/vibrun)
 
 -------------------
 
