@@ -33,7 +33,7 @@ IROS 2025
 [thumbnail:vibrun]
 Tianhao Wu, Yi Wu, __Bibek Poudel__, Syed Meerza, Rajasi Gore, Weizi Li, Zan Gao, Çağdaş Karataş, and Jian Liu  
 UbiComp 2025  
-[PDF](https://dl.acm.org/doi/abs/10.1145/3749539)
+[Paper](https://dl.acm.org/doi/abs/10.1145/3749539)
 
 -------------------
 
