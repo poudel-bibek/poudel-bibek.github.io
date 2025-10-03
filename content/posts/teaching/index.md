@@ -65,13 +65,13 @@ I have served as a teaching assistant and guest lecturer for various graduate an
 ### At University of Memphis
 &nbsp;
 
-    - COMP 7/8720 Artificial Intelligence
+  - COMP 7/8720 Artificial Intelligence
 
-    - COMP 7/8745 Machine Learning
+  - COMP 7/8745 Machine Learning
 
-    - COMP 7/8747 Advanced Machine Learning
+  - COMP 7/8747 Advanced Machine Learning
 
-    - COMP 7/8712 Algorithms and Problem Solving
+  - COMP 7/8712 Algorithms and Problem Solving
 
 
 ### &nbsp;
@@ -79,6 +79,6 @@ I have served as a teaching assistant and guest lecturer for various graduate an
 ### At University of Tennessee
 &nbsp;
 
-    - ECE414/517 Reinforcement Learning  
+  - ECE414/517 Reinforcement Learning  
 
 
