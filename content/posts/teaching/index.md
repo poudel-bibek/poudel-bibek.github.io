@@ -37,21 +37,27 @@ I have been a teaching assistant and a guest lecturer in various graduate and un
 -------------------
 
 ##### Transformers in Reinforcement Learning
+
 - Slides: [2025]() (Coming soon)
 
 ##### Exploration Strategies
-- Slides: [202)]() (Coming soon)
+
+- Slides: [2025]() (Coming soon)
 
 ##### SUMO Various Topics
+
 - Slides: [2024](https://poudel-bibek.github.io/pdfs/slides/sumo_class)
 
 ##### An Introduction to Transformers
+
 - Slides: [2023](https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers)
 
 ##### Optimization and Stochastic Gradient Descent
+
 - Slides: [2023](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd) | [2022](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd)
 
 ##### Introduction to Adversarial Machine Learning
+
 - Slides: [2021](https://poudel-bibek.github.io/pdfs/slides/intro_to_aml)
 
 
