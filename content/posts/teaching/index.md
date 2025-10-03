@@ -8,7 +8,7 @@ hiddenInHomeList: true
 layout: teaching
 ---
 
-I have served as a teaching assistant and a guest lecturer for graduate and undergraduate courses.
+I have served as a teaching assistant and guest lecturer for various graduate and undergraduate courses.
 
 -------------------
 
@@ -18,7 +18,6 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 
 ### Transformers in Reinforcement Learning
 &nbsp;
-
 - Slides: [2025]() (Coming soon)
 
 
@@ -26,7 +25,6 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 
 ### Exploration Strategies
 &nbsp;
-
 - Slides: [2025]() (Coming soon)
 
 
@@ -34,7 +32,6 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 
 ### SUMO Various Topics
 &nbsp;
-
 - Slides: [2024](https://poudel-bibek.github.io/pdfs/slides/sumo_class)
 
 
@@ -42,7 +39,6 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 
 ### An Introduction to Transformers
 &nbsp;
-
 - Slides: [2023](https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers)
 
 
@@ -50,7 +46,6 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 
 ### Optimization and Stochastic Gradient Descent
 &nbsp;
-
 - Slides: [2023](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd) | [2022](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd)
 
 
@@ -58,7 +53,6 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 
 ### Introduction to Adversarial Machine Learning
 &nbsp;
-
 - Slides: [2021](https://poudel-bibek.github.io/pdfs/slides/intro_to_aml)
 
 
@@ -68,7 +62,7 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 #### Teaching Assistant
 
 
-### University of Memphis
+### At University of Memphis
 
 &nbsp;
 
@@ -83,7 +77,7 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 
 ### &nbsp;
 
-### University of Tennessee
+### At University of Tennessee
 &nbsp;
 
 - ECE414/517 Reinforcement Learning  

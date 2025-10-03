@@ -12,7 +12,7 @@ layout: projects
 
 ![Projects Banner](/posts/projects/images/projects.png)
 
-My projects encompass a range of topics such as fine-tuning dataset for language models, software development, reinforcement learning, and adversarial machine learning.
+My projects encompass of topics such as fine-tuning dataset for language models, software development, reinforcement learning, and adversarial machine learning.
 
 -------------------
 
