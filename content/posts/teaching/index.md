@@ -8,29 +8,9 @@ hiddenInHomeList: true
 layout: teaching
 ---
 
-I have been a teaching assistant and a guest lecturer in various graduate and undergraduate courses.
+I have served as a teaching assistant and a guest lecturer for graduate and undergraduate courses.
 
 -------------------
-
-
-#### Teaching Assistant
-
--------------------
-#### University of Memphis
-
-- COMP 7/8720 Artificial Intelligence
-
-- COMP 7/8745 Machine Learning
-
-- COMP 7/8747 Advanced Machine Learning
-
-- COMP 7/8712 Algorithms and Problem Solving
-
-
-
-#### University of Tennessee
-
-- ECE414/517 Reinforcement Learning  
 
 
 #### Guest Lectures
@@ -67,5 +47,25 @@ I have been a teaching assistant and a guest lecturer in various graduate and un
 - Slides: [2021](https://poudel-bibek.github.io/pdfs/slides/intro_to_aml)
 
 
+
+#### Teaching Assistant
+
+-------------------
+
+#### University of Memphis
+
+- COMP 7/8720 Artificial Intelligence
+
+- COMP 7/8745 Machine Learning
+
+- COMP 7/8747 Advanced Machine Learning
+
+- COMP 7/8712 Algorithms and Problem Solving
+
+
+
+#### University of Tennessee
+
+- ECE414/517 Reinforcement Learning  
 
 
