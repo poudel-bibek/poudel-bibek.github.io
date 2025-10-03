@@ -21,35 +21,35 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 - Slides: [2025]() (Coming soon)
 
 
-### 
+### &nbsp;
 
 ### Exploration Strategies
 
 - Slides: [2025]() (Coming soon)
 
 
-### 
+### &nbsp;
 
 ### SUMO Various Topics
 
 - Slides: [2024](https://poudel-bibek.github.io/pdfs/slides/sumo_class)
 
 
-### 
+### &nbsp;
 
 ### An Introduction to Transformers
 
 - Slides: [2023](https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers)
 
 
-### 
+### &nbsp;
 
 ### Optimization and Stochastic Gradient Descent
 
 - Slides: [2023](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd) | [2022](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd)
 
 
-### 
+### &nbsp;
 
 ### Introduction to Adversarial Machine Learning
 
@@ -74,7 +74,7 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 
 
 
-### 
+### &nbsp;
 
 ### University of Tennessee
 
