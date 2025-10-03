@@ -18,12 +18,16 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 
 ### Transformers in Reinforcement Learning
 
+&nbsp;
+
 - Slides: [2025]() (Coming soon)
 
 
 ### &nbsp;
 
 ### Exploration Strategies
+
+&nbsp;
 
 - Slides: [2025]() (Coming soon)
 
@@ -32,12 +36,16 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 
 ### SUMO Various Topics
 
+&nbsp;
+&nbsp;
 - Slides: [2024](https://poudel-bibek.github.io/pdfs/slides/sumo_class)
 
 
 ### &nbsp;
 
 ### An Introduction to Transformers
+
+&nbsp;
 
 - Slides: [2023](https://poudel-bibek.github.io/pdfs/slides/intro_to_transformers)
 
@@ -46,12 +54,16 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 
 ### Optimization and Stochastic Gradient Descent
 
+&nbsp;
+
 - Slides: [2023](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd) | [2022](https://poudel-bibek.github.io/pdfs/slides/optimization_sgd)
 
 
 ### &nbsp;
 
 ### Introduction to Adversarial Machine Learning
+
+&nbsp;
 
 - Slides: [2021](https://poudel-bibek.github.io/pdfs/slides/intro_to_aml)
 
@@ -63,6 +75,8 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 
 
 ### University of Memphis
+
+&nbsp;
 
 - COMP 7/8720 Artificial Intelligence
 
@@ -77,6 +91,8 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 ### &nbsp;
 
 ### University of Tennessee
+
+&nbsp;
 
 - ECE414/517 Reinforcement Learning  
 
