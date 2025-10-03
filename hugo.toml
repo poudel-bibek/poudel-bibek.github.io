@@ -69,8 +69,8 @@ url = "https://x.com/bibek_poudel_"
   weight = 30
 
 [[menu.main]]
-  name = 'Lectures'
-  pageRef = '/lectures'
+  name = 'Teaching'
+  pageRef = '/teaching'
   weight = 40
   
 [[menu.main]]

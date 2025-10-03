@@ -13,11 +13,11 @@
 
 <!-- 
   Display the header image from the static directory
-  NOTE: For lectures we keep this image in the template since it's not included in the content file,
+  NOTE: For teaching we keep this image in the template since it's not included in the content file,
   unlike publications and projects
 -->
 <div class="post-content">
-  <img src="/lectures/images/lectures.png" alt="Lectures Banner" />
+  <img src="/teaching/images/teaching.png" alt="Teaching Banner" />
 </div>
 
 <!-- Display the introduction text -->
@@ -28,14 +28,14 @@
   <!-- Display the introduction (first part before any separator) -->
   {{ if gt (len $lectures) 0 }}
     {{ $intro := index $lectures 0 }}
-    <div class="lecture-introduction">
+    <div class="teaching-introduction">
       {{ $intro | markdownify }}
     </div>
   {{ end }}
 </div>
 
-<!-- Lectures Content -->
-<div class="projects-container lectures-container">
+<!-- Teaching Content -->
+<div class="projects-container teaching-container">
   {{ $content := .RawContent }}
   {{ $lectures := split $content "-------------------" }}
   {{ range $index, $part := $lectures }}
@@ -50,16 +50,16 @@
           <!-- Process content without changing bullets -->
           {{ $contentWithoutTitle := replaceRE "####\\s+(.+)" "" $part 1 }}
           
-          <article class="project-entry lecture-entry">
-            <div class="project-content lecture-content">
-              <div class="project-details lecture-details">
+          <article class="project-entry teaching-entry">
+            <div class="project-content teaching-content">
+              <div class="project-details teaching-details">
                 <h2>{{ $titleText }}</h2>
                 <!-- Use the original content formatting but add links class -->
-                <ul class="lecture-links">
+                <ul class="teaching-links">
                   {{ $contentWithoutTitle | markdownify }}
                 </ul>
                 <!-- Add an empty spacer div -->
-                <div class="lecture-spacer"></div>
+                <div class="teaching-spacer"></div>
               </div>
             </div>
           </article>

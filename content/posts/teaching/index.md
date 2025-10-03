@@ -1,11 +1,11 @@
 ---
-title: "Lectures"
-url: "/lectures/"
+title: "Teaching"
+url: "/teaching/"
 draft: false
 hidemeta : true
 ShowBreadCrumbs: false
 hiddenInHomeList: true
-layout: lectures
+layout: teaching
 ---
 
 I have been a guest lecturer in graduate and undergraduate courses such as Machine Learning, Artificial Intelligence, and Intro to Neurocomputing.

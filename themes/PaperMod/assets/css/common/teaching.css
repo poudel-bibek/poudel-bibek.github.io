@@ -1,52 +1,52 @@
-/* Clean, simplified styling for the lectures page */
+/* Clean, simplified styling for the teaching page */
 
-/* SCOPE EVERYTHING to the lectures page so we don't affect other pages */
+/* SCOPE EVERYTHING to the teaching page so we don't affect other pages */
 /* Wrapper selector to scope all rules */
-.lecture-page .content,
-.post-single.lectures,
-body[class*="lectures"] .post-content,
-body[class*="lecture"] .post-content,
-.post-content[data-path^="/lectures"] {
-    /* Base styles for lectures page content */
+.teaching-page .content,
+.post-single.teaching,
+body[class*="teaching"] .post-content,
+body[class*="teaching"] .post-content,
+.post-content[data-path^="/teaching"] {
+    /* Base styles for teaching page content */
 }
 
 /* Override .main style for list pages to remove top border */
-.lecture-page main,
-body[class*="lectures"] main {
+.teaching-page main,
+body[class*="teaching"] main {
     border-top: none !important;
 }
 
-/* Override section styling to remove borders - ONLY for lectures */
-body[class*="lectures"] .main > .article-list, 
-body[class*="lectures"] .main > .first-entry, 
-body[class*="lectures"] .main > article, 
-body[class*="lectures"] .main > .entry-header,
-body[class*="lectures"] .main > .page-header {
+/* Override section styling to remove borders - ONLY for teaching */
+body[class*="teaching"] .main > .article-list, 
+body[class*="teaching"] .main > .first-entry, 
+body[class*="teaching"] .main > article, 
+body[class*="teaching"] .main > .entry-header,
+body[class*="teaching"] .main > .page-header {
     border-top: none !important;
     border-bottom: none !important;
 }
 
-/* Target all possible heading elements - ONLY for lectures page */
-body[class*="lectures"] h1, 
-body[class*="lectures"] h2, 
-body[class*="lectures"] h3, 
-body[class*="lectures"] h5, 
-body[class*="lectures"] h6,
-body[class*="lectures"] .post-title, 
-body[class*="lectures"] .page-title, 
-body[class*="lectures"] .entry-title {
+/* Target all possible heading elements - ONLY for teaching page */
+body[class*="teaching"] h1, 
+body[class*="teaching"] h2, 
+body[class*="teaching"] h3, 
+body[class*="teaching"] h5, 
+body[class*="teaching"] h6,
+body[class*="teaching"] .post-title, 
+body[class*="teaching"] .page-title, 
+body[class*="teaching"] .entry-title {
     border: none !important;
     border-bottom: none !important;
     border-top: none !important;
     box-shadow: none !important;
 }
 
-/* Target all possible header containers - ONLY for lectures */
-body[class*="lectures"] header, 
-body[class*="lectures"] .header, 
-body[class*="lectures"] .post-header, 
-body[class*="lectures"] .page-header, 
-body[class*="lectures"] .entry-header {
+/* Target all possible header containers - ONLY for teaching */
+body[class*="teaching"] header, 
+body[class*="teaching"] .header, 
+body[class*="teaching"] .post-header, 
+body[class*="teaching"] .page-header, 
+body[class*="teaching"] .entry-header {
     border: none !important;
     border-bottom: none !important;
     border-top: none !important;
@@ -56,19 +56,19 @@ body[class*="lectures"] .entry-header {
     position: relative;
 }
 
-/* Remove pseudo-elements that might be creating lines - ONLY for lectures */
-body[class*="lectures"] header::after, 
-body[class*="lectures"] header::before,
-body[class*="lectures"] .header::after, 
-body[class*="lectures"] .header::before,
-body[class*="lectures"] .post-header::after, 
-body[class*="lectures"] .post-header::before,
-body[class*="lectures"] .page-header::after, 
-body[class*="lectures"] .page-header::before,
-body[class*="lectures"] h1::after, 
-body[class*="lectures"] h1::before,
-body[class*="lectures"] .post-title::after, 
-body[class*="lectures"] .post-title::before {
+/* Remove pseudo-elements that might be creating lines - ONLY for teaching */
+body[class*="teaching"] header::after, 
+body[class*="teaching"] header::before,
+body[class*="teaching"] .header::after, 
+body[class*="teaching"] .header::before,
+body[class*="teaching"] .post-header::after, 
+body[class*="teaching"] .post-header::before,
+body[class*="teaching"] .page-header::after, 
+body[class*="teaching"] .page-header::before,
+body[class*="teaching"] h1::after, 
+body[class*="teaching"] h1::before,
+body[class*="teaching"] .post-title::after, 
+body[class*="teaching"] .post-title::before {
     display: none !important;
     content: none !important;
     border: none !important;
@@ -76,30 +76,30 @@ body[class*="lectures"] .post-title::before {
     border-bottom: none !important;
 }
 
-/* Remove any borders from top-level elements - ONLY for lectures */
-body[class*="lectures"] .post-single, 
-body[class*="lectures"] main, 
-body[class*="lectures"] article, 
-body[class*="lectures"] .main, 
-body[class*="lectures"] .content {
+/* Remove any borders from top-level elements - ONLY for teaching */
+body[class*="teaching"] .post-single, 
+body[class*="teaching"] main, 
+body[class*="teaching"] article, 
+body[class*="teaching"] .main, 
+body[class*="teaching"] .content {
     border-top: none !important;
     border-bottom: none !important;
 }
 
-/* Control content styling precisely - ONLY for lectures */
-body[class*="lectures"] .post-single .post-content {
+/* Control content styling precisely - ONLY for teaching */
+body[class*="teaching"] .post-single .post-content {
     margin-top: 30px;
     position: relative;
 }
 
-/* Style for the intro paragraph - ONLY for lectures */
-body[class*="lectures"] .post-content > p:first-of-type {
+/* Style for the intro paragraph - ONLY for teaching */
+body[class*="teaching"] .post-content > p:first-of-type {
     margin-top: calc(var(--gap) * 1.5);
     margin-bottom: calc(var(--gap) * 1.5);
 }
 
 /* Style for the lecture introduction div */
-.lecture-introduction {
+.teaching-introduction {
     margin-top: 40px;
     margin-bottom: 20px;
     line-height: 1.6;
@@ -107,18 +107,18 @@ body[class*="lectures"] .post-content > p:first-of-type {
     font-size: 1em;
 }
 
-.lecture-introduction p {
+.teaching-introduction p {
     margin-bottom: 1em;
 }
 
 /* Hide the first horizontal rule that appears right after the intro paragraph */
-body[class*="lectures"] .post-content > p:first-of-type + hr {
+body[class*="teaching"] .post-content > p:first-of-type + hr {
     display: none;
 }
 
 /* Style lecture section titles to match publication titles */
-body[class*="lectures"] .post-content h4,
-.lecture-entry h2 {
+body[class*="teaching"] .post-content h4,
+.teaching-entry h2 {
     margin: 0 0 8px 0;
     padding-top: calc(var(--gap) * 1.5);
     padding-bottom: 0;
@@ -130,8 +130,8 @@ body[class*="lectures"] .post-content h4,
 }
 
 /* Style horizontal rules exactly like in projects/publications - border-bottom on containers */
-body[class*="lectures"] .post-content hr,
-.lectures-container .lecture-entry {
+body[class*="teaching"] .post-content hr,
+.teaching-container .teaching-entry {
     display: block !important;
     height: auto !important;
     margin: 0 !important;
@@ -142,68 +142,68 @@ body[class*="lectures"] .post-content hr,
 }
 
 /* Create lecture sections that mimic project-entry/publication-entry */
-body[class*="lectures"] .post-content h4 + *,
-body[class*="lectures"] .post-content h4 ~ p,
-body[class*="lectures"] .post-content h4 ~ ul {
+body[class*="teaching"] .post-content h4 + *,
+body[class*="teaching"] .post-content h4 ~ p,
+body[class*="teaching"] .post-content h4 ~ ul {
     padding-bottom: 0;
     margin-bottom: 0;
 }
 
 /* Create spacing after sections like in projects/publications */
-body[class*="lectures"] .post-content h4 + *,
-body[class*="lectures"] .post-content h4 ~ p:last-of-type,
-body[class*="lectures"] .post-content h4 ~ ul:last-of-type {
+body[class*="teaching"] .post-content h4 + *,
+body[class*="teaching"] .post-content h4 ~ p:last-of-type,
+body[class*="teaching"] .post-content h4 ~ ul:last-of-type {
     padding-bottom: calc(var(--gap) * 1.5);
 }
 
-/* Style for lists within lectures page - ONLY for lectures */
-body[class*="lectures"] .post-content ul,
-.lecture-entry ul {
+/* Style for lists within teaching page - ONLY for teaching */
+body[class*="teaching"] .post-content ul,
+.teaching-entry ul {
     margin-top: 0;
     margin-bottom: 0;
 }
 
 /* Style list items in lecture sections */
-body[class*="lectures"] .post-content ul li,
-.lecture-entry ul li {
+body[class*="teaching"] .post-content ul li,
+.teaching-entry ul li {
     margin-bottom: 4px;
 }
 
 /* Style links in lecture sections to match publications links */
-body[class*="lectures"] .post-content a,
-.lecture-entry a {
+body[class*="teaching"] .post-content a,
+.teaching-entry a {
     color: var(--primary);
     text-decoration: none;
     box-shadow: none;
 }
 
-body[class*="lectures"] .post-content a:hover,
-.lecture-entry a:hover {
+body[class*="teaching"] .post-content a:hover,
+.teaching-entry a:hover {
     text-decoration: underline;
 }
 
 /* Special styling for links paragraph to match projects/publications */
-.lecture-entry .links,
-.lecture-details .links {
+.teaching-entry .links,
+.teaching-details .links {
     margin: 0;
     color: var(--secondary);
     font-size: 0.9em;
 }
 
-.lecture-entry .links a,
-.lecture-details .links a {
+.teaching-entry .links a,
+.teaching-details .links a {
     color: var(--primary);
     text-decoration: none;
     margin-right: 8px;
 }
 
-.lecture-entry .links a:hover,
-.lecture-details .links a:hover {
+.teaching-entry .links a:hover,
+.teaching-details .links a:hover {
     text-decoration: underline;
 }
 
 /* Styling for lecture links with bullets */
-.lecture-links {
+.teaching-links {
     margin: 0;
     padding-left: 20px;
     list-style-type: disc;
@@ -212,31 +212,31 @@ body[class*="lectures"] .post-content a:hover,
     margin-bottom: 0;
 }
 
-.lecture-links li {
+.teaching-links li {
     margin-bottom: 8px;
 }
 
-.lecture-links li:last-child {
+.teaching-links li:last-child {
     margin-bottom: 0;
 }
 
-.lecture-links a {
+.teaching-links a {
     color: var(--primary);
     text-decoration: none;
 }
 
-.lecture-links a:hover {
+.teaching-links a:hover {
     text-decoration: underline;
 }
 
 /* Ensure consistent spacing between sections */
-body[class*="lectures"] .post-content hr + h4 {
+body[class*="teaching"] .post-content hr + h4 {
     margin-top: 0;
     border-top: none !important;
 } 
 
-/* Additional styles for the lectures layout */
-.lectures-container {
+/* Additional styles for the teaching layout */
+.teaching-container {
     margin-top: 30px;
     border-top: 1px solid var(--tertiary);
     padding-top: 0;
@@ -244,7 +244,7 @@ body[class*="lectures"] .post-content hr + h4 {
 }
 
 /* Add significant space with the spacer div */
-.lecture-spacer {
+.teaching-spacer {
     height: 40px; /* Large explicit height */
     min-height: 40px;
     width: 100%;
@@ -252,7 +252,7 @@ body[class*="lectures"] .post-content hr + h4 {
     clear: both;
 }
 
-.lecture-entry {
+.teaching-entry {
     margin-bottom: 0;
     padding-top: calc(var(--gap) * 2);
     padding-bottom: 0; /* Remove bottom padding as we're using the spacer */
@@ -263,18 +263,18 @@ body[class*="lectures"] .post-content hr + h4 {
     position: relative; /* For absolute positioning if needed */
 }
 
-.lecture-content {
+.teaching-content {
     display: flex;
     gap: var(--gap);
     align-items: flex-start;
 }
 
-.lecture-details {
+.teaching-details {
     flex-grow: 1;
     width: 100%;
 }
 
-.lecture-details h2 {
+.teaching-details h2 {
     margin: 0 0 16px 0;
     font-size: 1.3em;
     line-height: 1.4;
@@ -284,11 +284,11 @@ body[class*="lectures"] .post-content hr + h4 {
 }
 
 /* More spacing for the last lecture */
-.lecture-entry:last-child .lecture-spacer {
+.teaching-entry:last-child .teaching-spacer {
     height: 50px; /* Even more height for the last one */
 }
 
 /* First lecture should have proper top padding */
-.lecture-entry:first-child {
+.teaching-entry:first-child {
     padding-top: calc(var(--gap) * 2);
 } 
