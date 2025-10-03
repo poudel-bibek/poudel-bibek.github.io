@@ -15,7 +15,6 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 
 #### Guest Lectures
 
--------------------
 
 ##### Transformers in Reinforcement Learning
 
@@ -47,10 +46,11 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 - Slides: [2021](https://poudel-bibek.github.io/pdfs/slides/intro_to_aml)
 
 
+-------------------
+
 
 #### Teaching Assistant
 
--------------------
 
 #### University of Memphis
 
