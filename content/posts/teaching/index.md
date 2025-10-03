@@ -37,7 +37,7 @@ I have served as a teaching assistant and a guest lecturer for graduate and unde
 ### SUMO Various Topics
 
 &nbsp;
-&nbsp;
+
 - Slides: [2024](https://poudel-bibek.github.io/pdfs/slides/sumo_class)
 
 
