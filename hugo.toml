@@ -22,13 +22,14 @@ theme = 'PaperMod'
     safari_pinned_tab = "safari-pinned-tab.svg"
 
   [params.homeInfoParams]
-    Title = "👋 Hi, I am Bibek Poudel."
-    Content1 = """Final year Computer Science Ph.D. student in the [Fluidic City Lab](https://fluidic-city.github.io) at [UTK](https://www.utk.edu/)."""
-    Content2 = """My research, advised by [Dr. Weizi Li](https://weizi-li.github.io/) with support from [Center for Transportation Research](https://ctr.utk.edu/person/bibek-poudel/), lies at the intersection of reinforcement learning (RL), autonomous systems, and intelligent transportation - spanning from multi-agent simulation to real-world robots."""
+    Title = "👋 Hi! My name is Bibek Poudel."
+    Content1 = """I'm a final year Computer Science Ph.D. student in the [Fluidic City Lab](https://fluidic-city.github.io) at [UTK](https://www.utk.edu/). My research is advised by [Dr. Weizi Li](https://weizi-li.github.io/) with support from [Center for Transportation Research](https://ctr.utk.edu/person/bibek-poudel/)."""
+    Content2 = """ lies at the intersection of reinforcement learning (RL), autonomous systems, and intelligent transportation - spanning from multi-agent simulation to real-world robots."""
     Content3 = """Currently, I am working on two projects: First, I am [developing](https://youtu.be/fmLydgvk2p4) RL agents that can simultaneously design and control urban environments to optimize outcomes for multiple stakeholders: pedestrians, vehicles, and urban planners. Second, I am also working on agents that can design transit routes real-world networks."""
     Content4 = """Recently, I worked with [EPIC lab](https://epic.eecs.utk.edu) to develop a robotic wheelchair for personalized exertion control using Human-in-the-loop RL."""
     Content5 = """For details on my background and experiences, please check out my [resume](/pdfs/resume/). Besides my own research, I am developing [cowrite](https://cowrite.io/), a tool that helps researchers publish faster. Sometimes, I write on my [blog](/archives)."""
 
+Content2 = """I build intelligent systems that learn from experience. Using Reinforcement Learning (RL), my work improves how autonomous vehicles and robots operate in the real world, focusing on creating safer, more efficient transportation for everyone."""
 
   [params.cover]
     hidden = true
