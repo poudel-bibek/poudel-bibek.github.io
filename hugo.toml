@@ -29,8 +29,6 @@ theme = 'PaperMod'
     Content4 = """Recently, I worked with [EPIC lab](https://epic.eecs.utk.edu) to develop a robotic wheelchair for personalized exertion control using Human-in-the-loop RL."""
     Content5 = """For details on my background and experiences, please check out my [resume](/pdfs/resume/). Besides my own research, I am developing [cowrite](https://cowrite.io/), a tool that helps researchers publish faster. Sometimes, I write on my [blog](/archives)."""
 
-Content2 = """I build intelligent systems that learn from experience. Using Reinforcement Learning (RL), my work improves how autonomous vehicles and robots operate in the real world, focusing on creating safer, more efficient transportation for everyone."""
-
   [params.cover]
     hidden = true
 
