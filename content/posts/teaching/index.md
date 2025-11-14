@@ -25,7 +25,7 @@ I have served as a teaching assistant and guest lecturer for various graduate an
 
 ### Exploration Strategies
 &nbsp;
-    - Slides: [2025]() (Coming soon)
+    - Slides: [2025](https://poudel-bibek.github.io/pdfs/slides/exploration_strategies)
 
 
 ### &nbsp;
