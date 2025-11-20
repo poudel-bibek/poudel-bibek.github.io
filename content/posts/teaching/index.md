@@ -16,9 +16,9 @@ I have served as a teaching assistant and guest lecturer for various graduate an
 #### Guest Lectures
 
 
-### Transformers in Reinforcement Learning
+### Reinforcement Learning in Transformers
 &nbsp;
-    - Slides: [2025]() (Coming soon)
+    - Slides: [2025](https://poudel-bibek.github.io/pdfs/slides/transformers_rl)
 
 
 ### &nbsp;
