@@ -1,0 +1,5 @@
+{{- /* Head custom content area - loads MathJax and pseudocode.js for math/algorithm rendering */ -}}
+{{ if or .Params.math .Site.Params.math }}
+{{ partial "math.html" . }}
+{{ end }}
+

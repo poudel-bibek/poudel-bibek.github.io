@@ -36,4 +36,14 @@
 /* Hover effects consistent with theme - color change only */
 .social-icons a:hover {
   color: var(--primary);
-} 
+}
+
+/* Make blog post summary match the date styling */
+.post-entry .entry-content {
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+.post-entry .entry-content p {
+  margin: 0;
+}

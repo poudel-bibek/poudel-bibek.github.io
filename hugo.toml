@@ -88,3 +88,9 @@ isHTML = false
 [mediaTypes]
 [mediaTypes."application/pdf"]
 suffixes = ["pdf"]
+
+# Allow raw HTML in markdown (needed for some math rendering)
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true

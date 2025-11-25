@@ -1,0 +1,33 @@
+<!-- MathJax Configuration -->
+<script>
+MathJax = {
+    tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+    },
+    options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+};
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<!-- Pseudocode.js for paper-style algorithms -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pseudocode@2.4.1/build/pseudocode.min.css">
+<script src="https://cdn.jsdelivr.net/npm/pseudocode@2.4.1/build/pseudocode.min.js"></script>
+<script>
+window.addEventListener('load', function() {
+    if (typeof pseudocode !== 'undefined') {
+        document.querySelectorAll('.pseudocode').forEach(function(el) {
+            // Use class "no-line-numbers" to hide line numbers
+            var showLineNumbers = !el.classList.contains('no-line-numbers');
+            pseudocode.renderElement(el, {
+                lineNumber: showLineNumbers,
+                lineNumberPunc: ':',
+                noEnd: false
+            });
+        });
+    }
+});
+</script>
