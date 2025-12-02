@@ -132,3 +132,6 @@ Where:
 - \\(\lambda\\) = mixing parameter
 
 This made MCTS much more efficient — the neural network could evaluate a position in milliseconds, while random playouts might take hundreds of moves.
+
+
+What role did Self-Play play in this?
