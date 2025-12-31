@@ -17,7 +17,7 @@ My research lies at the intersection of reinforcement learning, autonomous syste
 [thumbnail:joint-pedestrian]
 __Bibek Poudel__, Xuan Wang, Weizi Li, Lei Zhu, and Kevin Heaslip  
 IROS 2025 
-[arXiv](https://arxiv.org/abs/2504.05018) | [Video](https://youtu.be/zMbu8zeQEFs) | [Demo](https://www.youtube.com/watch?v=Tec3H72cDT4) | [Code](https://github.com/poudel-bibek/Urban-Control)
+[Paper](https://ieeexplore.ieee.org/document/11247331) | [arXiv](https://arxiv.org/abs/2504.05018) | [Video](https://youtu.be/zMbu8zeQEFs) | [Demo](https://www.youtube.com/watch?v=Tec3H72cDT4) | [Code](https://github.com/poudel-bibek/Urban-Control)
 
 -------------------
 
