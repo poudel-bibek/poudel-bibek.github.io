@@ -1,7 +1,7 @@
 ---
 title: "Lessons on LeetCode: Part I"
 date: 2024-10-12T20:00:00
-draft: false
+draft: true
 summary: "Things I learned from solving LeetCode problems in Python"
 #showtoc: true
 excludeFromBlog: false
