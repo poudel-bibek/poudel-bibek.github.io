@@ -16,6 +16,13 @@ I have served as a teaching assistant and guest lecturer for various graduate an
 #### Guest Lectures
 
 
+### AlphaTransit: Learning to design city scale transit routes
+&nbsp;
+    - Slides: [2026](https://poudel-bibek.github.io/pdfs/slides/alphatransit)
+
+
+### &nbsp;
+
 ### Reinforcement Learning in Transformers
 &nbsp;
     - Slides: [2025](https://poudel-bibek.github.io/pdfs/slides/transformers_rl)
