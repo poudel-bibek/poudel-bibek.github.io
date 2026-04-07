@@ -13,6 +13,22 @@ My research lies at the intersection of reinforcement learning, autonomous syste
 
 -------------------
 
+#### AlphaTransit: Learning to Design City-Scale Transit Routes
+[thumbnail:alphatransit]
+__Bibek Poudel__, Sai Swaminathan, and Weizi Li  
+Under Review  
+[PDF](https://poudel-bibek.github.io/pdfs/projects/alphatransit/)
+
+-------------------
+
+#### DeCoR: Design and Control Co-Optimization for Urban Streets Using Reinforcement Learning
+[thumbnail:decor]
+__Bibek Poudel__, Lei Zhu, Kevin Heaslip, Sai Swaminathan, and Weizi Li  
+Under Review  
+[PDF](https://poudel-bibek.github.io/pdfs/projects/decor/)
+
+-------------------
+
 #### Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning
 [thumbnail:joint-pedestrian]
 __Bibek Poudel__, Xuan Wang, Weizi Li, Lei Zhu, and Kevin Heaslip  
