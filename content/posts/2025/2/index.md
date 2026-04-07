@@ -1,7 +1,7 @@
 ---
 title: "Monte Carlo Tree Search with RL"
 date: 2025-11-25T20:00:00
-draft: false
+draft: true
 summary: "How Monte Carlo Tree Search works and how it was enhanced with neural networks in AlphaGo"
 #showtoc: true
 excludeFromBlog: false
