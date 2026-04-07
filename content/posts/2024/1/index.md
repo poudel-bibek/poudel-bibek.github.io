@@ -1,7 +1,7 @@
 ---
 title: "Lessons on LeetCode: Part I"
 date: 2024-10-12T20:00:00
-draft: true
+draft: false
 summary: "Things I learned from solving LeetCode problems in Python"
 #showtoc: true
 excludeFromBlog: false
@@ -74,10 +74,15 @@ for i in range(len(nums)):
 b. When dealing with paths in a graph or tree, you might not need to store the entire path, but just keep track of relevant information about it (like its length, start and end points, or some aggregated value).
 
 ```python {linenos=inline}
-
+# Instead of storing the entire path, just track the running sum
+max_sum = float('-inf')
+current_sum = 0
+for num in nums:
+    current_sum = max(num, current_sum + num)
+    max_sum = max(max_sum, current_sum)
 ```
 
-This can lead to more efficient algorithms in terms of both time and space complexity. 
+This can lead to more efficient algorithms in terms of both time and space complexity.
 
 ----
 Python related (syntax and more) tricks, which I never bothered to learn until I started solving LeetCode:
@@ -151,13 +156,12 @@ print(list(mydict.values()))
 
 
 ```python {linenos=inline} 
-# You can also sort characters. In some cases this may be helpful (such as checking equality)
+# Sorting characters can be useful, e.g., checking if two strings are anagrams
+sorted("listen") == sorted("silent") # True
 
-```
-
-```python {linenos=inline} 
-ord('a') returns the unicode of the alphabet. then you can do +1 to increment it.
-then you can use chr() to convert it back to the word
+# ord() returns the unicode value of a character, chr() converts back
+ord('a')       # 97
+chr(ord('a') + 1)  # 'b'
 ```
 
 
@@ -182,9 +186,9 @@ b = tuple(a)
 b[0] = 10 # This is NOT allowed
 ```
 
-6. Why do we need a semicolon after break? `break;`
+6. Semicolons in Python.
 
-- We don't, its optional. Both break and break; work exactly the same way. 
+- Unlike C or Java, semicolons are optional in Python. `break` and `break;` work exactly the same way. You might see them occasionally, but they are not idiomatic Python.
 
 ---
 

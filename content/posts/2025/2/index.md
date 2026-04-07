@@ -1,8 +1,8 @@
 ---
 title: "Monte Carlo Tree Search with RL"
 date: 2025-11-25T20:00:00
-draft: true
-summary: "\u200B"
+draft: false
+summary: "How Monte Carlo Tree Search works and how it was enhanced with neural networks in AlphaGo"
 #showtoc: true
 excludeFromBlog: false
 math: true
@@ -133,5 +133,40 @@ Where:
 
 This made MCTS much more efficient — the neural network could evaluate a position in milliseconds, while random playouts might take hundreds of moves.
 
+---
 
-What role did Self-Play play in this?
+## The Role of Self-Play
+
+AlphaGo and its successors (AlphaGo Zero, AlphaZero) used self-play to generate training data. The loop works as follows:
+
+1. The current network plays games against itself using MCTS
+2. The outcomes of these games are used as training targets
+3. The network is updated to better predict game outcomes and promising moves
+4. The improved network is used for the next round of self-play
+
+This creates a virtuous cycle — better networks lead to stronger MCTS, which generates higher-quality training data, which produces even better networks. AlphaGo Zero, starting from random play with no human knowledge, surpassed the original AlphaGo in just 72 hours of training.
+
+---
+
+## From PUCT to AlphaZero
+
+AlphaZero replaced UCB1 with PUCT (Predictor + UCB applied to Trees), which incorporates a learned prior from the policy network:
+
+\\[
+PUCT(s, a) = \frac{W(s, a)}{N(s, a)} + c \cdot P(s, a) \cdot \frac{\sqrt{N(s)}}{1 + N(s, a)}
+\\]
+
+Where \\(P(s, a)\\) is the prior probability from the policy network. This guides the search toward moves the network considers promising, even before they have been explored. Early in the search, the prior dominates. As \\(N(s, a)\\) grows, the empirical value takes over.
+
+---
+
+## Beyond Games
+
+MCTS is not limited to board games. It has been applied to:
+
+- **Robotics** — planning sequences of actions in continuous state spaces
+- **Program synthesis** — searching over the space of possible programs
+- **Transportation** — designing transit routes by searching over network configurations
+- **Mathematical reasoning** — guiding proof search in theorem provers
+
+The core idea — using learned heuristics to guide tree search — turns out to be broadly useful wherever the search space is too large for exhaustive exploration but structured enough for a learned policy to provide useful guidance.
