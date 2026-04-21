@@ -29,6 +29,14 @@ Under Review
 
 -------------------
 
+#### Learning-Based Sparsification of Dynamic Graphs in Robotic Exploration Algorithms
+[thumbnail:sparse]
+Adithya V. Sastry, __Bibek Poudel__, and Weizi Li  
+Under Review  
+[PDF](https://poudel-bibek.github.io/pdfs/projects/sparse/) | [arXiv](https://arxiv.org/abs/2604.16509)
+
+-------------------
+
 #### Joint Pedestrian and Vehicle Traffic Optimization in Urban Environments using Reinforcement Learning
 [thumbnail:joint-pedestrian]
 __Bibek Poudel__, Xuan Wang, Weizi Li, Lei Zhu, and Kevin Heaslip  
