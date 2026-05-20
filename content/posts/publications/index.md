@@ -17,7 +17,7 @@ My research lies at the intersection of reinforcement learning, autonomous syste
 [thumbnail:alphatransit]
 __Bibek Poudel__, Sai Swaminathan, and Weizi Li  
 Under Review  
-[arXiv](https://poudel-bibek.github.io/pdfs/projects/alphatransit/) |  [Video](https://youtu.be/Z_cvsM0MqFs)
+[arXiv](https://poudel-bibek.github.io/pdfs/projects/alphatransit/) |  [Video](https://youtu.be/Z_cvsM0MqFs) |  [Code](https://github.com/poudel-bibek/AlphaTransit)
 
 -------------------
 
