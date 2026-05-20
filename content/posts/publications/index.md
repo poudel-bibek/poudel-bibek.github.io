@@ -33,7 +33,7 @@ Under Review
 [thumbnail:sparse]
 Adithya V. Sastry, __Bibek Poudel__, and Weizi Li  
 Under Review  
-[arXiv](https://poudel-bibek.github.io/pdfs/projects/sparse/) |  [arXiv](https://arxiv.org/abs/2604.16509)
+[arXiv](https://arxiv.org/abs/2604.16509)
 
 -------------------
 
