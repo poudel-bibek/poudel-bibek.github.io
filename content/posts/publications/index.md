@@ -17,7 +17,7 @@ My research lies at the intersection of reinforcement learning, autonomous syste
 [thumbnail:alphatransit]
 __Bibek Poudel__, Sai Swaminathan, and Weizi Li  
 Under Review  
-[PDF](https://poudel-bibek.github.io/pdfs/projects/alphatransit/) | [Video](https://youtu.be/Z_cvsM0MqFs)
+[arXiv](https://poudel-bibek.github.io/pdfs/projects/alphatransit/) |  [Video](https://youtu.be/Z_cvsM0MqFs)
 
 -------------------
 
@@ -25,7 +25,7 @@ Under Review
 [thumbnail:decor]
 __Bibek Poudel__, Lei Zhu, Kevin Heaslip, Sai Swaminathan, and Weizi Li  
 Under Review  
-[PDF](https://poudel-bibek.github.io/pdfs/projects/decor/) | [Video](https://youtu.be/fmLydgvk2p4)
+[arXiv](https://poudel-bibek.github.io/pdfs/projects/decor/) |  [Video](https://youtu.be/fmLydgvk2p4) |  [Code](https://github.com/poudel-bibek/DeCoR)
 
 -------------------
 
@@ -33,7 +33,7 @@ Under Review
 [thumbnail:sparse]
 Adithya V. Sastry, __Bibek Poudel__, and Weizi Li  
 Under Review  
-[PDF](https://poudel-bibek.github.io/pdfs/projects/sparse/) | [arXiv](https://arxiv.org/abs/2604.16509)
+[arXiv](https://poudel-bibek.github.io/pdfs/projects/sparse/) |  [arXiv](https://arxiv.org/abs/2604.16509)
 
 -------------------
 
@@ -41,7 +41,7 @@ Under Review
 [thumbnail:joint-pedestrian]
 __Bibek Poudel__, Xuan Wang, Weizi Li, Lei Zhu, and Kevin Heaslip  
 IROS 2025 
-[Paper](https://ieeexplore.ieee.org/document/11247331) | [arXiv](https://arxiv.org/abs/2504.05018) | [Video](https://youtu.be/zMbu8zeQEFs) | [Demo](https://www.youtube.com/watch?v=Tec3H72cDT4) | [Code](https://github.com/poudel-bibek/Urban-Control)
+[Paper](https://ieeexplore.ieee.org/document/11247331) |  [arXiv](https://arxiv.org/abs/2504.05018) |  [Video](https://youtu.be/zMbu8zeQEFs) |  [Demo](https://www.youtube.com/watch?v=Tec3H72cDT4) |  [Code](https://github.com/poudel-bibek/Urban-Control)
 
 -------------------
 
@@ -73,7 +73,7 @@ CHASE 2025
 [thumbnail:endurl]
 __Bibek Poudel__, Weizi Li, and Kevin Heaslip  
 IROS 2024  
-[Paper](https://ieeexplore.ieee.org/document/10802689) | [arXiv](https://arxiv.org/abs/2311.12261) | [Video](https://youtu.be/TpyKSPNtrxM) | [Code](https://github.com/poudel-bibek/EnduRL)
+[Paper](https://ieeexplore.ieee.org/document/10802689) |  [arXiv](https://arxiv.org/abs/2311.12261) |  [Video](https://youtu.be/TpyKSPNtrxM) |  [Code](https://github.com/poudel-bibek/EnduRL)
 
 -------------------
 
@@ -81,7 +81,7 @@ IROS 2024
 [thumbnail:autojoin]
 Michael Villarreal, __Bibek Poudel__, Ryan Wickman, Yu Shen, and Weizi Li  
 IROS 2024  
-[Paper](https://ieeexplore.ieee.org/abstract/document/10802857) | [arXiv](https://arxiv.org/abs/2205.10933) | [Video](https://youtu.be/Gb-byAgnskI) | [Code](https://github.com/tmvllrrl/AutoJoin)
+[Paper](https://ieeexplore.ieee.org/abstract/document/10802857) |  [arXiv](https://arxiv.org/abs/2205.10933) |  [Video](https://youtu.be/Gb-byAgnskI) |  [Code](https://github.com/tmvllrrl/AutoJoin)
 
 -------------------
 
@@ -89,7 +89,7 @@ IROS 2024
 [thumbnail:carl]
 __Bibek Poudel__, Shuai Li, and Weizi Li  
 IEEE CYBER 2024  
-[Paper](https://ieeexplore.ieee.org/document/10749026) | [arXiv](https://arxiv.org/abs/2404.00796) | [Code](https://github.com/poudel-bibek/CARL)
+[Paper](https://ieeexplore.ieee.org/document/10749026) |  [arXiv](https://arxiv.org/abs/2404.00796) |  [Code](https://github.com/poudel-bibek/CARL)
 
 -------------------
 
@@ -97,7 +97,7 @@ IEEE CYBER 2024
 [thumbnail:mtc-pixels]
 Michael Villarreal, __Bibek Poudel__, Jia Pan, and Weizi Li  
 ICRA 2024  
-[Paper](https://ieeexplore.ieee.org/abstract/document/10610517) | [arXiv](https://arxiv.org/abs/2302.09167) | [Video](https://youtu.be/g-aBGhdFHXU) | [Code](https://github.com/tmvllrrl/mtc-pixels)
+[Paper](https://ieeexplore.ieee.org/abstract/document/10610517) |  [arXiv](https://arxiv.org/abs/2302.09167) |  [Video](https://youtu.be/g-aBGhdFHXU) |  [Code](https://github.com/tmvllrrl/mtc-pixels)
 
 -------------------
 
@@ -105,7 +105,7 @@ ICRA 2024
 [thumbnail:chatgpt-its]
 Michael Villarreal, __Bibek Poudel__, and Weizi Li  
 ITSC 2023  
-[Paper](https://ieeexplore.ieee.org/document/10422410) | [arXiv](https://arxiv.org/abs/2306.08094) | [Code](https://github.com/tmvllrrl/its-study)
+[Paper](https://ieeexplore.ieee.org/document/10422410) |  [arXiv](https://arxiv.org/abs/2306.08094) |  [Code](https://github.com/tmvllrrl/its-study)
 
 -------------------
 
@@ -113,7 +113,7 @@ ITSC 2023
 [thumbnail:dqs]
 Ryan Wickman, __Bibek Poudel__, Michael Villarreal, Xiaofei Zhang, and Weizi Li  
 GECCO 2023  
-[Paper](https://dl.acm.org/doi/10.1145/3583133.3590581) | [arXiv](https://arxiv.org/abs/2304.07425) | [Code](https://github.com/rwickman/NEAT_RL)
+[Paper](https://dl.acm.org/doi/10.1145/3583133.3590581) |  [arXiv](https://arxiv.org/abs/2304.07425) |  [Code](https://github.com/rwickman/NEAT_RL)
 
 -------------------
 
@@ -121,7 +121,7 @@ GECCO 2023
 [thumbnail:dc-motor]
 __Bibek Poudel__, Thomas Watson, and Weizi Li  
 ITSC 2022  
-[Paper](https://doi.org/10.1109/ITSC55140.2022.9921919) | [arXiv](https://arxiv.org/abs/2108.00138) | [Video](https://www.youtube.com/watch?v=TgZS54wQ3ss) | [Code](https://github.com/poudel-bibek/NFQ_Golf_Cart)
+[Paper](https://doi.org/10.1109/ITSC55140.2022.9921919) |  [arXiv](https://arxiv.org/abs/2108.00138) |  [Video](https://www.youtube.com/watch?v=TgZS54wQ3ss) |  [Code](https://github.com/poudel-bibek/NFQ_Golf_Cart)
 
 -------------------
 
@@ -129,7 +129,6 @@ ITSC 2022
 [thumbnail:black-box]
 __Bibek Poudel__ and Weizi Li  
 ITSC 2021  
-[Paper](https://doi.org/10.1109/ITSC48978.2021.9564671) | [arXiv](https://arxiv.org/abs/2110.08712) | [Video](https://www.youtube.com/watch?v=yxOBCIl1o-Y) | [Code](https://github.com/poudel-bibek/black_box_traffic)
+[Paper](https://doi.org/10.1109/ITSC48978.2021.9564671) |  [arXiv](https://arxiv.org/abs/2110.08712) |  [Video](https://www.youtube.com/watch?v=yxOBCIl1o-Y) |  [Code](https://github.com/poudel-bibek/black_box_traffic)
 
 -------------------
-
