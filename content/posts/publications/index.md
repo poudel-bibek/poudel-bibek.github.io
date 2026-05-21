@@ -25,7 +25,7 @@ Under Review
 [thumbnail:decor]
 __Bibek Poudel__, Lei Zhu, Kevin Heaslip, Sai Swaminathan, and Weizi Li  
 Under Review  
-[arXiv](https://poudel-bibek.github.io/pdfs/projects/decor/) |  [Video](https://youtu.be/fmLydgvk2p4) |  [Code](https://github.com/poudel-bibek/DeCoR)
+[arXiv](https://arxiv.org/abs/2605.21311) |  [Video](https://youtu.be/fmLydgvk2p4) |  [Code](https://github.com/poudel-bibek/DeCoR)
 
 -------------------
 
