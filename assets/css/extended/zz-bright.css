@@ -17,11 +17,13 @@
     --accent: #1273b8;       /* links: sky-leaning blue */
 }
 
-/* dark mode: neutral near-white links — editorial, no color
+/* dark mode: brighter text, links a step grayer — inverted emphasis
    (new PaperMod uses html[data-theme=dark]; .dark kept for safety) */
 [data-theme="dark"],
 .dark {
-    --accent: #e8e8e8;
+    --primary: #f2f2f2;      /* headings / strong text: near-white */
+    --content: #e4e4e4;      /* body text: brighter than theme default */
+    --accent: #a6a6a6;       /* links: quiet gray, dimmer than the text */
 }
 
 /* ---- One consistent font system: Lora ---- */
