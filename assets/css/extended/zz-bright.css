@@ -14,12 +14,12 @@
     --content: #262626;      /* article text */
     --code-bg: #f5f5f5;      /* inline code background */
     --border: #e6e6e6;       /* hairlines */
-    --accent: #0f4c81;       /* links: serious deep blue */
+    --accent: #1273b8;       /* links: sky-leaning blue */
 }
 
-/* keep original dark mode, just give it a matching accent */
+/* dark mode: orange links for contrast against the dark background */
 .dark {
-    --accent: #7cb3e8;
+    --accent: #ff9d54;
 }
 
 /* ---- One consistent font system: Lora ---- */
@@ -78,11 +78,8 @@ h1, h2, h3 {
 .home-info [class^="entry-content"] a {
     color: var(--accent);
     box-shadow: none;
-    text-decoration: underline;
-    text-decoration-color: color-mix(in srgb, var(--accent) 30%, transparent);
-    text-decoration-thickness: 1px;
+    text-decoration: none;
     text-underline-offset: 3px;
-    transition: text-decoration-color 0.15s ease;
 }
 
 .post-content a:hover,
@@ -91,7 +88,8 @@ h1, h2, h3 {
 .publications-container a:hover,
 .projects-container a:hover,
 .home-info [class^="entry-content"] a:hover {
-    text-decoration-color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
 }
 
 /* link rows under each publication/project/lecture (arXiv | Video | Code …)
@@ -187,15 +185,16 @@ body {
     height: 1px;
 }
 
-/* ---- Publication & project thumbnails: thin outer border ---- */
+/* ---- Publication & project thumbnails: same card style as blog tiles ---- */
 .publication-thumbnail,
 .project-thumbnail {
-    border: 1px solid #8a8a8a;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.dark .publication-thumbnail,
-.dark .project-thumbnail {
-    border-color: var(--border);
+.publication-entry:hover .publication-thumbnail,
+.project-entry:hover .project-thumbnail {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
 /* ---- Substack tiles & subscribe box ---- */
