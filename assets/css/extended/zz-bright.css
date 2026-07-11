@@ -187,6 +187,33 @@ body {
     height: 1px;
 }
 
+/* ---- Substack tiles & subscribe box ---- */
+.substack-entry {
+    position: relative;
+    margin-bottom: var(--content-gap);
+    padding: 20px;
+}
+
+.substack-entry .entry-link {
+    position: absolute;
+    inset: 0;
+}
+
+.substack-entry .entry-footer {
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+.substack-tiles {
+    margin-top: 24px;
+}
+
+.substack-subscribe {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 24px;
+}
+
 /* ---- Small refinements ---- */
 ::selection {
     background: #cfe3f5;

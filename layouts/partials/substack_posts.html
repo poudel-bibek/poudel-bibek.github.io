@@ -1,0 +1,40 @@
+{{- /* Renders recent Substack posts as tiles.
+       Usage: {{ partial "substack_posts.html" 3 }}  (argument = max tiles)
+       Posts are fetched at build time from the Substack API; when a new post
+       is published, the site picks it up on the next build/deploy. */ -}}
+{{- $limit := . | default 12 }}
+{{- $posts := slice }}
+{{- with try (resources.GetRemote "https://poudell.substack.com/api/v1/posts?limit=12") }}
+  {{- with .Err }}
+    {{- warnf "Could not fetch Substack posts: %s" . }}
+  {{- else with .Value }}
+    {{- $posts = .Content | transform.Unmarshal }}
+  {{- end }}
+{{- end }}
+
+{{- if gt (len $posts) 0 }}
+{{- range first $limit $posts }}
+<article class="post-entry substack-entry">
+  <a class="entry-link" href="{{ .canonical_url }}" target="_blank" rel="noopener" aria-label="{{ .title }}"></a>
+  <header class="entry-header">
+    <h2>{{ .title }}</h2>
+  </header>
+  {{- $summary := or .subtitle .description }}
+  {{- with $summary }}
+  <div class="entry-content"><p>{{ . }}</p></div>
+  {{- end }}
+  <footer class="entry-footer">
+    {{- with .post_date }}{{ dateFormat "January 2, 2006" (time .) }} · {{ end }}Read on Substack&nbsp;↗
+  </footer>
+</article>
+{{- end }}
+{{- else }}
+<article class="post-entry substack-entry">
+  <a class="entry-link" href="https://poudell.substack.com" target="_blank" rel="noopener" aria-label="Substack"></a>
+  <header class="entry-header">
+    <h2>Read my posts on Substack</h2>
+  </header>
+  <div class="entry-content"><p>New posts are published on my Substack.</p></div>
+  <footer class="entry-footer">poudell.substack.com&nbsp;↗</footer>
+</article>
+{{- end }}
