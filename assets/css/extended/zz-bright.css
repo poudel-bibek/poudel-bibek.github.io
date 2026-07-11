@@ -190,8 +190,16 @@ body {
 /* ---- Publication & project thumbnails: same card style as blog tiles ---- */
 .publication-thumbnail,
 .project-thumbnail {
+    background: var(--entry);       /* same card surface as .post-entry */
+    padding: 5px;                   /* slim mat so the surface shows in dark mode */
+    box-sizing: border-box;
     border: 1px solid var(--border);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.publication-thumbnail img,
+.project-thumbnail img {
+    border-radius: calc(var(--radius) - 4px);
 }
 
 .publication-entry:hover .publication-thumbnail,
