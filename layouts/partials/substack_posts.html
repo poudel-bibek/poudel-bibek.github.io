@@ -24,17 +24,16 @@
   <div class="entry-content"><p>{{ . }}</p></div>
   {{- end }}
   <footer class="entry-footer">
-    {{- with .post_date }}{{ dateFormat "January 2, 2006" (time .) }} · {{ end }}Read on Substack&nbsp;↗
+    {{- with .post_date }}{{ dateFormat "January 2, 2006" (time .) }}{{ end }}
   </footer>
 </article>
 {{- end }}
 {{- else }}
 <article class="post-entry substack-entry">
-  <a class="entry-link" href="https://poudell.substack.com" target="_blank" rel="noopener" aria-label="Substack"></a>
+  <a class="entry-link" href="https://poudell.substack.com" target="_blank" rel="noopener" aria-label="Blog"></a>
   <header class="entry-header">
-    <h2>Read my posts on Substack</h2>
+    <h2>Blog</h2>
   </header>
-  <div class="entry-content"><p>New posts are published on my Substack.</p></div>
-  <footer class="entry-footer">poudell.substack.com&nbsp;↗</footer>
+  <div class="entry-content"><p>I write about things I learn along the way.</p></div>
 </article>
 {{- end }}

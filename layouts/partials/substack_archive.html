@@ -1,0 +1,45 @@
+{{- /* Renders Substack posts in the old archive style: grouped by year, then month.
+       Fetched at build time from the Substack API. */ -}}
+{{- $posts := slice }}
+{{- with try (resources.GetRemote "https://poudell.substack.com/api/v1/posts?limit=50") }}
+  {{- with .Err }}
+    {{- warnf "Could not fetch Substack posts: %s" . }}
+  {{- else with .Value }}
+    {{- $posts = .Content | transform.Unmarshal }}
+  {{- end }}
+{{- end }}
+
+{{- if gt (len $posts) 0 }}
+{{- $lastYear := "" }}
+{{- $lastMonth := "" }}
+{{- range $posts }}
+{{- $t := time .post_date }}
+{{- $year := $t.Format "2006" }}
+{{- $month := $t.Format "January" }}
+{{- if ne $year $lastYear }}
+{{- if ne $lastYear "" }}</div></div>{{ end }}
+<div class="archive-year">
+  <h2 class="archive-year-header">{{ $year }}</h2>
+  {{- $lastYear = $year }}
+  {{- $lastMonth = "" }}
+{{- end }}
+{{- if ne $month $lastMonth }}
+{{- if ne $lastMonth "" }}</div>{{ end }}
+  <div class="archive-month">
+    <h3 class="archive-month-header">{{ $month }}</h3>
+    {{- $lastMonth = $month }}
+{{- end }}
+    <div class="archive-entry">
+      <h3 class="archive-entry-title">{{ .title }}</h3>
+      <div class="archive-meta">
+        {{- $t.Format "January 2, 2006" }}{{ with .subtitle }} · {{ . }}{{ end -}}
+      </div>
+      <a class="entry-link" aria-label="post link to {{ .title }}" href="{{ .canonical_url }}" target="_blank" rel="noopener"></a>
+    </div>
+{{- end }}
+</div></div>
+{{- else }}
+<div class="post-content">
+  <p>Posts will appear here soon — in the meantime, visit <a href="https://poudell.substack.com" target="_blank" rel="noopener">my blog directly</a>.</p>
+</div>
+{{- end }}

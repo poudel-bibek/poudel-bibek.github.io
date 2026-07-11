@@ -9,4 +9,4 @@ hiddenInHomeList: true
 excludeFromBlog: true
 ---
 
-I write about reinforcement learning, Python, and things I learn along the way. Posts are published on Substack.
+I write about things I learn along the way.
