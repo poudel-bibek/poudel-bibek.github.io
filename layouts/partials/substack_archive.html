@@ -79,8 +79,8 @@
     list.innerHTML = html;
 
     pagination.style.display = '';
-    prev.style.visibility = page > 0 ? 'visible' : 'hidden';
-    next.style.visibility = page < totalPages - 1 ? 'visible' : 'hidden';
+    prev.style.display = page > 0 ? '' : 'none';
+    next.style.display = page < totalPages - 1 ? '' : 'none';
     info.textContent = 'Page ' + (page + 1) + ' of ' + totalPages;
   }
 
