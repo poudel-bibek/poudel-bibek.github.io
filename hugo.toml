@@ -4,7 +4,7 @@ title = ''
 theme = 'PaperMod'
 
 [params]
-  defaultTheme = "dark"
+  defaultTheme = "light"
   ShowReadingTime = true
   ShowBreadCrumbs = false
   ShowPostNavLinks = false
@@ -58,27 +58,27 @@ url = "https://x.com/bibek_poudel_"
 [menu]
 [[menu.main]]
   name = 'Home'
-  pageRef = '/'
+  url = '/'
   weight = 10
 
 [[menu.main]]
   name = 'Publications'
-  pageRef = '/publications'
+  url = '/posts/publications/'
   weight = 20
 
 [[menu.main]]
   name = 'Projects'
-  pageRef = '/projects'
+  url = '/projects/'
   weight = 30
 
 [[menu.main]]
   name = 'Teaching'
-  pageRef = '/teaching'
+  url = '/teaching/'
   weight = 40
-  
+
 [[menu.main]]
   name = 'Blog'
-  pageRef = '/archives'
+  url = '/archives/'
   weight = 50
 
 [outputs]

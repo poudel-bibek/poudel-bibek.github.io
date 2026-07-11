@@ -10,33 +10,25 @@
     text-align: center;
 }
 
-.profile .profile_inner h1 {
-    padding: 12px 0;
+.profile .profile_inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .profile img {
-    display: inline-table;
     border-radius: 50%;
 }
 
 .buttons {
     flex-wrap: wrap;
     max-width: 400px;
-    margin: 0 auto;
+    gap: 1rem;
 }
 
 .button {
     background: var(--tertiary);
     border-radius: var(--radius);
-    margin: 8px;
-    padding: 6px;
-    transition: transform 0.1s;
-}
-
-.button-inner {
-    padding: 0 8px;
-}
-
-.button:active {
-    transform: scale(0.96);
+    padding: 0.4rem 0.8rem;
 }

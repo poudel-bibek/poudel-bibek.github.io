@@ -1,0 +1,160 @@
+/* ============================================================
+   Bright white theme + STIX Two Text typography
+   (bright-theme branch — loaded last, overrides theme defaults)
+   ============================================================ */
+
+/* ---- Crisp white palette (light mode) ---- */
+:root {
+    --main-width: 800px;     /* wider content column (upstream default is 720px) */
+    --theme: #ffffff;        /* page background: pure white */
+    --entry: #ffffff;        /* cards / entries */
+    --primary: #1a1a1a;      /* main text: near-black */
+    --secondary: #5c5c5c;    /* meta text */
+    --tertiary: #f0f0f0;     /* hover chips / subtle fills */
+    --content: #262626;      /* article text */
+    --code-bg: #f5f5f5;      /* inline code background */
+    --border: #e6e6e6;       /* hairlines */
+    --accent: #0f4c81;       /* links: serious deep blue */
+}
+
+/* keep original dark mode, just give it a matching accent */
+.dark {
+    --accent: #7cb3e8;
+}
+
+/* ---- One consistent font system: STIX Two Text ---- */
+body,
+h1, h2, h3, h4, h5, h6,
+input, button, select, textarea {
+    font-family: 'STIX Two Text', 'Times New Roman', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+code, pre, .highlight, kbd {
+    font-family: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+/* teaching.css hardcodes its own system-font stack — bring it in line */
+body[class*="teaching"] .post-content h4,
+.teaching-entry h2,
+.teaching-details h2 {
+    font-family: 'STIX Two Text', 'Times New Roman', Georgia, serif;
+}
+
+h1, h2, h3 {
+    letter-spacing: -0.01em;
+}
+
+/* ---- Comfortable reading layout ---- */
+.post-content {
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.post-content p,
+.post-content li {
+    margin-bottom: 0.35em;
+}
+
+.home-info [class^="entry-content"],
+.first-entry .entry-content {
+    font-size: 16.5px;
+    line-height: 1.7;
+    color: var(--content);
+}
+
+.publication-introduction,
+.teaching-introduction {
+    font-size: 16.5px;
+    line-height: 1.7;
+}
+
+/* ---- Links: deep blue accent with a soft underline ---- */
+.post-content a,
+.publication-introduction a,
+.teaching-introduction a,
+.publications-container a,
+.projects-container a,
+.home-info [class^="entry-content"] a {
+    color: var(--accent);
+    box-shadow: none;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--accent) 30%, transparent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s ease;
+}
+
+.post-content a:hover,
+.publication-introduction a:hover,
+.teaching-introduction a:hover,
+.publications-container a:hover,
+.projects-container a:hover,
+.home-info [class^="entry-content"] a:hover {
+    text-decoration-color: var(--accent);
+}
+
+/* link rows under each publication/project/lecture (arXiv | Video | Code …)
+   — these have higher-specificity color rules in the old css, match them */
+.publication-details .links a,
+.project-details .links a,
+.teaching-entry .links a,
+.teaching-details .links a,
+.teaching-links a {
+    color: var(--accent);
+}
+
+.publication-details .links a:hover,
+.project-details .links a:hover,
+.teaching-entry .links a:hover,
+.teaching-details .links a:hover,
+.teaching-links a:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+}
+
+/* ---- Header / nav polish ---- */
+#menu a {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#menu .active {
+    font-weight: 600;
+}
+
+/* ---- Cards & entries: subtle depth on white ---- */
+.post-entry {
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.post-entry:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* keep the homepage hero clean — no card box */
+.first-entry.home-info {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+}
+
+/* light-mode list pages: white background, not code-bg gray */
+.list {
+    background: var(--theme);
+}
+
+/* ---- Small refinements ---- */
+::selection {
+    background: #cfe3f5;
+    color: #1a1a1a;
+}
+
+.post-single .post-title {
+    line-height: 1.25;
+}
+
+img {
+    border-radius: 4px;
+}

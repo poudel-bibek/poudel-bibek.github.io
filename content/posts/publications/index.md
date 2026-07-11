@@ -3,7 +3,6 @@ title: "Publications"
 draft: false
 hidemeta : true
 ShowBreadCrumbs: false
-draft: false
 hiddenInHomeList: true
 layout: publications
 ---
