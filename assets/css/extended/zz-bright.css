@@ -23,7 +23,7 @@
 .dark {
     --primary: #f2f2f2;      /* headings / strong text: near-white */
     --content: #e4e4e4;      /* body text: brighter than theme default */
-    --accent: #a6a6a6;       /* links: quiet gray, dimmer than the text */
+    --accent: #ffffff;       /* links: crisp white */
 }
 
 /* ---- One consistent font system: Lora ---- */
