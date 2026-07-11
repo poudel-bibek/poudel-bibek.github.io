@@ -17,11 +17,11 @@
     --accent: #1273b8;       /* links: sky-leaning blue */
 }
 
-/* dark mode: warm sand links — quiet, warm, readable
+/* dark mode: soft coral links — echoes the site's red accent
    (new PaperMod uses html[data-theme=dark]; .dark kept for safety) */
 [data-theme="dark"],
 .dark {
-    --accent: #d9b98a;
+    --accent: #e57373;
 }
 
 /* ---- One consistent font system: Lora ---- */
@@ -231,7 +231,9 @@ body {
 .substack-subscribe {
     display: flex;
     justify-content: center;
-    margin: 40px 0 24px;
+    margin: 32px 0 24px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);   /* thin separator, same as site rules */
 }
 
 /* blog pagination (client-side, 8 posts per page) */
