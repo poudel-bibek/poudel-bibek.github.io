@@ -21,8 +21,8 @@
    (new PaperMod uses html[data-theme=dark]; .dark kept for safety) */
 [data-theme="dark"],
 .dark {
-    --primary: #f2f2f2;      /* headings / strong text: near-white */
-    --content: #e4e4e4;      /* body text: brighter than theme default */
+    --primary: #dedede;      /* headings / strong text */
+    --content: #c9c9c9;      /* body text: dimmer for contrast with white links */
     --accent: #ffffff;       /* links: crisp white */
 }
 
