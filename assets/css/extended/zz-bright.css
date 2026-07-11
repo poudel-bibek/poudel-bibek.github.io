@@ -17,11 +17,11 @@
     --accent: #1273b8;       /* links: sky-leaning blue */
 }
 
-/* dark mode: soft coral links — echoes the site's red accent
+/* dark mode: neutral near-white links — editorial, no color
    (new PaperMod uses html[data-theme=dark]; .dark kept for safety) */
 [data-theme="dark"],
 .dark {
-    --accent: #e57373;
+    --accent: #e8e8e8;
 }
 
 /* ---- One consistent font system: Lora ---- */
@@ -236,7 +236,12 @@ body {
     border-top: 1px solid var(--border);   /* thin separator, same as site rules */
 }
 
-/* blog pagination (client-side, 8 posts per page) */
+/* blog pagination (client-side, 8 posts per page) — centered */
+#ss-pagination .pagination {
+    justify-content: center;
+    gap: 28px;
+}
+
 .pagination .pagination-info {
     align-self: center;
     color: var(--secondary);
