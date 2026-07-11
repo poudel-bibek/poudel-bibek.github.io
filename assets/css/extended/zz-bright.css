@@ -224,6 +224,11 @@ body {
     font-size: 14px;
 }
 
+/* breathing room below the Latest Posts list on the homepage */
+.substack-entry:last-of-type {
+    margin-bottom: 56px;
+}
+
 .substack-tiles {
     margin-top: 24px;
 }
