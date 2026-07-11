@@ -32,7 +32,7 @@ theme = 'PaperMod'
 
     Content3 = """My recent work includes [AlphaTransit](https://alphatransit.app/), an agent that designs city-scale transit routes and [DeCoR](https://youtu.be/fmLydgvk2p4), a framework that jointly optimizes urban street design and traffic signal control."""
 
-    Content5 = """For more details on my background and experiences, please check out my [resume](/pdfs/resume/). I am also building [cowrite](https://cowrite.io/), a tool that helps researchers publish faster. I sometimes write on my [blog](/archives)."""
+    Content5 = """For more details on my background and experiences, please check out my [resume](/pdfs/resume/). I am also building [cowrite](https://cowrite.io/), a tool that helps researchers publish faster. I sometimes write on my [blog](https://poudell.substack.com)."""
 
   [params.cover]
     hidden = true
@@ -57,6 +57,10 @@ url = "https://github.com/poudel-bibek"
 name = "x"
 url = "https://x.com/bibek_poudel_"
 
+[[params.socialIcons]]
+name = "substack"
+url = "https://poudell.substack.com"
+
 [menu]
 [[menu.main]]
   name = 'Home'
@@ -80,7 +84,7 @@ url = "https://x.com/bibek_poudel_"
 
 [[menu.main]]
   name = 'Blog'
-  url = '/archives/'
+  url = 'https://poudell.substack.com'
   weight = 50
 
 [outputs]
