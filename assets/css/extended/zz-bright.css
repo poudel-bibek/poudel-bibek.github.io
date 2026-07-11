@@ -187,6 +187,17 @@ body {
     height: 1px;
 }
 
+/* ---- Publication & project thumbnails: thin outer border ---- */
+.publication-thumbnail,
+.project-thumbnail {
+    border: 1px solid #1a1a1a;
+}
+
+.dark .publication-thumbnail,
+.dark .project-thumbnail {
+    border-color: var(--border);
+}
+
 /* ---- Substack tiles & subscribe box ---- */
 .substack-entry {
     position: relative;
