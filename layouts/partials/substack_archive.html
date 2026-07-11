@@ -31,9 +31,9 @@
 {{- end }}
     <div class="archive-entry">
       <h3 class="archive-entry-title">{{ .title }}</h3>
-      <div class="archive-meta">
-        {{- $t.Format "January 2, 2006" }}{{ with .subtitle }} · {{ . }}{{ end -}}
-      </div>
+      {{- with .subtitle }}
+      <div class="archive-meta">{{ . }}</div>
+      {{- end }}
       <a class="entry-link" aria-label="post link to {{ .title }}" href="{{ .canonical_url }}" target="_blank" rel="noopener"></a>
     </div>
 {{- end }}
