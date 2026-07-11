@@ -26,7 +26,7 @@
 body,
 h1, h2, h3, h4, h5, h6,
 input, button, select, textarea {
-    font-family: 'STIX Two Text', 'Times New Roman', Georgia, serif;
+    font-family: 'STIX Two Text', 'Times New Roman', Georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji';
     -webkit-font-smoothing: antialiased;
 }
 
@@ -38,7 +38,7 @@ code, pre, .highlight, kbd {
 body[class*="teaching"] .post-content h4,
 .teaching-entry h2,
 .teaching-details h2 {
-    font-family: 'STIX Two Text', 'Times New Roman', Georgia, serif;
+    font-family: 'STIX Two Text', 'Times New Roman', Georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji';
 }
 
 h1, h2, h3 {
