@@ -22,9 +22,11 @@ theme = 'PaperMod'
     safari_pinned_tab = "safari-pinned-tab.svg"
 
   [params.homeInfoParams]
-    Title = "👋 Hi! I am Bibek Poudel."
+    Title = "👋 Hi, I am Bibek Poudel."
 
-    Content1 = """I recently completed my Ph.D. in Computer Science from the University of Tennessee, Knoxville where I was advised by [Dr. Weizi Li](https://weizi-li.github.io/) in the [Fluidic City Lab](https://fluidic-city.github.io). My doctoral research was supported by the [Center for Transportation Research](https://ctr.utk.edu/person/bibek-poudel/) and included collaborations with [EPIC Lab](https://epic.eecs.utk.edu/) and [MOSIS Lab](https://mosis.uga.edu/)."""
+    Content0 = """I am a postdoctoral researcher at the [Connected Automated and Resilient Transportation (CART) Lab](https://engineering.purdue.edu/CARTLab) at Purdue University."""
+
+    Content1 = """I completed my Ph.D. in Computer Science from the University of Tennessee, Knoxville where I was advised by [Dr. Weizi Li](https://weizi-li.github.io/) in the [Fluidic City Lab](https://fluidic-city.github.io). My doctoral research was supported by the [Center for Transportation Research](https://ctr.utk.edu/person/bibek-poudel/) and included collaborations with [EPIC Lab](https://epic.eecs.utk.edu/) and [MOSIS Lab](https://mosis.uga.edu/)."""
 
     Content2 = """My research focuses on reinforcement learning (RL) for transportation and robotics, where I build systems that learn from experience to solve real world problems. In transportation, I have developed agents in multi-agent simulation that improve traffic flow for safer and more efficient mobility. In robotics, I have worked on real time and human-in-the-loop control of physical systems."""
 

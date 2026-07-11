@@ -6,6 +6,11 @@
     <header class="entry-header">
         <h1>{{ .Title | markdownify }}</h1>
     </header>
+    {{- with .Content0 }}
+    <div class="entry-content0" style="margin-bottom: 1em;">
+        {{ . | markdownify }}
+    </div>
+    {{- end }}
     <div class="entry-content1" style="margin-bottom: 1em;">
         {{ .Content1 | markdownify }}
     </div>
