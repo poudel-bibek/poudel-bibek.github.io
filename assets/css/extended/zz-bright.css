@@ -113,14 +113,29 @@ h1, h2, h3 {
     text-decoration-color: var(--accent);
 }
 
-/* ---- Header / nav polish ---- */
+/* ---- Header / nav (ported from main) ---- */
+body {
+    font-size: 16px;                 /* old site base size (upstream is 18px) */
+}
+
+.logo a {
+    font-size: 22px;                 /* old site logo size */
+}
+
 #menu a {
-    font-size: 15px;
     font-weight: 500;
 }
 
+/* transparent bottom border on every item keeps heights stable,
+   active page gets the signature red underline */
+#menu span {
+    border-bottom: 2px solid transparent;
+}
+
 #menu .active {
-    font-weight: 600;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 2px solid rgb(197, 1, 1);
 }
 
 /* ---- Cards & entries: subtle depth on white ---- */
@@ -143,6 +158,33 @@ h1, h2, h3 {
 /* light-mode list pages: white background, not code-bg gray */
 .list {
     background: var(--theme);
+}
+
+/* ---- Ported details from main ---- */
+
+/* blog tiles: tighter summaries, never clamped */
+.entry-content,
+.entry-content1, .entry-content2, .entry-content3,
+.entry-content4, .entry-content5 {
+    margin: 4px 0;
+    line-height: 1.5;
+    -webkit-line-clamp: unset;
+}
+
+.first-entry [class^="entry-content"],
+.home-info [class^="entry-content"] {
+    margin: 5px 0;
+    -webkit-line-clamp: unset;
+}
+
+/* social icons: thinner strokes (sizes/labels come from custom.css) */
+.social-icons a svg {
+    stroke-width: 1.3;
+}
+
+/* thinner horizontal rules in articles */
+.post-content hr {
+    height: 1px;
 }
 
 /* ---- Small refinements ---- */
