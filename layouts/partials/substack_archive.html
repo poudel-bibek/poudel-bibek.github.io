@@ -78,7 +78,7 @@
     if (slice.length) html += '</div></div>';
     list.innerHTML = html;
 
-    pagination.style.display = totalPages > 1 ? '' : 'none';
+    pagination.style.display = '';
     prev.style.visibility = page > 0 ? 'visible' : 'hidden';
     next.style.visibility = page < totalPages - 1 ? 'visible' : 'hidden';
     info.textContent = 'Page ' + (page + 1) + ' of ' + totalPages;
