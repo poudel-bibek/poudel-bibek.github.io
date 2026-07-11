@@ -1,5 +1,6 @@
-{{- /* Renders Substack posts in the old archive style: grouped by year, then month.
-       Fetched at build time from the Substack API. */ -}}
+{{- /* Renders Substack posts in the old archive style (grouped by year, then month)
+       with client-side pagination: 8 posts per page. Post data is fetched at build
+       time from the Substack API and embedded in the page. */ -}}
 {{- $posts := slice }}
 {{- with try (resources.GetRemote "https://poudell.substack.com/api/v1/posts?limit=50") }}
   {{- with .Err }}
@@ -10,34 +11,85 @@
 {{- end }}
 
 {{- if gt (len $posts) 0 }}
-{{- $lastYear := "" }}
-{{- $lastMonth := "" }}
+{{- $items := slice }}
 {{- range $posts }}
-{{- $t := time .post_date }}
-{{- $year := $t.Format "2006" }}
-{{- $month := $t.Format "January" }}
-{{- if ne $year $lastYear }}
-{{- if ne $lastYear "" }}</div></div>{{ end }}
-<div class="archive-year">
-  <h2 class="archive-year-header">{{ $year }}</h2>
-  {{- $lastYear = $year }}
-  {{- $lastMonth = "" }}
+  {{- $items = $items | append (dict "t" .title "s" (or .subtitle "") "u" .canonical_url "d" .post_date) }}
 {{- end }}
-{{- if ne $month $lastMonth }}
-{{- if ne $lastMonth "" }}</div>{{ end }}
-  <div class="archive-month">
-    <h3 class="archive-month-header">{{ $month }}</h3>
-    {{- $lastMonth = $month }}
-{{- end }}
-    <div class="archive-entry">
-      <h3 class="archive-entry-title">{{ .title }}</h3>
-      {{- with .subtitle }}
-      <div class="archive-meta">{{ . }}</div>
-      {{- end }}
-      <a class="entry-link" aria-label="post link to {{ .title }}" href="{{ .canonical_url }}" target="_blank" rel="noopener"></a>
-    </div>
-{{- end }}
-</div></div>
+
+<div id="substack-archive"></div>
+
+<footer class="page-footer" id="ss-pagination" style="display: none;">
+  <nav class="pagination">
+    <a class="prev" href="#" id="ss-prev">« Newer posts</a>
+    <span class="pagination-info" id="ss-info"></span>
+    <a class="next" href="#" id="ss-next">Older posts »</a>
+  </nav>
+</footer>
+
+<noscript>
+  <div class="post-content">
+    <p>Enable JavaScript to browse posts here, or read them directly on
+      <a href="https://poudell.substack.com" target="_blank" rel="noopener">my blog</a>.</p>
+  </div>
+</noscript>
+
+<script>
+(function () {
+  var posts = {{ $items | jsonify | safeJS }};
+  var PER_PAGE = 8;
+  var page = 0;
+  var totalPages = Math.max(1, Math.ceil(posts.length / PER_PAGE));
+
+  var list = document.getElementById('substack-archive');
+  var pagination = document.getElementById('ss-pagination');
+  var prev = document.getElementById('ss-prev');
+  var next = document.getElementById('ss-next');
+  var info = document.getElementById('ss-info');
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function render() {
+    var slice = posts.slice(page * PER_PAGE, (page + 1) * PER_PAGE);
+    var html = '', year = '', month = '';
+    slice.forEach(function (p) {
+      var dt = new Date(p.d);
+      var py = String(dt.getFullYear());
+      var pm = dt.toLocaleString('en-US', { month: 'long' });
+      if (py !== year) {
+        if (year) html += '</div></div>';
+        html += '<div class="archive-year"><h2 class="archive-year-header">' + py + '</h2>';
+        year = py; month = '';
+      }
+      if (pm !== month) {
+        if (month) html += '</div>';
+        html += '<div class="archive-month"><h3 class="archive-month-header">' + pm + '</h3>';
+        month = pm;
+      }
+      html += '<div class="archive-entry">'
+        + '<h3 class="archive-entry-title">' + esc(p.t) + '</h3>'
+        + (p.s ? '<div class="archive-meta">' + esc(p.s) + '</div>' : '')
+        + '<a class="entry-link" href="' + esc(p.u) + '" target="_blank" rel="noopener" aria-label="' + esc(p.t) + '"></a>'
+        + '</div>';
+    });
+    if (slice.length) html += '</div></div>';
+    list.innerHTML = html;
+
+    pagination.style.display = totalPages > 1 ? '' : 'none';
+    prev.style.visibility = page > 0 ? 'visible' : 'hidden';
+    next.style.visibility = page < totalPages - 1 ? 'visible' : 'hidden';
+    info.textContent = 'Page ' + (page + 1) + ' of ' + totalPages;
+  }
+
+  prev.addEventListener('click', function (e) { e.preventDefault(); if (page > 0) { page--; render(); } });
+  next.addEventListener('click', function (e) { e.preventDefault(); if (page < totalPages - 1) { page++; render(); } });
+
+  render();
+})();
+</script>
 {{- else }}
 <div class="post-content">
   <p>Posts will appear here soon — in the meantime, visit <a href="https://poudell.substack.com" target="_blank" rel="noopener">my blog directly</a>.</p>

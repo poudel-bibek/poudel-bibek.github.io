@@ -225,6 +225,13 @@ body {
     margin: 40px 0 24px;
 }
 
+/* blog pagination (client-side, 8 posts per page) */
+.pagination .pagination-info {
+    align-self: center;
+    color: var(--secondary);
+    font-size: 14px;
+}
+
 /* ---- Small refinements ---- */
 ::selection {
     background: #cfe3f5;
