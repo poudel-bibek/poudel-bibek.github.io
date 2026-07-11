@@ -87,6 +87,10 @@ url = "https://poudell.substack.com"
   url = '/blog/'
   weight = 50
 
+[caches]
+  [caches.getresource]
+    maxAge = "10m"
+
 [outputs]
 home = ["HTML", "RSS", "JSON"]
 
