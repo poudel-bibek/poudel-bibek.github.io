@@ -1,5 +1,5 @@
 /* ============================================================
-   Bright white theme + STIX Two Text typography
+   Bright white theme + Lora typography
    (bright-theme branch — loaded last, overrides theme defaults)
    ============================================================ */
 
@@ -22,11 +22,11 @@
     --accent: #7cb3e8;
 }
 
-/* ---- One consistent font system: STIX Two Text ---- */
+/* ---- One consistent font system: Lora ---- */
 body,
 h1, h2, h3, h4, h5, h6,
 input, button, select, textarea {
-    font-family: 'STIX Two Text', 'Times New Roman', Georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji';
+    font-family: 'Lora', Georgia, 'Times New Roman', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji';
     -webkit-font-smoothing: antialiased;
 }
 
@@ -38,7 +38,7 @@ code, pre, .highlight, kbd {
 body[class*="teaching"] .post-content h4,
 .teaching-entry h2,
 .teaching-details h2 {
-    font-family: 'STIX Two Text', 'Times New Roman', Georgia, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji';
+    font-family: 'Lora', Georgia, 'Times New Roman', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji';
 }
 
 h1, h2, h3 {
@@ -135,7 +135,7 @@ body {
 #menu .active {
     font-weight: 500;
     text-decoration: none;
-    border-bottom: 2px solid rgb(197, 1, 1);
+    border-bottom: 2px solid rgb(230, 0, 0);
 }
 
 /* ---- Cards & entries: subtle depth on white ---- */
@@ -190,7 +190,7 @@ body {
 /* ---- Publication & project thumbnails: thin outer border ---- */
 .publication-thumbnail,
 .project-thumbnail {
-    border: 1px solid #1a1a1a;
+    border: 1px solid #8a8a8a;
 }
 
 .dark .publication-thumbnail,
