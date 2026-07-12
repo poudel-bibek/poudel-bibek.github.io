@@ -179,6 +179,17 @@ body {
     -webkit-line-clamp: unset;
 }
 
+/* bullet list in the bio ("Some things I have built") */
+.home-info [class^="entry-content"] ul {
+    list-style: disc;
+    padding-inline-start: 22px;
+    margin: 6px 0;
+}
+
+.home-info [class^="entry-content"] li {
+    margin: 3px 0;
+}
+
 /* social icons: thinner strokes (sizes/labels come from custom.css) */
 .social-icons a svg {
     stroke-width: 1.3;
