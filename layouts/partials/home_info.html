@@ -11,18 +11,26 @@
         {{ . | markdownify }}
     </div>
     {{- end }}
+    {{- with .Content1 }}
     <div class="entry-content1" style="margin-bottom: 1em;">
-        {{ .Content1 | markdownify }}
+        {{ . | markdownify }}
     </div>
+    {{- end }}
+    {{- with .Content2 }}
     <div class="entry-content2" style="margin-bottom: 1em;">
-        {{ .Content2 | markdownify }}
+        {{ . | markdownify }}
     </div>
+    {{- end }}
+    {{- if or .Content3 .Content4 }}
     <div class="entry-content3" style="margin-bottom: 1em;">
         {{ .Content3 | markdownify }} {{ .Content4 | markdownify }}
     </div>
+    {{- end }}
+    {{- with .Content5 }}
     <div class="entry-content4" style="margin-bottom: 1em;">
-        {{ .Content5 | markdownify }}
+        {{ . | markdownify }}
     </div>
+    {{- end }}
     <footer class="entry-footer">
         {{ partial "social_icons.html" (dict) }}
     </footer>
