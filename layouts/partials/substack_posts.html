@@ -4,7 +4,8 @@
        is published, the site picks it up on the next build/deploy. */ -}}
 {{- $limit := . | default 12 }}
 {{- $posts := slice }}
-{{- with try (resources.GetRemote "https://poudell.substack.com/api/v1/posts?limit=12") }}
+{{- $opts := dict "headers" (dict "User-Agent" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" "Accept" "application/json") }}
+{{- with try (resources.GetRemote "https://poudell.substack.com/api/v1/posts?limit=12" $opts) }}
   {{- with .Err }}
     {{- warnf "Could not fetch Substack posts: %s" . }}
   {{- else with .Value }}
