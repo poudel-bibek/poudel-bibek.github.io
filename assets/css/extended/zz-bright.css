@@ -65,6 +65,8 @@ h1, h2, h3 {
     font-size: 16.5px;
     line-height: 1.45;
     color: var(--content);
+    text-align: justify;   /* even right edge instead of ragged lines */
+    hyphens: auto;
 }
 
 .publication-introduction,
