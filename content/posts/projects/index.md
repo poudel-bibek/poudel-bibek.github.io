@@ -9,7 +9,6 @@ layout: projects
 ---
 
 
-My projects encompass of topics such as fine-tuning dataset for language models, software development, reinforcement learning, and adversarial machine learning.
 
 -------------------
 

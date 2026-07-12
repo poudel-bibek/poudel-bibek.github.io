@@ -8,7 +8,6 @@ hiddenInHomeList: true
 layout: teaching
 ---
 
-I have served as a teaching assistant and guest lecturer for various graduate and undergraduate courses.
 
 -------------------
 

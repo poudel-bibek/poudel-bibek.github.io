@@ -118,6 +118,7 @@ h1, h2, h3 {
 /* ---- Header / nav (ported from main) ---- */
 body {
     font-size: 16px;                 /* old site base size (upstream is 18px) */
+    zoom: 0.9;                       /* whole site scaled like 90% browser zoom */
 }
 
 .logo a {
