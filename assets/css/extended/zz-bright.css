@@ -266,6 +266,19 @@ body {
     font-size: 14px;
 }
 
+/* ---- Rotating page banners (publications / projects / teaching) ---- */
+.page-banner-wrap {
+    margin: 4px 0 16px;
+}
+
+.page-banner {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+}
+
 /* ---- Small refinements ---- */
 ::selection {
     background: #cfe3f5;

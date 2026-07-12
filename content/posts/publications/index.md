@@ -6,7 +6,6 @@ ShowBreadCrumbs: false
 hiddenInHomeList: true
 layout: publications
 ---
-![image](images/publications.png)
 
 My research lies at the intersection of reinforcement learning, autonomous systems, and intelligent transportation. Below are my publications in peer-reviewed conferences and journals.
 
