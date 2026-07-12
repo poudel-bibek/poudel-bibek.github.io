@@ -1,16 +1,19 @@
-{{- /* Rotating page banner: picks one of /static/banners/banner-1..6.jpg by day of year.
-       Same banner site-wide for a given day; changes daily. Drop in new images with the
-       same names (1600x500) to replace. */ -}}
+{{- /* Rotating page banner: picks one of /static/banners/banner-1..N.jpg by day of year,
+       shifted by a per-page offset so each page shows a different image on any given day.
+       Usage: {{ partial "page_banner.html" (dict "offset" 0) }}
+       Drop in new 1600x500 images as banner-4.jpg, ... and bump COUNT. */ -}}
+{{- $offset := .offset | default 0 }}
 <div class="page-banner-wrap">
   <img id="page-banner" class="page-banner" src="/banners/banner-1.jpg" alt="">
 </div>
 <script>
   (function () {
     var COUNT = 3;  // bump as more banners are added (banner-4.jpg, ...)
+    var OFFSET = {{ $offset }};
     var now = new Date();
     var start = new Date(now.getFullYear(), 0, 0);
     var day = Math.floor((now - start) / 86400000);
-    var n = (day % COUNT) + 1;
+    var n = ((day + OFFSET) % COUNT) + 1;
     document.getElementById('page-banner').src = '/banners/banner-' + n + '.jpg';
   })();
 </script>

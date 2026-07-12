@@ -11,7 +11,7 @@
   {{- end }}
 </header>
 
-{{ partial "page_banner.html" . }}
+{{ partial "page_banner.html" (dict "offset" 1) }}
 
 <!-- 
   REMOVED: We don't need to include the image here as it's already in the content
