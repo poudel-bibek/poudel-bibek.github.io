@@ -16,13 +16,13 @@
   align-items: center;
   text-decoration: none;
   color: var(--secondary);
-  margin-right: 22px;
+  margin-right: 14px;
   transition: color 0.2s ease;
 }
 
 .social-icons a svg {
-  height: 32.4px;
-  width: 32.4px;
+  height: 29px;
+  width: 29px;
   margin-bottom: 8px;
 }
 

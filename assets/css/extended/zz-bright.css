@@ -63,7 +63,7 @@ h1, h2, h3 {
 .home-info [class^="entry-content"],
 .first-entry .entry-content {
     font-size: 16.5px;
-    line-height: 1.55;
+    line-height: 1.45;
     color: var(--content);
 }
 
