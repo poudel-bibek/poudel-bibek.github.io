@@ -158,12 +158,11 @@ body {
     background: transparent;
 }
 
-/* hero: photo with greeting beside it */
+/* hero: photo with greeting beside it, bottom-aligned with the image */
 .hero-row {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 36px;
-    flex-wrap: wrap;
     margin-bottom: 20px;
 }
 
@@ -177,6 +176,30 @@ body {
 .hero-title h1 {
     margin: 0;
     font-size: 34px;
+}
+
+/* mobile: greeting drops below the photo, emoji and text on one line */
+@media screen and (max-width: 768px) {
+    .hero-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+    }
+
+    .hero-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .hero-wave {
+        font-size: 30px;
+        margin-bottom: 0;
+    }
+
+    .hero-title h1 {
+        font-size: 28px;
+    }
 }
 
 /* light-mode list pages: white background, not code-bg gray */
