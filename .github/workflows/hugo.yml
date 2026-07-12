@@ -49,6 +49,38 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
+      - name: Fetch Substack posts
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request, os, re
+          from email.utils import parsedate_to_datetime
+          os.makedirs('data', exist_ok=True)
+          UA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
+          posts = []
+          try:
+              req = urllib.request.Request('https://poudell.substack.com/api/v1/posts?limit=50', headers={'User-Agent': UA, 'Accept': 'application/json'})
+              posts = json.load(urllib.request.urlopen(req, timeout=30))
+              print('Substack API ok:', len(posts), 'posts')
+          except Exception as e:
+              print('Substack API failed:', e)
+              try:
+                  import xml.etree.ElementTree as ET
+                  req = urllib.request.Request('https://poudell.substack.com/feed', headers={'User-Agent': UA})
+                  root = ET.fromstring(urllib.request.urlopen(req, timeout=30).read())
+                  for it in root.iter('item'):
+                      d = it.findtext('pubDate') or ''
+                      posts.append({
+                          'title': it.findtext('title') or '',
+                          'subtitle': re.sub('<[^>]+>', '', it.findtext('description') or '').strip(),
+                          'canonical_url': it.findtext('link') or '',
+                          'post_date': parsedate_to_datetime(d).isoformat() if d else ''
+                      })
+                  print('Substack RSS ok:', len(posts), 'posts')
+              except Exception as e2:
+                  print('Substack RSS failed:', e2, '- build will use committed seed data')
+          if posts:
+              json.dump(posts, open('data/substack.json', 'w'))
+          PY
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules

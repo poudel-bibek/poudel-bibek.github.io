@@ -4,6 +4,10 @@
        is published, the site picks it up on the next build/deploy. */ -}}
 {{- $limit := . | default 12 }}
 {{- $posts := slice }}
+{{- /* 1) CI-fetched data file (written by the workflow before build) */}}
+{{- with site.Data.substack }}{{ $posts = . }}{{ end }}
+{{- if eq (len $posts) 0 }}
+{{- /* 2) live fetch (works on local hugo server) */}}
 {{- $opts := dict "headers" (dict "User-Agent" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36" "Accept" "application/json") }}
 {{- with try (resources.GetRemote "https://poudell.substack.com/api/v1/posts?limit=12" $opts) }}
   {{- with .Err }}
@@ -12,6 +16,9 @@
     {{- $posts = .Content | transform.Unmarshal }}
   {{- end }}
 {{- end }}
+{{- end }}
+{{- /* 3) committed seed as the floor, so prod never shows a placeholder */}}
+{{- if eq (len $posts) 0 }}{{ with site.Data.substack_seed }}{{ $posts = . }}{{ end }}{{ end }}
 
 {{- if gt (len $posts) 0 }}
 {{- range first $limit $posts }}
