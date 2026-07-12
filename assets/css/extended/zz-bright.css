@@ -193,12 +193,8 @@ body {
     }
 
     .hero-wave {
-        font-size: 30px;
+        font-size: 34px;
         margin-bottom: 0;
-    }
-
-    .hero-title h1 {
-        font-size: 28px;
     }
 }
 
@@ -297,6 +293,12 @@ body {
     margin: 32px 0 24px;
     padding-top: 32px;
     border-top: 1px solid var(--border);   /* thin separator, same as site rules */
+}
+
+/* separator under the Blog page title, like other pages */
+.blog-separator {
+    border-top: 1px solid var(--border);
+    margin: 8px 0 24px;
 }
 
 /* blog pagination (client-side, 8 posts per page) — centered */
