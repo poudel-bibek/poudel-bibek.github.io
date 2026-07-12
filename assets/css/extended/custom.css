@@ -29,7 +29,7 @@
 /* Icon labels — match the bio body text style */
 .social-icons a::after {
   content: attr(data-label);
-  font-size: 16.5px;
+  font-size: 14px;
   line-height: 1.45;
   color: var(--content);
   margin-top: 5px;
