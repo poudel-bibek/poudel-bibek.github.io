@@ -343,6 +343,22 @@ body {
     #menu li:last-of-type {
         margin-inline-end: 16px;
     }
+
+    /* comfortable side margins for reading on small screens */
+    .main {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    /* social icons: keep labels on one line in the narrower column */
+    .social-icons a {
+        margin-right: 10px;
+    }
+
+    .social-icons a::after {
+        font-size: 12px;
+        white-space: nowrap;
+    }
 }
 
 /* ---- Small refinements ---- */
