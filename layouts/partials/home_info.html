@@ -1,11 +1,12 @@
 {{- with site.Params.homeInfoParams }}
 <article class="first-entry home-info">
-    <div class="entry-header" style="margin-bottom: 20px;">
+    <div class="hero-row">
         <img src="hero.png?v=5" alt="Bibek Poudel" style="width: 225px; height: auto;">
+        <div class="hero-title">
+            <span class="hero-wave">👋</span>
+            <h1>{{ .Title | markdownify }}</h1>
+        </div>
     </div>
-    <header class="entry-header">
-        <h1>{{ .Title | markdownify }}</h1>
-    </header>
     {{- with .Content0 }}
     <div class="entry-content0" style="margin-bottom: 1em;">
         {{ . | markdownify }}
