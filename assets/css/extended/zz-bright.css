@@ -301,6 +301,17 @@ body {
     border: 1px solid var(--border);
 }
 
+/* ---- Sticky nav on mobile ---- */
+@media screen and (max-width: 768px) {
+    .header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--theme);
+        border-bottom: 1px solid var(--border);
+    }
+}
+
 /* ---- Small refinements ---- */
 ::selection {
     background: #cfe3f5;
