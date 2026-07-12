@@ -335,6 +335,12 @@ body {
         background: var(--theme);
         border-bottom: 1px solid var(--border);
     }
+
+    /* symmetric buffer after the last nav item ("Blog"),
+       mirroring the space left of the theme toggle */
+    #menu li:last-of-type {
+        margin-inline-end: 16px;
+    }
 }
 
 /* ---- Small refinements ---- */
