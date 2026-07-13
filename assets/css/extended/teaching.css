@@ -222,6 +222,11 @@ body[class*="teaching"] .post-content a:hover,
     margin-bottom: 0;
 }
 
+/* Lecture / university sub-headings: regular weight, not bold */
+.teaching-links h3 {
+    font-weight: 400;
+}
+
 /* Bulleted sub-lists: marker aligns with the heading's first letter,
    text flows right of it; sits close beneath the heading */
 .teaching-links ul {
