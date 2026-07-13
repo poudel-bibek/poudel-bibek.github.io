@@ -1,0 +1,2 @@
+{{- /* External links (http/https) open in a new tab; internal links navigate normally. */ -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text }}</a>

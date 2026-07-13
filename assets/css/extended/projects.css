@@ -55,7 +55,15 @@
 .project-details .links a {
     color: var(--primary);
     text-decoration: none;
-    margin-right: 8px;
+    margin: 0 8px;
+}
+
+.project-details .links a:first-child {
+    margin-left: 0;
+}
+
+.project-details .links a:last-child {
+    margin-right: 0;
 }
 
 .project-details .links a:hover {

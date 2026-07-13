@@ -61,7 +61,15 @@
 .publication-details .links a {
     color: var(--primary);
     text-decoration: none;
-    margin-right: 8px;
+    margin: 0 8px;
+}
+
+.publication-details .links a:first-child {
+    margin-left: 0;
+}
+
+.publication-details .links a:last-child {
+    margin-right: 0;
 }
 
 .publication-details .links a:hover {
