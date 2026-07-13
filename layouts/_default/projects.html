@@ -11,7 +11,7 @@
   {{- end }}
 </header>
 
-{{ partial "page_banner.html" (dict "num" 2 "caption" "Annapurna South and Annapurna I") }}
+{{ partial "page_banner.html" (dict "num" 2) }}
 
 <!-- 
   REMOVED: We don't need to include the image here as it's already in the content
@@ -20,19 +20,17 @@
   for serving, because Hugo only serves static assets from the /static directory by default.
 -->
 
-<!-- Display the introduction text -->
+<!-- Display the introduction text (skipped entirely when empty, so no phantom margins) -->
+{{ $content := .RawContent }}
+{{ $projects := split $content "-------------------" }}
+{{ $intro := trim (index $projects 0) " \n\r\t" }}
+{{ if ne $intro "" }}
 <div class="post-content">
-  {{ $content := .RawContent }}
-  {{ $projects := split $content "-------------------" }}
-  
-  <!-- Display the introduction (first part before any separator) -->
-  {{ if gt (len $projects) 0 }}
-    {{ $intro := index $projects 0 }}
-    <div class="project-introduction">
-      {{ $intro | markdownify }}
-    </div>
-  {{ end }}
+  <div class="project-introduction">
+    {{ $intro | markdownify }}
+  </div>
 </div>
+{{ end }}
 
 <!-- Projects Content -->
 <div class="projects-container">

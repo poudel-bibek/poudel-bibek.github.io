@@ -335,16 +335,6 @@ body {
     border-radius: var(--radius);
     border: 1px solid var(--border);
 }
-
-/* Mountain names: tiny, dark gray, tucked under the banner's bottom-right corner */
-.page-banner-caption {
-    text-align: right;
-    font-size: 10.5px;
-    color: #4a4a4a;
-    line-height: 1;
-    margin-top: 4px;
-}
-
 /* ---- Sticky nav on mobile ---- */
 @media screen and (max-width: 768px) {
     .header {

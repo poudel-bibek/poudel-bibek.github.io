@@ -104,7 +104,7 @@
 
 /* Add gap between the top image and publications list */
 .publications-container {
-    margin-top: 30px;
+    margin-top: 40px; /* 40px below banner caption — matches blog-separator gap exactly */
     border-top: 1px solid var(--tertiary);
     padding-top: 0;
     padding-bottom: 0;
