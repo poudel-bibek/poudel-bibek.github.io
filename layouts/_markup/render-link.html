@@ -1,4 +1,6 @@
 {{- /* External links (http/https) and PDF pages (/pdfs/...) open in a new tab;
-       other internal links navigate normally. */ -}}
-{{- $newTab := or (strings.HasPrefix .Destination "http") (strings.HasPrefix .Destination "/pdfs") }}
-<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $newTab }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text }}</a>
+       other internal links navigate normally.
+       NOTE: the {{- -}} chomps are required — stray whitespace in this template
+       would be injected around every link (e.g. a space before punctuation). */ -}}
+{{- $newTab := or (strings.HasPrefix .Destination "http") (strings.HasPrefix .Destination "/pdfs") -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $newTab }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text }}</a>{{- "" -}}
