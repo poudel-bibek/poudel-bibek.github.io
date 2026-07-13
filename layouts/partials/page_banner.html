@@ -1,6 +1,10 @@
-{{- /* Static page banner. Each page gets a fixed image from /static/banners/.
-       Usage: {{ partial "page_banner.html" (dict "num" 1) }} */ -}}
+{{- /* Static page banner. Each page gets a fixed image from /static/banners/,
+       with an optional small caption (mountain names) under the bottom-right corner.
+       Usage: {{ partial "page_banner.html" (dict "num" 1 "caption" "Dhaulagiri and Tukuche") }} */ -}}
 {{- $num := .num | default 1 }}
 <div class="page-banner-wrap">
-  <img class="page-banner" src="/banners/banner-{{ $num }}.jpg" alt="">
+  <img class="page-banner" src="/banners/banner-{{ $num }}.jpg" alt="{{ .caption | default "" }}">
+  {{- with .caption }}
+  <div class="page-banner-caption">{{ . }}</div>
+  {{- end }}
 </div>
