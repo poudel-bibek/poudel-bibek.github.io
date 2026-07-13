@@ -38,6 +38,12 @@ code, pre, .highlight, kbd {
     font-family: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 }
 
+/* ---- Never hyphenate words anywhere on the site (inherited by all elements) ---- */
+body {
+    -webkit-hyphens: none !important; /* Safari/iOS */
+    hyphens: none !important;
+}
+
 /* teaching.css hardcodes its own system-font stack — bring it in line */
 body[class*="teaching"] .post-content h4,
 .teaching-entry h2,
