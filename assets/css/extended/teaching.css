@@ -222,6 +222,17 @@ body[class*="teaching"] .post-content a:hover,
     margin-bottom: 0;
 }
 
+/* Bulleted sub-lists: indent right of their heading, sit close beneath it */
+.teaching-links ul {
+    padding-left: 28px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.teaching-links h3:has(+ ul) {
+    margin-bottom: 6px;
+}
+
 .teaching-links li {
     margin-bottom: 8px;
 }
