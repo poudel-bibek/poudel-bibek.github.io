@@ -1,2 +1,4 @@
-{{- /* External links (http/https) open in a new tab; internal links navigate normally. */ -}}
-<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if strings.HasPrefix .Destination "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text }}</a>
+{{- /* External links (http/https) and PDF pages (/pdfs/...) open in a new tab;
+       other internal links navigate normally. */ -}}
+{{- $newTab := or (strings.HasPrefix .Destination "http") (strings.HasPrefix .Destination "/pdfs") }}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $newTab }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .Text }}</a>
