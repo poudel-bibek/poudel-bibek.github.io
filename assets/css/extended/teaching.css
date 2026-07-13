@@ -235,6 +235,13 @@ body[class*="teaching"] .post-content a:hover,
     margin-bottom: 6px;
 }
 
+/* Keep marker and text on one line even if markdown renders a "loose" list
+   (blank lines between items wrap each item in a <p>) */
+.teaching-links li > p {
+    display: inline;
+    margin: 0;
+}
+
 .teaching-links li {
     margin-bottom: 8px;
 }
