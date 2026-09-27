@@ -29,6 +29,7 @@ theme = 'PaperMod'
 
     Content2 = """For more on my background and experience, please see my [resume](/pdfs/resume/). Outside of research, I sometimes write on my [blog](/blog/), and I have built a few things:
 
+- [Darpan](/Darpan/), a free, private remote desktop from Mac to Linux
 - [alphatransit.app](https://alphatransit.app/), an agent that designs city-scale transit routes
 - [cowrite.io](https://cowrite.io/), a tool that helps researchers publish faster"""
 
